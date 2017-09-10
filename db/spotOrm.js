@@ -5,7 +5,6 @@ const User = require('../models/user')
 const moment = require('moment')
 
 const _addSpot = spotObj => {
-
     const newSpot = new Spot(spotObj)
     return newSpot.save().catch(err => {
         return {
@@ -22,12 +21,14 @@ const _addSpotSchedule = scheduleObj =>{
         return {
             success: false,
             err,
-            func: '_addSpotSchedule'
+            func: '_addSpotSchedule',
+            spotId: scheduleObj.spot
         }
     })
 }
 
 const checkSpotSchedulAndAdd = scheduleObj => {
+    //to check if vaild value for day
     const vaildDays = {
         mon: true,
         tue: true,
@@ -38,6 +39,7 @@ const checkSpotSchedulAndAdd = scheduleObj => {
         sun: true
     }
     let errors = [];
+    //converts endDate into moment object and determines distance till endDAte
     const endDate = moment(scheduleObj.end_dates.end);
     const timeTillEndDate = endDate.diff(moment(Date.now()), 'days')
     scheduleObj.open_times.forEach(ele => {
@@ -68,6 +70,7 @@ const checkSpotObjAndAdd = (spotObj, scheduleObj) => {
     const lat = parseInt(spotObj.loc.lat)
     const lng = parseInt(spotObj.loc.lng)
     const cost = spotObj.cost
+    //check that all data is vaild
     if (lat > 90 || lat < -90) {
         errors.push('Latitude out of range')
     }
@@ -77,6 +80,7 @@ const checkSpotObjAndAdd = (spotObj, scheduleObj) => {
     if (cost.day <= 0 || cost.hr <= 0) {
         errors.push('cost must be above 0')
     }
+    //makes sure the user id exists in db
    return User.findById(spotObj.owner).then(res => {
         if (!res || errors.length > 0) {
             return {
@@ -85,6 +89,7 @@ const checkSpotObjAndAdd = (spotObj, scheduleObj) => {
                 func: 'checkSpotObjAndAdd'
             }
         } else {
+            //add the spot then 
             return _addSpot(spotObj).then(res =>{
                 scheduleObj.spot = res._id
                 return checkSpotSchedulAndAdd(scheduleObj)
