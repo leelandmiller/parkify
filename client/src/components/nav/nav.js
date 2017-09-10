@@ -3,8 +3,6 @@ import "./Nav.css";
 
 class Nav extends Component {
 
-
-
     render() { 
 		return (
 			
