@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 
 // Create a NoteSchema with the Schema class
 const SpotSchema = new Schema({
-    location: {
+    loc: {
         lat: {
             type: String,
             required: true
@@ -25,12 +25,12 @@ const SpotSchema = new Schema({
         }
     },
     owner: {
-        type: Schema.Type.ObjectId,
+        type: Schema.Types.ObjectId,
         required: true,
         ref: "User"
+    },
     schedule:{
-        type: Schema.Type.ObjectId,
-        required: true,
+        type: Schema.Types.ObjectId,
         ref: "SpotSchedule"
     }
 });

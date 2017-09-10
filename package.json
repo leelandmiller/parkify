@@ -1,4 +1,4 @@
-{
+
   "name": "parkify",
   "version": "1.0.0",
   "description": "Parkify app",
@@ -7,15 +7,20 @@
     "body-parser": "^1.18.0",
     "express": "^4.15.4",
     "express-session": "^1.15.5",
+    "moment": "^2.18.1",
     "mongoose": "^4.11.10",
+    "morgan": "^1.8.2",
+    "path": "^0.12.7"
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0"
   },
   "devDependencies": {
-    "concurrently": "^3.5.0"
+    "concurrently": "^3.5.0",
+    "chai": "^4.1.2",
+    "mocha": "^3.5.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --recursive",
     "start": "concurrently \"nodemon server.js\" \"cd client && npm run start\""
   },
   "repository": {
@@ -37,4 +42,5 @@
     "url": "https://github.com/leelandmiller/parkify/issues"
   },
   "homepage": "https://github.com/leelandmiller/parkify#readme"
+
 }
