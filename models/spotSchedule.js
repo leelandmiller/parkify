@@ -6,17 +6,18 @@ const Schema = mongoose.Schema;
 // Create a NoteSchema with the Schema class
 const SpotScheduleSchema = new Schema({
     spot:{
-        type: Schema.Type.ObjectId,
+        type: Schema.Types.ObjectId,
         required: true,
         ref:"Spot"
-    }
+    },
     open_times: {
         type: [{
             day: {
                 type: String,
             },
             all_day: {
-                type: Boolean
+                type: Boolean,
+                default: true
             },
             start: {
                 type: String

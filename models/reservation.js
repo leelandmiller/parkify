@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 // Create a NoteSchema with the Schema class
 const ReservationSchema = new Schema({
     spot: {
-        type: Schema.Type.ObjectId,
+        type: Schema.Types.ObjectId,
         required: true,
         ref:"Spot"
     },
@@ -19,7 +19,7 @@ const ReservationSchema = new Schema({
         required: true
     },
     renter: {
-        type: Schema.Types.objectId,
+        type: Schema.Types.ObjectId,
         required: true,
         ref: "User"
     }

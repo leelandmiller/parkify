@@ -2,9 +2,23 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const passport = require("passport");
+const session = require("express-session");
+
+require('./services/passport');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
+
+// required for passport
+app.use(session({
+    secret: 'r2socj6hecct3cpo',
+    resave: false,
+    saveUninitialized: true
+})); // session secret
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 mongoose.Promise = Promise;
 
