@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Navbar, NavbarBrand, NavbarItem, NavbarLink, NavbarStart, NavbarMenu, 
 	NavbarDropdown, brand, Icon, NavbarBurger, NavbarDivider, NavbarEnd, Field,
 	Control, Button} from "bloomer";
-import "./Nav.css";
+import "./nav.css";
 
 class Nav extends Component {
 
