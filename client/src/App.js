@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import Nav from './components/Nav';
+import Nav from './components/nav';
 import PageFooter from './components/PageFooter';
 import Body from './components/Body';
 import Account from './components/Account';
+import Login from './components/login';
 import './App.css';
 
 class App extends Component {
@@ -12,7 +13,8 @@ class App extends Component {
         <Nav />
         <Body />
         <Account />
-        <PageFooter />
+        <Login />
+        <PageFooter /> 
       </div>
     );
   }
