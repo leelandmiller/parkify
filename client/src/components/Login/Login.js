@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Tabs, TabList, Tab, Icon, TabLink } from "bloomer";
-import "./login.css";
+import "./Login.css";
 
 class Login extends Component {
 

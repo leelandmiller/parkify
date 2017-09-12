@@ -2,13 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { Container, Box } from "bloomer";
+import { Container} from "bloomer";
 
 ReactDOM.render(
-    <Container>
-        <Box>
-        	<App />
-        </Box>
+    
+	<Container>
+    <App />
     </Container>,
     document.getElementById('root')
 )

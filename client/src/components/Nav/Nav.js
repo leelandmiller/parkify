@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Navbar, NavbarBrand, NavbarItem, NavbarLink, NavbarStart, NavbarMenu,
-	NavbarDropdown, brand, Icon, NavbarBurger, NavbarDivider, NavbarEnd, Field,
-	Control, Button} from "bloomer";
+import { Navbar, NavbarBrand, NavbarItem, NavbarLink, NavbarStart, NavbarMenu, 
+	NavbarDropdown, Icon, NavbarBurger, NavbarDivider, NavbarEnd, Field,
+	Control, Button, Container} from "bloomer";
 import "./Nav.css";
 
 class Nav extends Component {
@@ -19,6 +19,7 @@ class Nav extends Component {
     render() {
 
 		return (
+			<Container> 
 			<Navbar style={{ border: 'solid 1px #00D1B2', margin: '0' }}>
 				<NavbarBrand>
 				    <NavbarItem>
@@ -64,6 +65,7 @@ class Nav extends Component {
 				    </NavbarEnd>
 				</NavbarMenu>
 			</Navbar>
+			</Container>
 		)
     }
 
