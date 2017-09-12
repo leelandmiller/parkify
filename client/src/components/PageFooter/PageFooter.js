@@ -12,12 +12,18 @@ class PageFooter extends Component {
 			            <Columns>
 			                <Column>
 			                    <p>
-			                        Made with <Icon hasTextColor='danger'><span className="fa fa-heart" aria-hidden="true" /></Icon>  by <a>Team MAuLL</a>
+			                        Made with <Icon hasTextColor='danger'>
+			                        <span className="fa fa-heart" aria-hidden="true" />
+			                        </Icon>  by <a>Team MAuLL</a>
 			                    </p>
 			                </Column>
 			            </Columns>
 			            <Content isSize='small'>
-			                <p><a target="https://github.com/leelandmiller/parkify">Fork Parkify</a> | Copyright 2017</p>
+			                <p>
+			                <a target="https://github.com/leelandmiller/parkify">
+			                	Fork Parkify
+			                </a> 
+			                | Copyright 2017</p>
 			            </Content>
 			        </Content>
 			    </Container>
