@@ -19,8 +19,7 @@ class Nav extends Component {
     render() {
 
 		return (
-			<Container> 
-			<Navbar style={{ border: 'solid 1px #00D1B2', margin: '0' }}>
+			<Navbar>
 				<NavbarBrand>
 				    <NavbarItem>
 				        <img alt="parkify logo" style={{ marginRight: 5 }} />
@@ -35,7 +34,7 @@ class Nav extends Component {
 				</NavbarBrand>
 				<NavbarMenu isActive={this.state.isActive} onClick={this.onClickNav}>
 				    <NavbarStart>
-				        <NavbarItem href='#/'>Home</NavbarItem>
+				        <NavbarItem href='/'>Home</NavbarItem>
 				        <NavbarItem hasDropdown isHoverable>
 				            <NavbarLink href='#/documentation'>Documentation</NavbarLink>
 				            <NavbarDropdown>
@@ -47,11 +46,8 @@ class Nav extends Component {
 				        </NavbarItem>
 				    </NavbarStart>
 				    <NavbarEnd>
-				        <NavbarItem href="https://github.com/AlgusDark/bloomer" isHidden='touch'>
+				        <NavbarItem href="https://github.com/leelandmiller/parkify" isHidden='touch'>
 				            <Icon icon='github' />
-				        </NavbarItem>
-				        <NavbarItem href="https://twitter.com/AlgusDark" isHidden='touch'>
-				            <Icon icon='twitter' style={{ color: '#55acee' }} />
 				        </NavbarItem>
 				        <NavbarItem>
 				            <Field isGrouped>
@@ -65,7 +61,6 @@ class Nav extends Component {
 				    </NavbarEnd>
 				</NavbarMenu>
 			</Navbar>
-			</Container>
 		)
     }
 

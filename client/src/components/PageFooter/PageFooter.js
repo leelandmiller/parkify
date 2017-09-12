@@ -20,10 +20,10 @@ class PageFooter extends Component {
 			            </Columns>
 			            <Content isSize='small'>
 			                <p>
-			                <a target="https://github.com/leelandmiller/parkify">
-			                	Fork Parkify
-			                </a> 
-			                | Copyright 2017</p>
+			                <span><a href="https://github.com/leelandmiller/parkify">
+			                	Fork Parkify 
+			                </a></span>
+			               <span> &#169; Copyright 2017</span></p>
 			            </Content>
 			        </Content>
 			    </Container>
