@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Nav /> 
+        <Nav />
         <Body />
         <Account />
         <Login />
