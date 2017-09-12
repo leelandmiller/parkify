@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Nav from './components/nav';
+import Nav from './components/Nav';
 import PageFooter from './components/PageFooter';
 import Body from './components/Body';
 import Account from './components/Account';
@@ -14,7 +14,7 @@ class App extends Component {
         <Body />
         <Account />
         <Login />
-        <PageFooter /> 
+        <PageFooter />
       </div>
     );
   }
