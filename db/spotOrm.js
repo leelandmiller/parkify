@@ -4,6 +4,9 @@ const Reservation = require('../models/reservation');
 const User = require('../models/user')
 const moment = require('moment')
 
+//TODO: reorder object validation to check both SpotObj and SpotScheduleObj before attempting to save into DB
+//TODO: change successfull returns to return a object with success:true and have promise be part of object
+
 const _addSpot = spotObj => {
     const newSpot = new Spot(spotObj)
     return newSpot.save().catch(err => {
@@ -17,7 +20,14 @@ const _addSpot = spotObj => {
 
 const _addSpotSchedule = scheduleObj =>{
     const newSpotSchedule = new SpotSchdeule(scheduleObj)
-    return newSpotSchedule.save().catch(err=>{
+    return newSpotSchedule.save().then(scheduleObj => {
+        return Spot.findByIdAndUpdate({_id:scheduleObj.spot},
+            {$set:{
+                schedule:scheduleObj._id
+            }}).then(res => {
+                return res
+            })
+    }).catch(err=>{
         return {
             success: false,
             err,
@@ -28,8 +38,8 @@ const _addSpotSchedule = scheduleObj =>{
 }
 
 const checkSpotSchedulAndAdd = scheduleObj => {
-    //to check if vaild value for day
-    const vaildDays = {
+    //to check if valid value for day
+    const validDays = {
         mon: true,
         tue: true,
         wed: true,
@@ -43,7 +53,7 @@ const checkSpotSchedulAndAdd = scheduleObj => {
     const endDate = moment(scheduleObj.end_dates.end);
     const timeTillEndDate = endDate.diff(moment(Date.now()), 'days')
     scheduleObj.open_times.forEach(ele => {
-        if (!vaildDays[ele.day]) {
+        if (!validDays[ele.day]) {
             errors.push('invaild day')
         }
     })
@@ -104,4 +114,6 @@ const checkSpotObjAndAdd = (spotObj, scheduleObj) => {
     })
 }
 
-module.exports = checkSpotObjAndAdd;
+module.exports = {
+    checkSpotObjAndAdd
+}

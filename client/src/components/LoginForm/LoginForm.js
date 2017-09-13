@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Icon, Field, Label, Control, Input, Help, Button } from "bloomer";
-import "./login.css";
+import LoginTabs from "../LoginTabs";
+import "./LoginForm.css";
 
-class Form extends Component {
+class LoginForm extends Component {
 
     constructor() {
 
@@ -14,10 +15,10 @@ class Form extends Component {
 
     }
 
-    render() {
-
+render() {
 return (
 <div>
+<LoginTabs/>
 <Field>
     <Label>
     Name
@@ -56,4 +57,4 @@ return (
 }
 }
 
-export default Form;
+export default LoginForm;
