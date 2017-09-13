@@ -1,15 +1,15 @@
 const assert = require('chai').assert;
 const mongoose = require("mongoose");
-const dbOrm = require('../../db/spotOrm')
-const User = require('../../models/user')
-const Spot = require('../../models/spot')
+const {checkSpotObjAndAdd, getSpotInfo} = require('../../db/spotOrm');
+const User = require('../../models/user');
+const Spot = require('../../models/spot');
+const SpotSchdeule = require('../../models/spotSchedule');
 const { correctSpotObj, correctScheduleObj, falseSpotObj, falseScheduleObj } = require('../spotTestData')
 mongoose.Promise = Promise
 
 let testUser = new User()
 let userId = testUser.save()
-console.log("hello")
-
+let testSpotId;
 describe("spotOrm", () => {
 
     before(function(done) {
@@ -27,28 +27,37 @@ describe("spotOrm", () => {
     })
 
     it('should return a object that has a _id', (done) => {
-        dbOrm(correctSpotObj, correctScheduleObj).then(results => {
+        checkSpotObjAndAdd(correctSpotObj, correctScheduleObj).then(results => {
+            testSpotId = results._id
             assert.exists(results._id, "return object has a mongodb objectId")
         }).then(done, done)
     })
 
     it('should return a object with errors array length of three', done => {
-        dbOrm(falseSpotObj, correctScheduleObj).then(results => {
+        checkSpotObjAndAdd(falseSpotObj, correctScheduleObj).then(results => {
             assert.equal(results.errors.length, 3)
         }).then(done, done)
     })
 
     it('should return a object with errors array length of two', done => {
-        dbOrm(correctSpotObj, falseScheduleObj).then(results => {
+        checkSpotObjAndAdd(correctSpotObj, falseScheduleObj).then(results => {
             assert.equal(results.errors.length, 2)
+        }).then(done, done)
+    })
+
+    it('should find object with a object id matching the search', done => {
+        getSpotInfo(testSpotId).then(results => {
+            assert.equal(results.spot[0]._id.toString(), testSpotId.toString(), 'should have save objectId')
         }).then(done, done)
     })
 
     after((done) => {
         Promise.all([
             User.remove(),
-            Spot.remove()
+            Spot.remove(),
+            SpotSchdeule.remove()
         ]).then(() => {
+            mongoose.connection.close()
             done()
         })
     })

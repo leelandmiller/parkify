@@ -1,15 +1,3 @@
-// userObj = {
-//   name:"userName",
-//   email:"Email",
-//   phNum:"18001234567",
-//   pw_hash: "asdasdasdasdasd",
-//   current_rented_spot:"spotObj",
-//   posted_spots:["populate-spot-id"],
-//   uuid: "uuid",
-//   total_spent: 0,
-//   total_earned:0
-// }
-
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -24,11 +12,10 @@ const UserSchema = new Schema({
     },
     ph_num: {
         type: String,
-        required: true
+        // required: true
     },
     pw_hash: {
         type: String,
-        required: true
     },
     current_reservation: [
         {
@@ -45,10 +32,10 @@ const UserSchema = new Schema({
     uuid: {
         type: String,
     },
-    facebookId: {
+    provider: {
         type: String,
     },
-    googleId: {
+    passport_id: {
         type: String
     },
     total_spent: {
@@ -56,6 +43,10 @@ const UserSchema = new Schema({
     },
     total_earned: {
         type: Number
+    },
+    created_at: {
+        type: Date,
+        default: Date.now
     }
 });
 
