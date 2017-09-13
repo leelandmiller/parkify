@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Tabs, TabList, Tab, Icon, TabLink } from "bloomer";
-import "./Login.css";
+import "./LoginTabs.css";
 
-class Login extends Component {
+class LoginTabs extends Component {
 
     constructor() {
 
@@ -14,27 +14,32 @@ class Login extends Component {
 
     }
 
+
+  handleClick = () => {
+    console.log('this is:', this);
+  }
+  
     render() { 
 
 		return (
 <Tabs>
     <TabList>
-        <Tab>
-            <TabLink>
+        <Tab onClick={this.handleClick}>
+            <TabLink id="login">
                 <Icon isSize='small'><span className='fa fa-sign-in' aria-hidden='true' /></Icon>
                 <span>Login</span>
             </TabLink>
         </Tab>
+
         <Tab isActive>
-            <TabLink>
+            <TabLink id="signUp">
                 <Icon isSize='small'><span className='fa fa-user-plus' aria-hidden='true' /></Icon>
                 <span>Sign Up</span>
             </TabLink>
         </Tab>
-
     </TabList>
 </Tabs>
 
 )}};
 
-export default Login;
+export default LoginTabs;
