@@ -25,11 +25,12 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-//   serialized and deserialized.
+// serialized and deserialized.
 passport.serializeUser(function(user, done) {
     done(null, user);
 });
 
+// deserialize user into session
 passport.deserializeUser(function(user, done) {
     User.findOne( { passport_id: user.passport_id }).then(dbUser => {
         done(null, dbUser);
@@ -38,7 +39,9 @@ passport.deserializeUser(function(user, done) {
 
 mongoose.Promise = Promise;
 
-mongoose.connect("mongodb://localhost/parkifyTest");
+mongoose.connect("mongodb://localhost/parkifyTest", {
+    useMongoClient: true
+});
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }));
 if (process.env.NODE_ENV === "production") {

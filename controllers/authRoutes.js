@@ -6,10 +6,11 @@ const userOrm = require('../db/userOrm');
 
 router.get('/google/callback',
     passport.authenticate('google', {
-        failureRedirect: '/fai'
+        failureRedirect: '/fail'
     }), (req, res) => {
         res.redirect('/');
-    });
+    }
+);
 
 router.get('/google', passport.authenticate('google', {
     scope: ['profile', 'email']

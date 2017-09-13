@@ -4,13 +4,14 @@ const GOOGLE_KEYS = require('../config/keys').GOOGLE_KEYS;
 const User = require('../models/user');
 const userOrm = require('../db/userOrm');
 
+// set up passport to use the GoogleStrategy
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_KEYS.clientID,
     clientSecret: GOOGLE_KEYS.clientSecret,
     callbackURL: '/auth/google/callback'
 }, (accessToken, refreshToken, profile, done) => {
-    console.log('PROFILE-----------')
 
+    // destructure profile given from Google OAuth
     const { id, displayName, provider, _json } = profile;
     const sessionInfo = {
         provider,
@@ -20,8 +21,10 @@ passport.use(new GoogleStrategy({
         photo: _json.image.url,
     }
 
+    // call findOrCreate method from userORM
     userOrm.findOrCreate(sessionInfo).then(user => {
-        console.log(user);
-        return done(null, user);
+        done(null, user);
+    }).catch(err => {
+        console.log('do something with the error')
     });
 }));
