@@ -41,6 +41,10 @@ const SpotScheduleSchema = new Schema({
                 }
             }]
         }
+    },
+    created_at: {
+        type: Date,
+        deafult:Date.now()
     }
 });
 

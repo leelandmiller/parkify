@@ -32,6 +32,10 @@ const SpotSchema = new Schema({
     schedule:{
         type: Schema.Types.ObjectId,
         ref: "SpotSchedule"
+    },
+    created_at: {
+        type: Date,
+        deafult:Date.now()
     }
 });
 

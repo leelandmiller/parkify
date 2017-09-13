@@ -1,11 +1,27 @@
 const Spot = require('../models/spot');
 const SpotSchdeule = require('../models/spotSchedule');
 const Reservation = require('../models/reservation');
-const User = require('../models/user')
-const moment = require('moment')
+const User = require('../models/user');
+const moment = require('moment');
 
 //TODO: reorder object validation to check both SpotObj and SpotScheduleObj before attempting to save into DB
-//TODO: change successfull returns to return a object with success:true and have promise be part of object
+//TODO: change successfully returns to return a object with success:true and have promise be part of object
+
+const getSpotInfo = _id => Spot.find({_id})
+    .populate('schedule')
+    .then(results => {
+        return {
+            success:true,
+            spot:results
+        }
+    })
+    .catch(err => {
+        return {
+            success:false,
+            err
+        }
+    })
+
 
 const _addSpot = spotObj => {
     const newSpot = new Spot(spotObj)
@@ -37,7 +53,7 @@ const _addSpotSchedule = scheduleObj =>{
     })
 }
 
-const checkSpotSchedulAndAdd = scheduleObj => {
+const checkSpotSchedulAndAdd = (scheduleObj, spotObj) => {
     //to check if valid value for day
     const validDays = {
         mon: true,
@@ -69,7 +85,11 @@ const checkSpotSchedulAndAdd = scheduleObj => {
             func: 'checkSpotSchedulAndAdd'
         }
     } else{
-        return _addSpotSchedule(scheduleObj)
+        return _addSpot(spotObj).then(res =>{
+                scheduleObj.spot = res._id
+                return _addSpotSchedule(scheduleObj)
+            })
+        /*return _addSpotSchedule(scheduleObj)*/
     }
 
 }
@@ -99,11 +119,7 @@ const checkSpotObjAndAdd = (spotObj, scheduleObj) => {
                 func: 'checkSpotObjAndAdd'
             }
         } else {
-            //add the spot then 
-            return _addSpot(spotObj).then(res =>{
-                scheduleObj.spot = res._id
-                return checkSpotSchedulAndAdd(scheduleObj)
-            })
+            return checkSpotSchedulAndAdd(scheduleObj, spotObj)
         }
     }).catch(err => {
         return {
@@ -115,5 +131,6 @@ const checkSpotObjAndAdd = (spotObj, scheduleObj) => {
 }
 
 module.exports = {
-    checkSpotObjAndAdd
+    checkSpotObjAndAdd,
+    getSpotInfo
 }

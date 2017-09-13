@@ -3,10 +3,82 @@ const Spot = require('../models/spot');
 const User = require('../models/user');
 const moment = require('moment')
 
+const finalReservationConflicts = (myResId, spotId) => {
+    const allReservation = Reservation.find({
+        spot: spotId
+    })
+    const myReservation = Reservation.find({
+        _id: myResId
+    })
+    return Promise.all([
+        allReservation,
+        myReservation
+    ]).then(results => {
+        let allRes = results[0]
+        let myRes = results[1]
+        allRes.filter(checkIfDatesConflict(myRes))
+        if(allRes.length === 1){
+            return {
+                success:true,
+                reservation:allRes[0]
+            }
+        }
+        let oldest = allRes[0];
+        for (let i = 1; i < allRes.length; i++) {
+            let oldestMoment = moment(oldest.created_at)
+            let currentMoment = moment(allRes[i].created_at)
+            if(currentMoment.isBefore(oldestMoment)){
+                oldest = allRes[i]
+            }
+        }
+        if(oldest._id === myResId){
+            return {
+                success:true,
+                reservation:oldest
+            }
+        }else{
+            return Reservation.remove({
+                _id:myResId
+            }).then(results => {
+                return {
+                    success:false,
+                }
+            }).catch( err => {
+                return {
+                    success:false,
+                    err
+                }
+            })
+        }
+    }).catch(err => {
+        return {
+            success:false,
+            err
+        }
+    })
+}
+
+const getAllReservations = spotId =>
+    Reservation.find({
+        spot: spotid
+    })
+    .then(results => {
+        return {
+            success: true,
+            reservations: results
+        }
+    })
+    .catch(err => {
+        return {
+            success: false,
+            err
+        }
+    })
+
 const checkResevationObj = resObj => {
     const startDay = moment(resObj.start);
     const endDay = moment(resObj.end);
-    let SpotObj = Spot.findById(resObj.spot).populate('schedule').then(res =>{ return res});
+    let SpotObj = Spot.findById(resObj.spot).populate('schedule').then(res => { return res });
     let UserObj = User.findById(resObj.renter).then(userRes => { return userRes });
     const now = moment(Date.now())
     let errors = [];
@@ -127,5 +199,7 @@ const _addReservation = resObj => {
 }
 
 module.exports = {
-    checkResevationObj
+    checkResevationObj,
+    getAllReservations,
+    finalReservationConflicts
 }
