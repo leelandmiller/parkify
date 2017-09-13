@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Tabs, TabList, Tab, Icon, TabLink } from "bloomer";
+import Form from "./loginForm.js"
 import "./login.css";
 
 class Login extends Component {
@@ -19,12 +20,13 @@ class Login extends Component {
 		return (
 <Tabs>
     <TabList>
-        <Tab>
+        <Tab >
             <TabLink>
                 <Icon isSize='small'><span className='fa fa-sign-in' aria-hidden='true' /></Icon>
                 <span>Login</span>
             </TabLink>
         </Tab>
+
         <Tab isActive>
             <TabLink>
                 <Icon isSize='small'><span className='fa fa-user-plus' aria-hidden='true' /></Icon>
