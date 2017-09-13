@@ -1,0 +1,47 @@
+const assert = require('chai').assert;
+const mongoose = require('mongoose');
+const userOrm = require('../../db/userOrm');
+const User = require('../../models/user');
+const { correctUserObj, missingFieldsUserObj } = require('../userTestData');
+mongoose.Promise = Promise;
+
+// let wrongUser = new User(missingFieldsUserObj);
+// let goodUser = new User(correctUserObj);
+
+describe('userOrm', () => {
+    before(function(done) {
+        mongoose.connect('mongodb://localhost/parkifyTestDatabase');
+        const db = mongoose.connection;
+        db.on('error', console.error.bind(console, 'connection error'));
+        db.once('open', function() {
+            console.log('We are connected to test database!');
+            done();
+        });
+    });
+
+    it('should save a user successfully', (done) => {
+        userOrm._findOrCreateGoogleUser({
+            user: correctUserObj
+        }).then(res => {
+            console.log(res);
+            assert.equal(res.success, true, 'res.success is true');
+        }).then(done,done);
+    });
+
+    it('should fail on saving user', (done) => {
+        userOrm._findOrCreateGoogleUser({
+            user: missingFieldsUserObj
+        }).then(res => {
+            assert.equal(res.success, false, 'res.success is false');
+        }).then(done, done);
+    })
+
+    after((done) => {
+        Promise.all([
+            User.remove(),
+        ]).then(() => {
+            mongoose.connection.close();
+            done();
+        });
+    });
+});
