@@ -1,8 +1,8 @@
 const moment = require('moment')
 const correctSpotObj = {
     loc:{
-        lat:'80',
-        lng:'150'
+        type:'Point',
+        coordinates:[0,0]
     },
     cost:{
         day:1,
@@ -12,8 +12,8 @@ const correctSpotObj = {
 
 const falseSpotObj = {
     loc:{
-        lat:'100',
-        lng:'250'
+        type:'Point',
+        coordinates:[-1000,-1000]
     },
     cost:{
         day:0,

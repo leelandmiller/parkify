@@ -5,9 +5,10 @@ const User = require('../../models/user');
 const Spot = require('../../models/spot');
 const SpotSchdeule = require('../../models/spotSchedule');
 const { correctSpotObj, correctScheduleObj, falseSpotObj, falseScheduleObj } = require('../spotTestData')
+const {correctUserObj} = require('../userTestData')
 mongoose.Promise = Promise
 
-let testUser = new User()
+let testUser = new User(correctUserObj)
 let userId = testUser.save()
 let testSpotId;
 describe("spotOrm", () => {
@@ -28,8 +29,8 @@ describe("spotOrm", () => {
 
     it('should return a object that has a _id', (done) => {
         checkSpotObjAndAdd(correctSpotObj, correctScheduleObj).then(results => {
-            testSpotId = results._id
-            assert.exists(results._id, "return object has a mongodb objectId")
+            testSpotId = results.spot._id
+            assert.exists(results.spot._id, "return object has a mongodb objectId")
         }).then(done, done)
     })
 
