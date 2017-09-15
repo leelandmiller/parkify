@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import { Icon, Field, Label, Control, Input, Help, Button } from "bloomer";
 import LoginTabs from "../LoginTabs";
-import "./LoginForm.css";
+import "./SignUpForm.css";
 
-class LoginForm extends Component {
+class SignUpForm extends Component {
     constructor() {
       super();
-      this.state = {
-        isActive: false
-      };
 
     }
 
@@ -17,10 +14,10 @@ render() {
         <div>
             <Field>
                 <Label>
-                    Username
+                    Name
             </Label>
             <Control>
-                <Input type="text" placeholder='username' />
+                <Input type="text" placeholder='Text Input' />
             </Control>
             </Field>
 
@@ -29,7 +26,7 @@ render() {
                     Password
                 </Label>
             <Control hasIcons>
-                <Input isColor='success' placeholder='Password' value="" />
+                <Input isColor='success' placeholder='Password' value='bloomer' />
                     <Icon isSize='small' isAlign='left'>
                         <span className="fa fa-user" aria-hidden="true" />
                     </Icon>
@@ -39,7 +36,21 @@ render() {
             </Control>
                 <Help isColor='success'>This username is available</Help>
             </Field>
-
+            <Field>
+                <Label>
+                    Repeat Password
+                </Label>
+            <Control hasIcons>
+                <Input isColor='success' placeholder='Password' value='bloomer' />
+                    <Icon isSize='small' isAlign='left'>
+                        <span className="fa fa-user" aria-hidden="true" />
+                    </Icon>
+                <Icon isSize='small' isAlign='right'>
+                    <span className="fa fa-check" aria-hidden="true" />
+                </Icon>
+            </Control>
+                <Help isColor='success'>This username is available</Help>
+            </Field>
             <Field isGrouped>
                 <Control>
                     <Button isColor='primary'>Submit</Button>
@@ -53,4 +64,4 @@ render() {
 }
 }
 
-export default LoginForm;
+export default SignUpForm;

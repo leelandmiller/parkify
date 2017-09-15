@@ -4,6 +4,7 @@ import { Navbar, NavbarBrand, NavbarItem, NavbarLink, NavbarStart, NavbarMenu,
 	Control, Button, Container} from "bloomer";
 import "./Nav.css";
 
+
 class Nav extends Component {
 
     constructor() {
@@ -22,7 +23,7 @@ class Nav extends Component {
 			<Navbar>
 				<NavbarBrand>
 				    <NavbarItem>
-				        <img alt="parkify logo" style={{ marginRight: 5 }} />
+				        <img alt="parkifyLogo" style={{ marginRight: 5 }} />
 				    </NavbarItem>
 				    <NavbarItem isHidden='desktop'>
 				        <Icon icon='github' />

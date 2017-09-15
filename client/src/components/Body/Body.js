@@ -1,11 +1,25 @@
 import React, { Component } from "react";
 import Account from '../Account';
-import LoginForm from '../LoginForm';
+import FormWrapper from '../FormWrapper';
 import Map from '../Map';
 import "./Body.css";
 import { Container} from "bloomer";
 
 class Body extends Component {
+    constructor() {
+
+      super();
+
+      this.state = {
+        activeLoginFormTab:"login",
+      };
+	this.changeActiveTab = this.changeActiveTab.bind(this);
+    }
+	changeActiveTab(tab) { 
+		this.setState(
+			{ activeLoginFormTab:tab }
+			)
+	};
 
     render() { 
     	let style = {
@@ -15,8 +29,7 @@ class Body extends Component {
 			<Container 
 			 style={style}
 			>
-			<Account />
-			<LoginForm />
+			<FormWrapper activeTab={this.state.activeLoginFormTab} changeActiveTab={ this.changeActiveTab }/>
 			<Map />
 			</Container>
 		)
