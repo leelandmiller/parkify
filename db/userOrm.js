@@ -28,7 +28,7 @@ module.exports = {
     },
     findOrCreate: function(profile) {
         // find user w/id from passport strategy
-        return User.findOne({ passport_id: profile.passport_id }).then(user => {
+        return User.findOne({ email: profile.email }).then(user => {
             // if user exists, return user
             if (user) {
                 return user;
@@ -42,5 +42,29 @@ module.exports = {
                 });
             }
         });
+    },
+    deconstructPassportProfile: function(profile) {
+        // destructure profile given from Google OAuth
+        const { id, displayName, provider, _json } = profile;
+        let sessionInfo;
+        if (provider === 'google') {
+            sessionInfo = {
+                provider,
+                name: displayName,
+                passport_id: id,
+                email: _json.emails[0].value,
+                photo: _json.image.url,
+            }
+        } else if (provider === 'facebook') {
+            sessionInfo = {
+                provider,
+                name: displayName,
+                passport_id: id,
+                email: _json.email,
+                photo: _json.picture.data.url
+            }
+        }
+
+        return sessionInfo;
     }
 }
