@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Account from '../Account';
-import Login from '../Login';
-import Map from '../Map';
+import MapContainer from '../MapContainer';
+import LoginForm from '../LoginForm';
 import "./Body.css";
 import { Container} from "bloomer";
 
@@ -16,12 +16,12 @@ class Body extends Component {
 			 style={style}
 			>
 			<Account />
-			<Login />
+			<MapContainer />
+			<LoginForm />
 			<Map />
 			</Container>
 		)
     }
-
 }
 
 export default Body;
