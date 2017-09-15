@@ -19,8 +19,14 @@ render() {
                 <Label>
                     Username
             </Label>
-            <Control>
-                <Input type="text" placeholder='username' />
+            <Control hasIcons>
+                <Input isColor='success' placeholder='username' value="" />
+                    <Icon isSize='small' isAlign='left'>
+                        <span className="fa fa-user" aria-hidden="true" />
+                    </Icon>
+                <Icon isSize='small' isAlign='right'>
+                    <span className="fa fa-check" aria-hidden="true" />
+                </Icon>
             </Control>
             </Field>
 
@@ -31,7 +37,7 @@ render() {
             <Control hasIcons>
                 <Input isColor='success' placeholder='Password' value="" />
                     <Icon isSize='small' isAlign='left'>
-                        <span className="fa fa-user" aria-hidden="true" />
+                        <span className="fa fa-user-secret" aria-hidden="true" />
                     </Icon>
                 <Icon isSize='small' isAlign='right'>
                     <span className="fa fa-check" aria-hidden="true" />

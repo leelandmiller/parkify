@@ -28,6 +28,3 @@ const LoginTabs = props => {
 )};
 
 export default LoginTabs;
-
-
-
