@@ -9,36 +9,33 @@ class LoginTabs extends Component {
       super();
 
       this.state = {
-        isActive: false
+        activeTab:"login",
       };
 
     }
 
-
-  handleClick = () => {
-    console.log('this is:', this);
-  }
   
     render() { 
 
 		return (
 <Tabs>
     <TabList>
-        <Tab onClick={this.handleClick}>
-            <TabLink id="login">
+        <Tab onClick =  { () => { this.setState({ activeTab:"login" }) }} className = { this.state.activeTab === "login" ? "is-active" : "" }>
+            <TabLink>
                 <Icon isSize='small'><span className='fa fa-sign-in' aria-hidden='true' /></Icon>
                 <span>Login</span>
             </TabLink>
         </Tab>
 
-        <Tab isActive>
-            <TabLink id="signUp">
+        <Tab onClick =  { () => { this.setState({ activeTab:"signUp" }) }} className = { this.state.activeTab === "signUp" ? "is-active" : "" }>
+            <TabLink>
                 <Icon isSize='small'><span className='fa fa-user-plus' aria-hidden='true' /></Icon>
                 <span>Sign Up</span>
             </TabLink>
         </Tab>
     </TabList>
 </Tabs>
+        
 
 )}};
 
