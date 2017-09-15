@@ -3,10 +3,88 @@ const Spot = require('../models/spot');
 const User = require('../models/user');
 const moment = require('moment')
 
+const finalReservationConflicts = (myResId, spotId) => {
+    //get all reservations for spot
+    const allReservation = Reservation.find({
+        spot: spotId
+    })
+    //grab my reservation info
+    const myReservation = Reservation.find({
+        _id: myResId
+    })
+    return Promise.all([
+        allReservation,
+        myReservation
+    ]).then(results => {
+        let allRes = results[0]
+        let myRes = results[1]
+        //filter to get only cnflicted reservations
+        allRes.filter(checkIfDatesConflict(myRes))
+        //if only mine comes up return as a success
+        if(allRes.length === 1){
+            return {
+                success:true,
+                reservation:allRes[0]
+            }
+        }
+        //pre set oldest to first array object
+        let oldest = allRes[0];
+        for (let i = 1; i < allRes.length; i++) {
+            let oldestMoment = moment(oldest.created_at)
+            let currentMoment = moment(allRes[i].created_at)
+            if(currentMoment.isBefore(oldestMoment)){
+                oldest = allRes[i]
+            }
+        }
+        if(oldest._id === myResId){
+            return {
+                success:true,
+                reservation:oldest
+            }
+        }else{
+            //if myRes isnt the oldest one delete it and return success:false
+            return Reservation.remove({
+                _id:myResId
+            }).then(results => {
+                return {
+                    success:false,
+                }
+            }).catch( err => {
+                return {
+                    success:false,
+                    err
+                }
+            })
+        }
+    }).catch(err => {
+        return {
+            success:false,
+            err
+        }
+    })
+}
+
+const getAllReservations = spotId =>
+    Reservation.find({
+        spot: spotid
+    })
+    .then(results => {
+        return {
+            success: true,
+            reservations: results
+        }
+    })
+    .catch(err => {
+        return {
+            success: false,
+            err
+        }
+    })
+
 const checkResevationObj = resObj => {
     const startDay = moment(resObj.start);
     const endDay = moment(resObj.end);
-    let SpotObj = Spot.findById(resObj.spot).populate('schedule').then(res =>{ return res});
+    let SpotObj = Spot.findById(resObj.spot).populate('schedule').then(res => { return res });
     let UserObj = User.findById(resObj.renter).then(userRes => { return userRes });
     const now = moment(Date.now())
     let errors = [];
@@ -57,6 +135,7 @@ const checkIfMatchesSpotSchedule = (resObj, spotObj) => {
     if (startResDay.isAfter(endDate) || endResDay.isAfter(endDate)) {
         errors.push('reservation must be start and end before last available day')
     }
+    //makse sure all days during reservation is in the schedule
     if (resWeekdays.filter(ele => openWeekdays.includes(ele)).length !== resWeekdays.length) {
         errors.push('single reservation must only cover available days')
     }
@@ -77,8 +156,6 @@ const checkIfMatchesSpotSchedule = (resObj, spotObj) => {
 }
 
 const checkForOtherReservations = resObj => {
-    const startDay = moment(resObj.start);
-    const endDay = moment(resObj.end);
     return Reservation.find({
         spot: resObj.spot
     }).then(results => {
@@ -97,9 +174,11 @@ const checkForOtherReservations = resObj => {
 }
 
 const checkIfDatesConflict = testRes => {
+    //dates to use for all compares
     const startDay = moment(testRes.start);
     const endDay = moment(testRes.end);
     return ele => {
+        //dates from array
         const eleStart = moment(ele.start);
         const eleEnd = moment(ele.end);
         if (startDay.isBetween(eleStart, eleEnd) || endDay.isBetween(eleStart, eleEnd)) {
@@ -127,5 +206,7 @@ const _addReservation = resObj => {
 }
 
 module.exports = {
-    checkResevationObj
+    checkResevationObj,
+    getAllReservations,
+    finalReservationConflicts
 }

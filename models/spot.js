@@ -1,20 +1,17 @@
-// Require mongoose
 const mongoose = require("mongoose");
 
-// Create a Schema class with mongoose
 const Schema = mongoose.Schema;
 
-// Create a NoteSchema with the Schema class
 const SpotSchema = new Schema({
     loc: {
-        lat: {
-            type: String,
-            required: true
+        type:{
+            type:String,
+            required:true
         },
-        lng: {
-            type: String,
-            required: true
-        }
+        coordinates:{
+            type:[Number],
+            required:true
+        } 
     },
     cost: {
         day: {
@@ -32,11 +29,15 @@ const SpotSchema = new Schema({
     schedule:{
         type: Schema.Types.ObjectId,
         ref: "SpotSchedule"
+    },
+    created_at: {
+        type: Date,
+        deafult:Date.now()
     }
 });
 
-// Make a Spot model with the SpotSchema
+SpotSchema.index({ "loc": "2dsphere" });
+
 const Spot = mongoose.model("Spot", SpotSchema);
 
-// Export the Note model
 module.exports = Spot;

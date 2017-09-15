@@ -5,14 +5,19 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session");
 
+const authRoutes = require('./controllers/authRoutes');
+const User = require('./models/user');
+const secret = require('./config/keys').SESSION_SECRET;
+
 require('./services/passport');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 
 // required for passport
+app.set('trust proxy', 1);
 app.use(session({
-    secret: 'r2socj6hecct3cpo',
+    secret,
     resave: false,
     saveUninitialized: true
 })); // session secret
@@ -20,17 +25,32 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+// serialized and deserialized.
+passport.serializeUser(function(user, done) {
+    done(null, user);
+});
+
+// deserialize user into session
+passport.deserializeUser(function(user, done) {
+    User.findOne( { passport_id: user.passport_id }).then(dbUser => {
+        done(null, dbUser);
+    });
+});
+
 mongoose.Promise = Promise;
 
-mongoose.connect("mongodb://localhost/parkifyTest");
+mongoose.connect("mongodb://localhost/parkifyTest", {
+    useMongoClient: true
+});
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }));
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
-// app.get("*", function(req, res) {
-//     res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
+
+// require('./controllers/authRoutes')(app);
+app.use('/auth', authRoutes);
+
 app.listen(PORT, function() {
     console.log(`🌎 ==> Server now on port ${PORT}!`);
 });

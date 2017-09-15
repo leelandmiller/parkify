@@ -1,16 +1,16 @@
 const assert = require('chai').assert;
 const mongoose = require("mongoose");
-const {checkSpotObjAndAdd} = require('../../db/spotOrm');
+const {checkSpotObjAndAdd, getSpotInfo} = require('../../db/spotOrm');
 const User = require('../../models/user');
 const Spot = require('../../models/spot');
 const SpotSchdeule = require('../../models/spotSchedule');
 const { correctSpotObj, correctScheduleObj, falseSpotObj, falseScheduleObj } = require('../spotTestData')
+const {correctUserObj} = require('../userTestData')
 mongoose.Promise = Promise
 
-let testUser = new User()
+let testUser = new User(correctUserObj)
 let userId = testUser.save()
-console.log("hello")
-
+let testSpotId;
 describe("spotOrm", () => {
 
     before(function(done) {
@@ -29,8 +29,8 @@ describe("spotOrm", () => {
 
     it('should return a object that has a _id', (done) => {
         checkSpotObjAndAdd(correctSpotObj, correctScheduleObj).then(results => {
-            console.log('results', results)
-            assert.exists(results._id, "return object has a mongodb objectId")
+            testSpotId = results.spot._id
+            assert.exists(results.spot._id, "return object has a mongodb objectId")
         }).then(done, done)
     })
 
@@ -43,6 +43,12 @@ describe("spotOrm", () => {
     it('should return a object with errors array length of two', done => {
         checkSpotObjAndAdd(correctSpotObj, falseScheduleObj).then(results => {
             assert.equal(results.errors.length, 2)
+        }).then(done, done)
+    })
+
+    it('should find object with a object id matching the search', done => {
+        getSpotInfo(testSpotId).then(results => {
+            assert.equal(results.spot[0]._id.toString(), testSpotId.toString(), 'should have save objectId')
         }).then(done, done)
     })
 
