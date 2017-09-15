@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session");
 
+const apiRoutes = require('.controllers/apiRoutes');
 const authRoutes = require('./controllers/authRoutes');
 const User = require('./models/user');
 const secret = require('./config/keys').SESSION_SECRET;
@@ -49,6 +50,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // require('./controllers/authRoutes')(app);
+app.use('/api', apiRoutes);
 app.use('/auth', authRoutes);
 
 app.listen(PORT, function() {

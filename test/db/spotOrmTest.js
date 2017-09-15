@@ -29,6 +29,7 @@ describe("spotOrm", () => {
 
     it('should return a object that has a _id', (done) => {
         checkSpotObjAndAdd(correctSpotObj, correctScheduleObj).then(results => {
+            console.log(results)
             testSpotId = results.spot._id
             assert.exists(results.spot._id, "return object has a mongodb objectId")
         }).then(done, done)
