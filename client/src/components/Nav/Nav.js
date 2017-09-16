@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Navbar, NavbarBrand, NavbarItem, NavbarLink, NavbarStart, NavbarMenu, 
 	NavbarDropdown, Icon, NavbarBurger, NavbarDivider, NavbarEnd, Field,
-	Control, Button} from "bloomer";
+	Control, Button, Container} from "bloomer";
+import logo from './parkifyLogo.jpg';
 import "./Nav.css";
 
 
@@ -23,7 +24,7 @@ class Nav extends Component {
 			<Navbar>
 				<NavbarBrand>
 				    <NavbarItem>
-				        <img alt="parkifyLogo" style={{ marginRight: 5 }} />
+				        <img src={logo} alt="parkifyLogo" style={{ marginRight: 5 }} />
 				    </NavbarItem>
 				    <NavbarItem isHidden='desktop'>
 				        <Icon icon='github' />
@@ -47,9 +48,11 @@ class Nav extends Component {
 				        </NavbarItem>
 				    </NavbarStart>
 				    <NavbarEnd>
+
 				        <NavbarItem href="https://github.com/leelandmiller/parkify" isHidden='touch'>
 				            <Icon icon='github' />
 				        </NavbarItem>
+				        	<NavbarItem href='/login'>Login/SignUp</NavbarItem>
 				        <NavbarItem>
 				            <Field isGrouped>
 				                <Control>

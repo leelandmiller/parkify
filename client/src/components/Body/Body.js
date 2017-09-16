@@ -20,22 +20,24 @@ class Body extends Component {
 	changeActiveTab(tab) { 
 		this.setState(
 			{ activeLoginFormTab:tab }
-			)
+		)
 	};
 
     render() { 
     	let style = {
 	      height: "100%"
     	}
-		return (
-			<Container 
-			 style={style}
-			>
-			<FormWrapper activeTab={this.state.activeLoginFormTab} changeActiveTab={ this.changeActiveTab }/>
-			<Account />
-			<MapContainer />
-			<Map />
-			</Container>
+	return (
+		<Container 
+		 	style={style}
+		>
+		<FormWrapper 
+			activeTab = {this.state.activeLoginFormTab} 
+			changeActiveTab = { this.changeActiveTab } />
+		<Account />
+		{/* <MapContainer />*/}
+		{/* <Map />*/}
+		</Container>
 		)
     }
 }
