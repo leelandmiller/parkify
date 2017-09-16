@@ -15,6 +15,7 @@ passport.use(new GoogleStrategy({
 
     const sessionInfo = userOrm.deconstructPassportProfile(profile);
     // call findOrCreate method from userORM
+
     userOrm.findOrCreate(sessionInfo).then(user => {
         done(null, user);
     }).catch(err => {

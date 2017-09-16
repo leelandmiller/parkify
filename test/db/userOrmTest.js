@@ -2,7 +2,10 @@ const assert = require('chai').assert;
 const mongoose = require('mongoose');
 const userOrm = require('../../db/userOrm');
 const User = require('../../models/user');
+const Spot = require('../../models/spot');
+const Reservation = require('../../models/reservation');
 const { correctUserObj, missingFieldsUserObj } = require('../userTestData');
+const { singleDayScheduleObj, correctReservationObj } = require('../spotTestData');
 mongoose.Promise = Promise;
 
 // let wrongUser = new User(missingFieldsUserObj);
@@ -34,6 +37,16 @@ describe('userOrm', () => {
         }).then(res => {
             assert.equal(res.success, false, 'res.success is false');
         }).then(done, done);
+    });
+
+    it('should populate a spot and schedule with a user', (done) => {
+        let spot = new Spot(singleDayScheduleObj);
+        Spot.save(spot).then(newSpot => {
+            
+        })
+        userOrm.getUserSpots().then(spots => {
+
+        })
     })
 
     after((done) => {

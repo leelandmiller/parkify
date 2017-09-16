@@ -1,9 +1,9 @@
 const correctUserObj = {
-    id: '12345',
+    _id: '12345',
     name: 'Johnny',
     email: 'johnnytsunami@gmail.com',
-    ph_num: '1235551234',
-    google_id: '1234567890111'
+    passport_id: '1234567890111',
+    
 }
 
 /*

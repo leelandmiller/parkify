@@ -23,8 +23,8 @@ module.exports = {
     //         }
     //     });
     // },
-    _fetchCurrentUser: function(req, res) {
-        res.send(req.user);
+    getCurrentUser: function(req, res) {
+        res.json(req.user);
     },
     findOrCreate: function(profile) {
         // find user w/id from passport strategy
@@ -66,5 +66,31 @@ module.exports = {
         }
 
         return sessionInfo;
+    },
+    addSpotIDToUser: function(_id, spotId) {
+        User.update({ _id }, {
+            $push: {
+                posted_spots: spotId
+            }
+        }).catch(err => {
+            console.log(`hey, ${err}`);
+        });
+    },
+    addReservationIDToUser: function(_id, reservationId) {
+        User.update({ _id }, {
+            $push: {
+                reservations: reservationId
+            }
+        }).catch(err => {
+            console.log(`addResERR, ${err}`);
+        });
+    },
+    getUserSpots: function(_id) {
+        return User.findOne({ _id })
+            .deepPopulate('posted_spots', 'posted_spots.schedule')
+            .exec((err, populate) => {
+                return populate;
+            });
+        });
     }
 }

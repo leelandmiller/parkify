@@ -20,6 +20,13 @@ router.post("/spot", (req, res)=>{
 });
 
 
+router.post('/reservation', (req, res) => {
+    const reservationObj = req.body.reservationObj
+    checkResevationObj(reservationObj).then(results => {
+        res.json(results);
+    });
+});
+
 router.get('/spot', (req, res)=>{
     //add logic for getting spots by location [lng, lat]
     if(req.body.spotId){
