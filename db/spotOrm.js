@@ -147,7 +147,6 @@ const _checkSpotSchedulAndAdd = (scheduleObj, spotObj, spotId, update) => {
         }
     })
     if (timeTillEndDate < 1) {
-        console.log(timeTillEndDate)
         errors.push('end date must be at least one day away')
     }
 

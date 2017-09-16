@@ -7,9 +7,10 @@ const Reservation = require('../../models/reservation')
 const User = require('../../models/user');
 const Spot = require('../../models/spot');
 const { correctSpotObj, correctScheduleObj, correctReservationObj, falseReservationObj, singleDayScheduleObj, lateCorrectReservationObj } = require('../spotTestData')
-mongoose.Promise = Promise
+const {correctUserObj} = require('../userTestData');
+mongoose.Promise = Promise;
 
-let testUser = new User();
+let testUser = new User(correctUserObj);
 let userId = testUser.save();
 let testRes;
 let testSpotId;
