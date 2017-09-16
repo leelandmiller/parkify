@@ -8,17 +8,16 @@ import { Container} from "bloomer";
 class Body extends Component {
 
     render() { 
-    	let style = {
-	      height: "100%"
-    	}
+    	// let style = {
+	    //   "min-height": "100%"
+    	// }
 		return (
 			<Container 
-			 style={style}
+				// style={style}
 			>
-			<Account />
-			<MapContainer />
-			<LoginForm />
-			<Map />
+				<Account />
+				<MapContainer />
+				<LoginForm />
 			</Container>
 		)
     }
