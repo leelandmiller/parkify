@@ -99,8 +99,10 @@ module.exports = {
         return User.findOne({ _id })
             .deepPopulate(['posted_spots', 'posted_spots.schedule'])
             .exec((err, populate) => {
+                //TODO: destructure userObj, only return spot/schedule info
                 return populate;
             }
         );
-    }
+    },
+    //TODO: getUserReservations, getUserProfileInfo
 }
