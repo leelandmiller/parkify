@@ -8,7 +8,7 @@ const { correctSpotObj, correctScheduleObj, falseSpotObj, falseScheduleObj } = r
 const {correctUserObj} = require('../userTestData')
 mongoose.Promise = Promise
 
-let testUser = new User()
+let testUser = new User(correctUserObj)
 let userId = testUser.save()
 let testSpotId;
 describe("spotOrm", () => {
@@ -29,7 +29,6 @@ describe("spotOrm", () => {
 
     it('should return a object that has a _id', (done) => {
         checkSpotObjAndAdd(correctSpotObj, correctScheduleObj).then(results => {
-            console.log(results)
             testSpotId = results.spot._id
             assert.exists(results.spot._id, "return object has a mongodb objectId")
         }).then(done, done)

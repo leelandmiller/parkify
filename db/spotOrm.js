@@ -147,7 +147,6 @@ const _checkSpotSchedulAndAdd = (scheduleObj, spotObj, spotId, update) => {
         }
     })
     if (timeTillEndDate < 1) {
-        console.log(timeTillEndDate)
         errors.push('end date must be at least one day away')
     }
 
@@ -176,8 +175,8 @@ const _checkSpotSchedulAndAdd = (scheduleObj, spotObj, spotId, update) => {
 const checkSpotObjAndAdd = (spotObj, scheduleObj) => {
 
     let errors = []
-    const lat = parseInt(spotObj.loc.coordinates[1])
-    const lng = parseInt(spotObj.loc.coordinates[0])
+    const lat = spotObj.loc.coordinates[1]
+    const lng = spotObj.loc.coordinates[0]
     const cost = spotObj.cost
     //check that all data is vaild
     if (lat > 90 || lat < -90) {
