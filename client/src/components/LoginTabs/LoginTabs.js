@@ -1,38 +1,23 @@
 import React, { Component } from "react";
 import { Tabs, TabList, Tab, Icon, TabLink } from "bloomer";
 import "./LoginTabs.css";
+import LoginForm from "../LoginForm";
+import SignUpForm from "../SignUpForm";
 
-class LoginTabs extends Component {
-
-    constructor() {
-
-      super();
-
-      this.state = {
-        isActive: false
-      };
-
-    }
-
-
-  handleClick = () => {
-    console.log('this is:', this);
-  }
-  
-    render() { 
+const LoginTabs = props => {
 
 		return (
-<Tabs>
+<Tabs className="form">
     <TabList>
-        <Tab onClick={this.handleClick}>
-            <TabLink id="login">
+        <Tab onClick =  { () => { props.changeActiveTab("login") }} className = { props.activeTab === "login" ? "is-active" : "" }>
+            <TabLink>
                 <Icon isSize='small'><span className='fa fa-sign-in' aria-hidden='true' /></Icon>
                 <span>Login</span>
             </TabLink>
         </Tab>
 
-        <Tab isActive>
-            <TabLink id="signUp">
+        <Tab onClick =  { () => { props.changeActiveTab("signUp") }} className = { props.activeTab === "signUp" ? "is-active" : "" }>
+            <TabLink>
                 <Icon isSize='small'><span className='fa fa-user-plus' aria-hidden='true' /></Icon>
                 <span>Sign Up</span>
             </TabLink>
@@ -40,6 +25,6 @@ class LoginTabs extends Component {
     </TabList>
 </Tabs>
 
-)}};
+)};
 
 export default LoginTabs;

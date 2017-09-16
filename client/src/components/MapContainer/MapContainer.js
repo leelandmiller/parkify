@@ -3,6 +3,7 @@ import "./MapContainer.css";
 import { Container} from "bloomer";
 import  BuildMarkers from "../BuildMarkers";
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+
  
 export class MapContainer extends Component {
 

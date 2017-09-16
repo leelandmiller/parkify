@@ -1,3 +1,8 @@
 #footer {
-	background-color: black;
+    height: 200px;
+    background: #00C4A7;
+    background: -webkit-linear-gradient(#00C4A7, teal);
+    background: -o-linear-gradient(#00C4A7, teal);
+    background: -moz-linear-gradient(#00C4A7, teal);
+    background: linear-gradient(#00C4A7, teal);
 }

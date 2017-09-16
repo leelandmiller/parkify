@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import {Map, GoogleApiWrapper} from 'google-maps-react';
-import {Container} from "bloomer";
+
+import {GoogleApiWrapper} from 'google-maps-react';
+import { Container} from "bloomer";
+import './Map.css';
+
  
  
 class Map extends React.Component {
