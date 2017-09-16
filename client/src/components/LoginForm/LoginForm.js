@@ -14,7 +14,7 @@ class LoginForm extends Component {
 
 render() {
     return (
-        <div>
+        <div className="form">
             <Field>
                 <Label>
                     Username
@@ -43,7 +43,7 @@ render() {
                     <span className="fa fa-check" aria-hidden="true" />
                 </Icon>
             </Control>
-                <Help isColor='success'>This username is available</Help>
+                {/*<Help isColor='success'>This username is available</Help>*/}
             </Field>
 
             <Field isGrouped>

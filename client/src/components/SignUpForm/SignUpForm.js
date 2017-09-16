@@ -11,10 +11,10 @@ class SignUpForm extends Component {
 
 render() {
     return (
-        <div>
+        <div className="form">
             <Field>
                 <Label>
-                    Name
+                    Username
             </Label>
             <Control>
                 <Input type="text" placeholder='Text Input' />
@@ -26,7 +26,7 @@ render() {
                     Password
                 </Label>
             <Control hasIcons>
-                <Input isColor='success' placeholder='Password' value='bloomer' />
+                <Input isColor='success' placeholder='Password' value='' />
                     <Icon isSize='small' isAlign='left'>
                         <span className="fa fa-user" aria-hidden="true" />
                     </Icon>
@@ -34,14 +34,14 @@ render() {
                     <span className="fa fa-check" aria-hidden="true" />
                 </Icon>
             </Control>
-                <Help isColor='success'>This username is available</Help>
+                {/*<Help isColor='success'>This username is available</Help>*/}
             </Field>
             <Field>
                 <Label>
                     Repeat Password
                 </Label>
             <Control hasIcons>
-                <Input isColor='success' placeholder='Password' value='bloomer' />
+                <Input isColor='success' placeholder='Repeat Password' value='' />
                     <Icon isSize='small' isAlign='left'>
                         <span className="fa fa-user" aria-hidden="true" />
                     </Icon>
@@ -49,7 +49,7 @@ render() {
                     <span className="fa fa-check" aria-hidden="true" />
                 </Icon>
             </Control>
-                <Help isColor='success'>This username is available</Help>
+                {/*<Help isColor='success'>This username is available</Help>*/}
             </Field>
             <Field isGrouped>
                 <Control>

@@ -7,7 +7,7 @@ import SignUpForm from "../SignUpForm";
 const LoginTabs = props => {
 
 		return (
-<Tabs>
+<Tabs className="form">
     <TabList>
         <Tab onClick =  { () => { props.changeActiveTab("login") }} className = { props.activeTab === "login" ? "is-active" : "" }>
             <TabLink>

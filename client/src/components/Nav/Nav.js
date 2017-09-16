@@ -24,7 +24,7 @@ class Nav extends Component {
 			<Navbar>
 				<NavbarBrand>
 				    <NavbarItem>
-				        <img src={logo} alt="parkifyLogo" style={{ marginRight: 5 }} />
+				        <img className="logo" src={logo} alt="parkifyLogo" style={{ marginRight: 5 }} />
 				    </NavbarItem>
 				    <NavbarItem isHidden='desktop'>
 				        <Icon icon='github' />
