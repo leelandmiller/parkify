@@ -1,17 +1,20 @@
 import React, { Component } from "react";
 import "./Account.css";
 import { Container} from "bloomer";
+import AccountTabs from '../AccountTabs';
+import Reservations from '../Reservations';
+import AccountSettings from '../AccountSettings';
 
-class Account extends Component {
+const Account = props => {
 
-    render() { 
 		return (
-			<Container>
-				<h1>Account</h1>
-			</Container>
+			<div>
+			<AccountTabs 
+			activeSettingsTab = { props.activeSettingsTab } 
+			changeActiveAccountTab = { props.changeActiveAccountTab } />
+			{ props.activeSettingsTab === "AccountSettings" ? <AccountSettings /> : <Reservations /> }
+			</div>
 		)
-    }
-
 }
 
 export default Account;
