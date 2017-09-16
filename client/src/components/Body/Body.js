@@ -43,8 +43,8 @@ class Body extends Component {
 			changeActiveTab = { this.changeActiveTab } />
 		<Account activeSettingsTab = {this.state.activeSettingsTab} 
 			changeActiveAccountTab = { this.changeActiveAccountTab } />
-		{/* <MapContainer />*/}
-		{/* <Map />*/}
+		<MapContainer />
+		<Map />
 		</Container>
 		)
     }
