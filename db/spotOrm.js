@@ -2,24 +2,76 @@ const Spot = require('../models/spot');
 const SpotSchdeule = require('../models/spotSchedule');
 const Reservation = require('../models/reservation');
 const User = require('../models/user');
+const { addSpotIDToUser } = require('./userOrm')
 const moment = require('moment');
 
-//TODO: reorder object validation to check both SpotObj and SpotScheduleObj before attempting to save into DB
-//TODO: change successfully returns to return a object with success:true and have promise be part of object
+
+const _updateSpotSchedule = (spotId, newSpotSchedule) => SpotSchdeule.update({
+    spot: spotId
+}, {
+    $set: newSpotSchedule
+}).then(updatedSpotSchedule => {
+    return {
+        success: true,
+        spotSchedule: updatedSpotSchedule
+    }
+}).catch(err => {
+    return {
+        success: false,
+        err
+    }
+})
+
+const checkAndUpdateSpotSchedule = (spotId, newSpotSchedule) => {
+    return _checkSpotSchedulAndAdd(newSpotSchedule, null, spotId, true)
+}
+
+const deleteSpot = (_id, userId) => {
+    Spot.findById({
+        _id
+    }).then(results => {
+        if (results.owner.toString() !== userId.toString()) {
+            return {
+                success: false,
+                err: ["only the owner may delete their spot"]
+            }
+        } else {
+           return Spot.remove({
+                _id
+            }).then(results => {
+                return {
+                    success: true,
+                    spot: results
+                }
+            }).catch(err => {
+                return {
+                    success: false,
+                    err
+                }
+            })
+        }
+    }).catch(err => {
+                return {
+                    success: false,
+                    err
+                }
+
+
+}
+
 const getSpotsFromPoint = (coordinates, distance) => {
     return Spot.aggregate(
-    [
-        { "$geoNear": {
-            "near": {
-                "type": "Point",
-                coordinates
-            },
-            "distanceField": "distance",
-            "sperical": true,
-            "maxDistance": distance
-        }
-    }
-    ])
+        [{
+            "$geoNear": {
+                "near": {
+                    "type": "Point",
+                    coordinates
+                },
+                "distanceField": "distance",
+                "sperical": true,
+                "maxDistance": distance
+            }
+        }])
 
 }
 
@@ -60,8 +112,8 @@ const _addSpotSchedule = scheduleObj => {
             }
         }).then(res => {
             return {
-                success:true,
-                spot:res
+                success: true,
+                spot: res
             }
         })
     }).catch(err => {
@@ -74,7 +126,7 @@ const _addSpotSchedule = scheduleObj => {
     })
 }
 
-const checkSpotSchedulAndAdd = (scheduleObj, spotObj) => {
+const _checkSpotSchedulAndAdd = (scheduleObj, spotObj, spotId, update) => {
     //to check if valid value for day
     const validDays = {
         mon: true,
@@ -103,13 +155,19 @@ const checkSpotSchedulAndAdd = (scheduleObj, spotObj) => {
         return {
             success: false,
             errors,
-            func: 'checkSpotSchedulAndAdd'
+            func: '_checkSpotSchedulAndAdd'
         }
     } else {
-        return _addSpot(spotObj).then(res => {
-            scheduleObj.spot = res._id
-            return _addSpotSchedule(scheduleObj)
-        })
+        if (update) {
+            return _updateSpotSchedule(spotId, scheduleObj)
+        } else {
+            return _addSpot(spotObj).then(res => {
+                scheduleObj.spot = res._id
+                addSpotIDToUser(res.owner, res._id)
+                return _addSpotSchedule(scheduleObj)
+            })
+        }
+
         /*return _addSpotSchedule(scheduleObj)*/
     }
 
@@ -140,7 +198,7 @@ const checkSpotObjAndAdd = (spotObj, scheduleObj) => {
                 func: 'checkSpotObjAndAdd'
             }
         } else {
-            return checkSpotSchedulAndAdd(scheduleObj, spotObj)
+            return _checkSpotSchedulAndAdd(scheduleObj, spotObj)
         }
     }).catch(err => {
         return {
@@ -153,5 +211,7 @@ const checkSpotObjAndAdd = (spotObj, scheduleObj) => {
 
 module.exports = {
     checkSpotObjAndAdd,
-    getSpotInfo
+    getSpotInfo,
+    checkAndUpdateSpotSchedule,
+    deleteSpot
 }
