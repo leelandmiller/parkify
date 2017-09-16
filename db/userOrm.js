@@ -31,14 +31,24 @@ module.exports = {
         return User.findOne({ email: profile.email }).then(user => {
             // if user exists, return user
             if (user) {
-                return user;
+                return {
+                    success: true,
+                    user
+                };
             } else {
                 // else create new user, retrurn the new user
                 const newUser = new User(profile);
                 return newUser.save().then(newUserRes => {
-                    return newUserRes;
+                    return {
+                        success: true,
+                        newUserRes
+                    };
                 }).catch(err => {
-                    return err;
+                    return {
+                        success: false,
+                        func: 'findOrCreate',
+                        err
+                    };
                 });
             }
         });
@@ -87,10 +97,10 @@ module.exports = {
     },
     getUserSpots: function(_id) {
         return User.findOne({ _id })
-            .deepPopulate('posted_spots', 'posted_spots.schedule')
+            .deepPopulate(['posted_spots', 'posted_spots.schedule'])
             .exec((err, populate) => {
                 return populate;
-            });
-        
+            }
+        );
     }
 }
