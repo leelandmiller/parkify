@@ -55,7 +55,7 @@ const deleteSpot = (_id, userId) => {
                     success: false,
                     err
                 }
-
+            })
 
 }
 
