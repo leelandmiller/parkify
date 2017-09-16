@@ -8,7 +8,7 @@ const { correctSpotObj, correctScheduleObj, falseSpotObj, falseScheduleObj } = r
 const {correctUserObj} = require('../userTestData')
 mongoose.Promise = Promise
 
-let testUser = new User()
+let testUser = new User(correctUserObj)
 let userId = testUser.save()
 let testSpotId;
 describe("spotOrm", () => {
