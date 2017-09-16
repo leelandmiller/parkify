@@ -31,6 +31,7 @@ class Body extends Component {
 	};
 
     render() { 
+
     	let style = {
 	      height: "100%"
     	}
