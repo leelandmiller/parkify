@@ -1,8 +1,8 @@
-const User = require('../../models/user');
-const Spot = require('../../models/spot');
-const SpotSchdeule = require('../../models/spotSchedule');
+const User = require('../models/user');
+const Spot = require('../models/spot');
+const SpotSchdeule = require('../models/spotSchedule');
 const {correctUserObj} = require('./userTestData')
-const { correctSpotObj, correctScheduleObj, falseSpotObj, falseScheduleObj } = require('../spotTestData')
+const {checkSpotObjAndAdd} = require('../db/spotOrm')
 /*32.853002, -117.182875
 32.869911, -117.215338
 32.854810, -117.417940
@@ -20,12 +20,12 @@ const correctSpotObj = {
         day: 1,
         hr: 1
     }
-}
+};
 
 const closeSpotLocations = [{
         loc: {
             type: 'Point',
-            coordinates: [32.853002, -117.182875]
+            coordinates: [-117.182875, 32.853002]
         },
         cost: {
             day: 1,
@@ -35,7 +35,7 @@ const closeSpotLocations = [{
     {
         loc: {
             type: 'Point',
-            coordinates: [32.869911, -117.215338]
+            coordinates: [ -117.215338, 32.869911]
         },
         cost: {
             day: 1,
@@ -45,7 +45,7 @@ const closeSpotLocations = [{
     {
         loc: {
             type: 'Point',
-            coordinates: [32.854810, -117.417940]
+            coordinates: [-117.417940, 32.854810]
         },
         cost: {
             day: 1,
@@ -57,7 +57,7 @@ const closeSpotLocations = [{
 const farSpotLocations = [{
         loc: {
             type: 'Point',
-            coordinates: [16.685658, -93.734039]
+            coordinates: [-93.734039, 16.685658]
         },
         cost: {
             day: 1,
@@ -67,7 +67,7 @@ const farSpotLocations = [{
     {
         loc: {
             type: 'Point',
-            coordinates: [16.550729, -93.717173]
+            coordinates: [-93.717173, 16.550729]
         },
         cost: {
             day: 1,
