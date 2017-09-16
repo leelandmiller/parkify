@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Table, thead, tr, th, tbody, td } from "bloomer";
+import { Table, thead, tr, th, tbody, td, Icon, Field, Label, Control, Input, Help, Button, Select } from "bloomer";
 import AccountTabs from "../AccountTabs";
+import VehicleDetails from "../VehicleDetails";
 import "./AccountSettings.css";
 
 class AccountSettings extends Component {
@@ -14,29 +15,26 @@ class AccountSettings extends Component {
 
 render() {
     return (
-        <div className="Table">
-<Table isBordered isStriped isNarrow>
+        <div>
+<Table isBordered isStriped isNarrow isSize={1} className="table">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Score</th>
+            <th>Account Settings</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>Ryu</td>
-            <td>10000</td>
-        </tr>
         <tr className='is-selected'>
-            <td>Ken</td>
-            <td>5000</td>
+            <td>Userame/Email</td>
+            <td>someone@somewhere.com</td>
         </tr>
         <tr>
-            <td>Akuma</td>
-            <td>1200</td>
+            <td>Password</td>
+            <td>************</td>
         </tr>
     </tbody>
 </Table>
+<VehicleDetails />
 </div>
 )
 }

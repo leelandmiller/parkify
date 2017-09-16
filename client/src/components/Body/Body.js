@@ -6,6 +6,7 @@ import MapContainer from '../MapContainer';
 import LoginForm from '../LoginForm';
 import "./Body.css";
 import { Container} from "bloomer";
+import VehicleDetails from '../VehicleDetails';
 
 class Body extends Component {
     constructor() {
