@@ -7,7 +7,7 @@ import Reservations from "../Reservations";
 const AccountTabs = props => {
 
 		return (
-<Tabs className="table">
+<Tabs className="AcctTabs">
     <TabList>
         <Tab onClick =  { () => { props.changeActiveAccountTab("AccountSettings") }} className = { props.activeSettingsTab === "AccountSettings" ? "is-active" : "" }>
             <TabLink>
