@@ -23,22 +23,32 @@ module.exports = {
     //         }
     //     });
     // },
-    _fetchCurrentUser: function(req, res) {
-        res.send(req.user);
+    getCurrentUser: function(req, res) {
+        res.json(req.user);
     },
     findOrCreate: function(profile) {
         // find user w/id from passport strategy
         return User.findOne({ email: profile.email }).then(user => {
             // if user exists, return user
             if (user) {
-                return user;
+                return {
+                    success: true,
+                    user
+                };
             } else {
                 // else create new user, retrurn the new user
                 const newUser = new User(profile);
                 return newUser.save().then(newUserRes => {
-                    return newUserRes;
+                    return {
+                        success: true,
+                        newUserRes
+                    };
                 }).catch(err => {
-                    return err;
+                    return {
+                        success: false,
+                        func: 'findOrCreate',
+                        err
+                    };
                 });
             }
         });
@@ -66,5 +76,33 @@ module.exports = {
         }
 
         return sessionInfo;
-    }
+    },
+    addSpotIDToUser: function(_id, spotId) {
+        User.update({ _id }, {
+            $push: {
+                posted_spots: spotId
+            }
+        }).catch(err => {
+            console.log(`hey, ${err}`);
+        });
+    },
+    addReservationIDToUser: function(_id, reservationId) {
+        User.update({ _id }, {
+            $push: {
+                reservations: reservationId
+            }
+        }).catch(err => {
+            console.log(`addResERR, ${err}`);
+        });
+    },
+    getUserSpots: function(_id) {
+        return User.findOne({ _id })
+            .deepPopulate(['posted_spots', 'posted_spots.schedule'])
+            .exec((err, populate) => {
+                //TODO: destructure userObj, only return spot/schedule info
+                return populate;
+            }
+        );
+    },
+    //TODO: getUserReservations, getUserProfileInfo
 }

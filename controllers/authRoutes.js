@@ -30,6 +30,6 @@ router.get('/facebook', passport.authenticate('facebook', {
 }));
 
 //** FETCH CURRENT USER FROM SESSION **//
-router.get('/api/currentuser', userOrm._fetchCurrentUser);
+router.get('/api/currentuser', userOrm.getCurrentUser);
 
 module.exports = router;
