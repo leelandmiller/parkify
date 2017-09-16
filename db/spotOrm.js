@@ -27,13 +27,20 @@ const checkAndUpdateSpotSchedule = (spotId, newSpotSchedule) => {
 }
 
 const deleteSpot = (_id, userId) => {
-    Spot.findById({
+    return Spot.findById({
         _id
     }).then(results => {
-        if (results.owner.toString() !== userId.toString()) {
+        if (!results) {
             return {
                 success: false,
-                err: ["only the owner may delete their spot"]
+                err: ['no spot has that id'],
+                func: 'deleteSpot'
+            }
+        } else if (results.owner.toString() !== userId.toString()) {
+            return {
+                success: false,
+                err: ["only the owner may delete their spot"],
+                func: 'deleteSpot'
             }
         } else {
            return Spot.remove({
@@ -46,20 +53,39 @@ const deleteSpot = (_id, userId) => {
             }).catch(err => {
                 return {
                     success: false,
-                    err
+                    err,
+                    func: 'deleteSpot'
                 }
             })
         }
     }).catch(err => {
                 return {
                     success: false,
-                    err
+                    err,
+                    func: 'deleteSpot'
                 }
             })
 
 }
 
 const getSpotsFromPoint = (coordinates, distance) => {
+    let errors = []
+    const lat = coordinates[1]
+    const lng = coordinates[0]
+    //check that all data is vaild
+    if (lat > 90 || lat < -90) {
+        errors.push('Latitude out of range')
+    }
+    if (lng > 180 || lng < -180) {
+        errors.push('Longitude out of range')
+    }
+    if(errors.length > 0){
+       return Promise.resolve({
+            success:false,
+            err: errors,
+            func: 'getSpotsFromPoint'
+        })
+    }
     return Spot.aggregate(
         [{
             "$geoNear": {
@@ -68,10 +94,15 @@ const getSpotsFromPoint = (coordinates, distance) => {
                     coordinates
                 },
                 "distanceField": "distance",
-                "sperical": true,
+                "spherical": true,
                 "maxDistance": distance
             }
-        }])
+        }]).then( data => {
+            return{
+                success:true,
+                spots: data
+            }
+        })
 
 }
 
@@ -212,5 +243,6 @@ module.exports = {
     checkSpotObjAndAdd,
     getSpotInfo,
     checkAndUpdateSpotSchedule,
-    deleteSpot
+    deleteSpot,
+    getSpotsFromPoint
 }
