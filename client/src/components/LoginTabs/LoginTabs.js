@@ -1,8 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import { Tabs, TabList, Tab, Icon, TabLink } from "bloomer";
 import "./LoginTabs.css";
-import LoginForm from "../LoginForm";
-import SignUpForm from "../SignUpForm";
 
 const LoginTabs = props => {
 

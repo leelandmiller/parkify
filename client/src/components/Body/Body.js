@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import Account from '../Account';
 import FormWrapper from '../FormWrapper';
-import MapContainer from '../MapContainer';
-import LoginForm from '../LoginForm';
 import "./Body.css";
 import { Container} from "bloomer";
-import VehicleDetails from '../VehicleDetails';
 
 class Body extends Component {
     constructor() {
@@ -44,7 +41,7 @@ class Body extends Component {
 			changeActiveTab = { this.changeActiveTab } />
 		<Account activeSettingsTab = {this.state.activeSettingsTab} 
 			changeActiveAccountTab = { this.changeActiveAccountTab } />
-		<MapContainer />
+		{/*<MapContainer />*/}
 		</Container>
 		)
     }
