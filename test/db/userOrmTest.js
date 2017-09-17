@@ -1,7 +1,7 @@
 const assert = require('chai').assert;
 const mongoose = require('mongoose');
 const { userOrm, spotOrm, reservationOrm } = require('../../db');
-const { User, Spot, SpotSchdeule, Reservation } = require('../../models');
+const { User, Spot, SpotSchedule, Reservation } = require('../../models');
 const { correctUserObj, missingFieldsUserObj } = require('../userTestData');
 const { correctSpotObj, correctScheduleObj, correctReservationObj } = require('../spotTestData');
 mongoose.Promise = Promise;
