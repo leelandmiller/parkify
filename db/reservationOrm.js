@@ -1,7 +1,7 @@
 const Reservation = require('../models/reservation');
 const Spot = require('../models/spot');
 const User = require('../models/user');
-const { addReservationIDToUser } require('./userOrm');
+const { addReservationIDToUser } = require('./userOrm');
 const moment = require('moment');
 
 

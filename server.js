@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session");
 
-const apiRoutes = require('.controllers/apiRoutes');
+const apiRoutes = require('./controllers/apiRoutes');
 const authRoutes = require('./controllers/authRoutes');
 const User = require('./models/user');
 const secret = require('./config/keys').SESSION_SECRET;
