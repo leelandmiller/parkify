@@ -6,7 +6,6 @@ import "./FormWrapper.css";
 
 const FormWrapper = props => {
  
-
 		return (
 			<div>
 			<LoginTabs 

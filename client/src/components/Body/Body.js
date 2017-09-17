@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Account from '../Account';
 import FormWrapper from '../FormWrapper';
-import Map from '../Map';
 import MapContainer from '../MapContainer';
 import LoginForm from '../LoginForm';
 import "./Body.css";
@@ -45,7 +44,6 @@ class Body extends Component {
 		<Account activeSettingsTab = {this.state.activeSettingsTab} 
 			changeActiveAccountTab = { this.changeActiveAccountTab } />
 		<MapContainer />
-		<Map />
 		</Container>
 		)
     }
