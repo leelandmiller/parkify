@@ -1,8 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import { Tabs, TabList, Tab, Icon, TabLink } from "bloomer";
 import "./AccountTabs.css";
-import AccountSettings from "../AccountSettings";
-import Reservations from "../Reservations";
 
 const AccountTabs = props => {
 

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Table, thead, tr, th, tbody, td, Icon, Field, Label, Control, Input, Help, Button, Select } from "bloomer";
-import AccountTabs from "../AccountTabs";
+import { Table, thead, tr, th, tbody, td, Button } from "bloomer";
 
 import "./Reservations.css";
 

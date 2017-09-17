@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, CardHeader, CardHeaderTitle, Icon, CardImage, Image, Media, MediaLeft, Subtitle, Content, small, CardHeaderIcon, CardContent, MediaContent, Title } from "bloomer";
+import { Card, CardHeader, CardHeaderTitle, Media, Subtitle, CardContent, MediaContent, Title } from "bloomer";
 import "./VehicleDetails.css";
 
 class VehicleDetails extends Component {
@@ -25,16 +25,16 @@ render() {
             <MediaContent>
                 <Title isSize={6}>License Plate</Title>
                 <Subtitle isSize={6}>----------</Subtitle>
-                <a href="#">Add License Plate</a>
+                <a href="/plate">Add License Plate</a>
                 <hr />
                 <Title isSize={6}>Vehicles</Title>
                 <Subtitle isSize={6}>----------</Subtitle>
-                <a href="#">Add Vehicle</a>
+                <a href="/vehicles">Add Vehicle</a>
             </MediaContent>
             <MediaContent>
                 <Title isSize={6}>Credit Cards</Title>
                 <Subtitle isSize={6}>----------</Subtitle>
-                <a href="#">Add Credit Card</a>
+                <a href="/cards">Add Credit Card</a>
                 <hr />
             </MediaContent>
         </Media>

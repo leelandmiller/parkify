@@ -1,13 +1,9 @@
 import React, { Component } from "react";
-import { Icon, Field, Label, Control, Input, Help, Button } from "bloomer";
-import LoginTabs from "../LoginTabs";
+import { Icon, Field, Label, Control, Input, Button } from "bloomer";
 import "./SignUpForm.css";
 
 class SignUpForm extends Component {
-    constructor() {
-      super();
 
-    }
 
 render() {
     return (
