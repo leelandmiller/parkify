@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import "./MapContainer.css";
 import { Container} from "bloomer";
-import  BuildMarkers from "../BuildMarkers";
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-
  
 export class MapContainer extends Component {
 
@@ -12,7 +10,13 @@ export class MapContainer extends Component {
 
     this.state = {
         lat: '',
-        lng: ''
+        lng: '',
+        locations: [
+            {
+                lat: 32.842674,
+                lng: -117.257767
+            }           
+        ]
     }
 
   }
@@ -29,10 +33,17 @@ export class MapContainer extends Component {
             <Container>
                 <div style={style}>
                     <Map google={this.props.google} visible={true}>
-                        <Marker
-                            title={'The marker`s title will appear as a tooltip.'}
-                            name={'La Jolla'}
-                            position={{lat: 32.842674, lng: -117.257767}} />
+                        {
+                            this.state.locations.map(location => (
+                                <Marker
+                                    title={'The marker`s title will appear as a tooltip.'}
+                                    name={'La Jolla'}
+                                    position={{lat: location.lat, lng: location.lng}} />
+                                
+                                )
+                            )
+                        }
+
                     </Map>
                 </div>
             </Container>
