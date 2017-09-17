@@ -4,10 +4,8 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session");
-
-const apiRoutes = require('./controllers/apiRoutes');
-const authRoutes = require('./controllers/authRoutes');
-const User = require('./models/user');
+const { apiRoutes, authRoutes } = require('./controllers');
+const { User } = require('./models');
 const secret = require('./config/keys').SESSION_SECRET;
 
 require('./services/passport');

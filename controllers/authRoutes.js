@@ -2,7 +2,7 @@ const passport = require('passport');
 const express = require('express');
 const router = express.Router();
 
-const userOrm = require('../db/userOrm');
+const { userOrm } = require('../db');
 
 //** CALLBACK PASSPORT ROUTES **//
 router.get('/google/callback',

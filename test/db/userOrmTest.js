@@ -1,19 +1,13 @@
 const assert = require('chai').assert;
 const mongoose = require('mongoose');
-const userOrm = require('../../db/userOrm');
-const spotOrm = require('../../db/spotOrm');
-const User = require('../../models/user');
-const Spot = require('../../models/spot');
-const SpotSchedule = require('../../models/spotSchedule');
-const Reservation = require('../../models/reservation');
+const { userOrm, spotOrm, reservationOrm } = require('../../db');
+const { User, Spot, SpotSchdeule, Reservation } = require('../../models');
 const { correctUserObj, missingFieldsUserObj } = require('../userTestData');
 const { correctSpotObj, correctScheduleObj, correctReservationObj } = require('../spotTestData');
 mongoose.Promise = Promise;
 
-// let wrongUser = new User(missingFieldsUserObj);
 let goodUser = new User(correctUserObj);
 let userId = goodUser.save();
-
 let badUser = new User(missingFieldsUserObj);
 
 // let testSpot = new Spot(correctSpotObj);
@@ -63,6 +57,9 @@ describe('userOrm', () => {
         });
     });
 
+    // it('should poopulate a user\'s reservations', (done) => {
+    //
+    // })
 
     after((done) => {
         Promise.all([

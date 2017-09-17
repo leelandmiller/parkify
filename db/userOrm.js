@@ -97,12 +97,26 @@ module.exports = {
     },
     getUserSpots: function(_id) {
         return User.findOne({ _id })
-            .deepPopulate(['posted_spots', 'posted_spots.schedule'])
+            .deepPopulate([
+                'posted_spots',
+                'posted_spots.schedule'
+            ])
             .exec((err, populate) => {
                 //TODO: destructure userObj, only return spot/schedule info
                 return populate;
             }
         );
     },
+    getUserReservations: function(_id) {
+        return User.findOne({ _id })
+            .deepPopulate([
+                'reservations',
+                'reservations.spot'
+            ])
+            .exec((err, populate) => {
+                console.log(populate);
+            }
+        );
+    }
     //TODO: getUserReservations, getUserProfileInfo
 }

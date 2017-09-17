@@ -53,7 +53,8 @@ const UserSchema = new Schema({
 
 UserSchema.plugin(deepPopulate, {
     whitelist: [
-        'posted_spots.schedule'
+        'posted_spots.schedule',
+        'reservations.spot'
     ]
 });
 
