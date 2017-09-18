@@ -4,9 +4,8 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session");
-
-const authRoutes = require('./controllers/authRoutes');
-const User = require('./models/user');
+const { apiRoutes, authRoutes } = require('./controllers');
+const { User } = require('./models');
 const secret = require('./config/keys').SESSION_SECRET;
 
 require('./services/passport');
@@ -49,6 +48,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // require('./controllers/authRoutes')(app);
+app.use('/api', apiRoutes);
 app.use('/auth', authRoutes);
 
 app.listen(PORT, function() {

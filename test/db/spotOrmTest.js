@@ -1,11 +1,12 @@
 const assert = require('chai').assert;
 const mongoose = require("mongoose");
-const {checkSpotObjAndAdd, getSpotInfo} = require('../../db/spotOrm');
+const {deleteSpot, getSpotsFromPoint, checkSpotObjAndAdd, getSpotInfo} = require('../../db/spotOrm');
 const User = require('../../models/user');
 const Spot = require('../../models/spot');
 const SpotSchdeule = require('../../models/spotSchedule');
 const { correctSpotObj, correctScheduleObj, falseSpotObj, falseScheduleObj } = require('../spotTestData')
-const {correctUserObj} = require('../userTestData')
+const {correctUserObj} = require('../userTestData');
+const {saveAllSpotLocations} = require('../spotLocationTestData');
 mongoose.Promise = Promise
 
 let testUser = new User(correctUserObj)
@@ -23,7 +24,9 @@ describe("spotOrm", () => {
                 userId = user._id
                 correctSpotObj.owner = userId
                 falseSpotObj.owner = userId
-            }).then(done, done)
+            }).then(()=>{
+                saveAllSpotLocations().then(()=>done())
+            })
         });
     })
 
@@ -49,6 +52,36 @@ describe("spotOrm", () => {
     it('should find object with a object id matching the search', done => {
         getSpotInfo(testSpotId).then(results => {
             assert.equal(results.spot[0]._id.toString(), testSpotId.toString(), 'should have save objectId')
+        }).then(done, done)
+    })
+
+    it('should return 3 points from db' , done => {
+        getSpotsFromPoint([ -117.184500, 32.857850], 100000).then(data => {
+            assert.equal(data.spots.length, 3, 'should return 3 spots')
+        }).then(done, done)
+    })
+
+    it('should return 3 points from db' , done => {
+        getSpotsFromPoint([ -100000, 100000], 100000).then(data => {
+            assert.equal(data.err.length, 2, 'should return 2 errors')
+        }).then(done, done)
+    })
+
+    it('should delete spot from db', done => {
+        deleteSpot(testSpotId, userId).then(results => {
+            assert.equal(results.success, true, 'should return object with success true')
+        }).then(done, done)
+    })
+
+    it('should fail deleting spot', done => {
+        deleteSpot("lookMaFakeData", userId).then(results => {
+            assert.equal(results.success, false, 'should return object with success false')
+        }).then(done, done)
+    })
+
+    it('should fail deleting spot', done => {
+        deleteSpot(testSpotId, 'lookMaFakeData').then(results => {
+            assert.equal(results.success, false, 'should return object with success false')
         }).then(done, done)
     })
 

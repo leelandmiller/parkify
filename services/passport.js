@@ -3,8 +3,8 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
 const GOOGLE_KEYS = require('../config/keys').GOOGLE_KEYS;
 const FACEBOOK_KEYS = require('../config/keys').FACEBOOK_KEYS;
-const User = require('../models/user');
-const userOrm = require('../db/userOrm');
+const { User } = require('../models');
+const { userOrm } = require('../db');
 
 // set up passport to use the GoogleStrategy
 passport.use(new GoogleStrategy({
@@ -15,6 +15,7 @@ passport.use(new GoogleStrategy({
 
     const sessionInfo = userOrm.deconstructPassportProfile(profile);
     // call findOrCreate method from userORM
+
     userOrm.findOrCreate(sessionInfo).then(user => {
         done(null, user);
     }).catch(err => {

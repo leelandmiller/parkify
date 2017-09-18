@@ -4,6 +4,7 @@ import FormWrapper from '../FormWrapper';
 import MapContainer from '../MapContainer';
 import SimpleSearch from '../SimpleSearch';
 import LoginForm from '../LoginForm';
+
 import "./Body.css";
 import { Container} from "bloomer";
 

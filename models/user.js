@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const deepPopulate = require('mongoose-deep-populate')(mongoose);
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
@@ -17,13 +18,13 @@ const UserSchema = new Schema({
     pw_hash: {
         type: String,
     },
-    current_reservation: [
+    reservations: [
         {
     		type: Schema.Types.ObjectId,
     		ref: 'Reservation'
         }
     ],
-    current_rented_spot: [
+    posted_spots: [
         {
             type: Schema.Types.ObjectId,
             ref: 'Spot'
@@ -48,6 +49,13 @@ const UserSchema = new Schema({
         type: Date,
         default: Date.now
     }
+});
+
+UserSchema.plugin(deepPopulate, {
+    whitelist: [
+        'posted_spots.schedule',
+        'reservations.spot'
+    ]
 });
 
 const User = mongoose.model('User', UserSchema);
