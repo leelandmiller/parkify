@@ -13,8 +13,8 @@ export class MapContainer extends Component {
         lng: '',
         locations: [
             {
-                lat: 32.842674,
-                lng: -117.257767
+                lat: 33.039139,
+                lng: -117.295425
             }           
         ]
     }
@@ -27,7 +27,8 @@ export class MapContainer extends Component {
     } else {
         const style = {
           width: '100vw',
-          height: '100vh'
+          height: '430px'
+
         }
         return (
             <Container>

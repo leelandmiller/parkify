@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Account from '../Account';
 import FormWrapper from '../FormWrapper';
 import MapContainer from '../MapContainer';
+import SimpleSearch from '../SimpleSearch';
 import LoginForm from '../LoginForm';
 import "./Body.css";
 import { Container} from "bloomer";
@@ -30,21 +31,16 @@ class Body extends Component {
 	};
 
     render() { 
-
-    	let style = {
-	      height: "100%"
-    	}
-	return (
-		<Container 
-		 	style={style}
-		>
-		<FormWrapper 
-			activeTab = {this.state.activeLoginFormTab} 
-			changeActiveTab = { this.changeActiveTab } />
-		<Account activeSettingsTab = {this.state.activeSettingsTab} 
-			changeActiveAccountTab = { this.changeActiveAccountTab } />
-		<MapContainer />
-		</Container>
+		return (
+			<Container>
+				<SimpleSearch />
+				<MapContainer />
+				<FormWrapper 
+					activeTab = {this.state.activeLoginFormTab} 
+					changeActiveTab = { this.changeActiveTab } />
+				<Account activeSettingsTab = {this.state.activeSettingsTab} 
+					changeActiveAccountTab = { this.changeActiveAccountTab } />
+			</Container>
 		)
     }
 }
