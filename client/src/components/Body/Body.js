@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import Account from '../Account';
 import FormWrapper from '../FormWrapper';
+<<<<<<< HEAD
 import MapContainer from '../MapContainer';
 import SimpleSearch from '../SimpleSearch';
 import LoginForm from '../LoginForm';
+=======
+>>>>>>> 6e312573cefacd24c8e375a140840549be94a8d3
 import "./Body.css";
 import { Container} from "bloomer";
 

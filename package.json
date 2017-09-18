@@ -10,6 +10,7 @@
 		"express-session": "^1.15.5",
 		"moment": "^2.18.1",
 		"mongoose": "^4.11.10",
+		"mongoose-deep-populate": "^3.0.0",
 		"mongoose-findorcreate": "^2.0.0",
 		"morgan": "^1.8.2",
 		"passport": "^0.4.0",

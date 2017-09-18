@@ -1,7 +1,23 @@
 const Reservation = require('../models/reservation');
 const Spot = require('../models/spot');
 const User = require('../models/user');
-const moment = require('moment')
+const { addReservationIDToUser } = require('./userOrm');
+const moment = require('moment');
+
+
+const getSpotsReservations = spotId => Reservation.find({
+    spot: spotId
+}).then(spotReservations => {
+    return {
+        success: true,
+        reservation: spotReservations
+    }
+}).catch(err => {
+    return {
+        success: false,
+        err
+    }
+})
 
 const finalReservationConflicts = (myResId, spotId) => {
     //get all reservations for spot
@@ -21,10 +37,10 @@ const finalReservationConflicts = (myResId, spotId) => {
         //filter to get only cnflicted reservations
         allRes.filter(checkIfDatesConflict(myRes))
         //if only mine comes up return as a success
-        if(allRes.length === 1){
+        if (allRes.length === 1) {
             return {
-                success:true,
-                reservation:allRes[0]
+                success: true,
+                reservation: allRes[0]
             }
         }
         //pre set oldest to first array object
@@ -32,33 +48,33 @@ const finalReservationConflicts = (myResId, spotId) => {
         for (let i = 1; i < allRes.length; i++) {
             let oldestMoment = moment(oldest.created_at)
             let currentMoment = moment(allRes[i].created_at)
-            if(currentMoment.isBefore(oldestMoment)){
+            if (currentMoment.isBefore(oldestMoment)) {
                 oldest = allRes[i]
             }
         }
-        if(oldest._id === myResId){
+        if (oldest._id === myResId) {
             return {
-                success:true,
-                reservation:oldest
+                success: true,
+                reservation: oldest
             }
-        }else{
+        } else {
             //if myRes isnt the oldest one delete it and return success:false
             return Reservation.remove({
-                _id:myResId
+                _id: myResId
             }).then(results => {
                 return {
-                    success:false,
+                    success: false,
                 }
-            }).catch( err => {
+            }).catch(err => {
                 return {
-                    success:false,
+                    success: false,
                     err
                 }
             })
         }
     }).catch(err => {
         return {
-            success:false,
+            success: false,
             err
         }
     })
@@ -192,6 +208,7 @@ const checkIfDatesConflict = testRes => {
 const _addReservation = resObj => {
     const newRes = Reservation(resObj)
     return newRes.save().then(resObj => {
+        addReservationIDToUser(resObj.renter, resObj._id)
         return {
             success: true,
             reservation: resObj
