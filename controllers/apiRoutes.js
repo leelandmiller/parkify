@@ -3,6 +3,15 @@ const {checkSpotObjAndAdd, getSpotInfo, checkAndUpdateSpotSchedule, deleteSpot, 
 const {checkResevationObj, getAllReservations, finalReservationConflicts} = require('../db/reservationOrm');
 const {getUserSpots} = require('../db/userOrm');
 
+//get spot based on a location and search radius
+router.get('/spot/loc', (req, res)=>{
+    const loc = req.body.loc;
+    const distance = req.body.distance;
+    getSpotsFromPoint(loc, distance).then(results => {
+        res.json(results)
+    })
+})
+
 // update spot schedule
 router.put('/spot/schedule', (req, res) => {
     const spotId = req.body.spotId;
@@ -30,14 +39,6 @@ router.post('/reservation', (req, res) => {
     });
 });
 
-//get spot based on a location and search radius
-router.get('/spot/loc', (req, res)=>{
-    const loc = req.body.loc;
-    const distance = req.body.distance;
-    getSpotsFromPoint(loc, distance).then(results => {
-        res.json(results)
-    })
-})
 
 //get a spots info based on spotId
 router.get('/spot', (req, res) => {

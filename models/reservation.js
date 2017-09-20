@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const deepPopulate = require('mongoose-deep-populate')(mongoose);
+
 
 // Create a Schema class with mongoose
 const Schema = mongoose.Schema;
@@ -29,6 +31,13 @@ const ReservationSchema = new Schema({
     }
 });
 
+
+ReservationSchema.plugin(deepPopulate, {
+  whitelist: [
+    'spot',
+    'spot.schedule'
+  ]
+});
 // Make a Spot model with the SpotSchema
 const Reservation = mongoose.model("Reservation", ReservationSchema);
 
