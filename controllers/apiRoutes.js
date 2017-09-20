@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {checkSpotObjAndAdd, getSpotInfo, checkAndUpdateSpotSchedule, deleteSpot} = require('../db/spotOrm');
+const {checkSpotObjAndAdd, getSpotInfo, checkAndUpdateSpotSchedule, deleteSpot, getSpotsFromPoint} = require('../db/spotOrm');
 const {checkResevationObj, getAllReservations, finalReservationConflicts} = require('../db/reservationOrm');
 const {getUserSpots} = require('../db/userOrm');
 
@@ -30,13 +30,21 @@ router.post('/reservation', (req, res) => {
     });
 });
 
+//get spot based on a location and search radius
+router.get('/spot/loc', (req, res)=>{
+    const loc = req.body.loc;
+    const distance = req.body.distance;
+    getSpotsFromPoint(loc, distance).then(results => {
+        res.json(results)
+    })
+})
+
+//get a spots info based on spotId
 router.get('/spot', (req, res) => {
-    //add logic for getting spots by location [lng, lat]
-    if(req.body.spotId){
         getSpotInfo(req.body.spotId).then(results => {
             res.json(results);
         });
-    }
+
 });
 
 // delete a spot
