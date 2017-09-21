@@ -84,6 +84,10 @@ const getAllReservations = spotId =>
     Reservation.find({
         spot: spotid
     })
+    .deepPopulate([
+            'spot',
+            'spot.schedule'
+        ])
     .then(results => {
         return {
             success: true,
