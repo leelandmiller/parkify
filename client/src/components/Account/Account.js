@@ -6,14 +6,14 @@ import AccountSettings from '../AccountSettings';
 
 const Account = props => {
 
-		return (
-			<div>
-			<AccountTabs 
-			activeSettingsTab = { props.activeSettingsTab } 
-			changeActiveAccountTab = { props.changeActiveAccountTab } />
-			{ props.activeSettingsTab === "AccountSettings" ? <AccountSettings /> : <Reservations /> }
-			</div>
-		)
+	return (
+		<div>
+		<AccountTabs 
+		activeSettingsTab = { props.activeSettingsTab } 
+		changeActiveAccountTab = { props.changeActiveAccountTab } />
+		{ props.activeSettingsTab === "AccountSettings" ? <AccountSettings /> : <Reservations /> }
+		</div>
+	)
 }
 
 export default Account;
