@@ -5,7 +5,7 @@ import "./LoginTabs.css";
 const LoginTabs = props => {
 
 		return (
-<Tabs className="form">
+<Tabs className="form tabs">
     <TabList>
         <Tab onClick =  { () => { props.changeActiveTab("login") }} className = { props.activeTab === "login" ? "is-active" : "" }>
             <TabLink>

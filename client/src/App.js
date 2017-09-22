@@ -3,8 +3,8 @@ import Nav from './components/Nav';
 import PageFooter from './components/PageFooter';
 import FormWrapper from './components/FormWrapper';
 import Account from './components/Account';
-import Body from './components/Body';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import Home from './components/Home';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import './App.css';
 
@@ -15,7 +15,7 @@ class App extends Component {
                 <Nav />
                <Router>
                   <div>
-							{/*<Route path="/" component={Account}/>*/}
+							<Route path="/home" component={Home}/>
                      <Route exact path="/login" component={FormWrapper}/>
                      <Route exact path="/account" component={Account}/>
                      {/*<Route path="/search" component={Search}/>*/}
