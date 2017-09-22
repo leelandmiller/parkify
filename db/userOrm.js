@@ -2,27 +2,6 @@ const User = require('../models/user');
 const axios = require('axios');
 
 module.exports = {
-    // _findOrCreateGoogleUser: function(req, res) {
-    //     return User.findOne({
-    //         where: {
-    //             _id: req.user._id
-    //         }
-    //     }).then(user => {
-    //         if (user) {
-    //             res.json(user);
-    //         } else {
-    //             const newUser = new User(req.user)
-    //             return newUser.save().then(newUserRes => {
-    //                 res.redirect('/');
-    //             }).catch(err => {
-    //                 res.json({
-    //                     success: false,
-    //                     err
-    //                 });
-    //             });
-    //         }
-    //     });
-    // },
     getCurrentUser: function(req, res) {
         res.json(req.user);
     },
@@ -114,9 +93,22 @@ module.exports = {
                 'reservations.spot'
             ])
             .exec((err, populate) => {
-                console.log(populate);
+
+                return populate;
             }
         );
+    },
+    getUserProfileInfo: function(_id) {
+        return User.findOne({ _id }).then(user => {
+            return {
+                success: true,
+                user
+            }
+        }).catch(err => {
+            return {
+                success: false,
+                err
+            }
+        });
     }
-    //TODO: getUserReservations, getUserProfileInfo
 }

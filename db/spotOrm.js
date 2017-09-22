@@ -188,6 +188,7 @@ const _checkSpotSchedulAndAdd = (scheduleObj, spotObj, spotId, update) => {
             func: '_checkSpotSchedulAndAdd'
         }
     } else {
+        //if being used as schedule update call _updateSpotSchedule
         if (update) {
             return _updateSpotSchedule(spotId, scheduleObj)
         } else {

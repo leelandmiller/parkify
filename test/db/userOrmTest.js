@@ -10,11 +10,6 @@ let goodUser = new User(correctUserObj);
 let userId = goodUser.save();
 let badUser = new User(missingFieldsUserObj);
 
-// let testSpot = new Spot(correctSpotObj);
-// testSpot.save();
-// let testSchedule = new SpotSchedule(correctScheduleObj);
-// testSchedule.save();
-
 describe('userOrm', () => {
     before(function(done) {
         mongoose.connect('mongodb://localhost/parkifyTestDatabase');
@@ -25,6 +20,7 @@ describe('userOrm', () => {
             userId.then(user => {
                 userId = user._id;
                 correctSpotObj.owner = userId;
+                correctReservationObj.renter = userId;
             }).then(done, done);
         });
     });
@@ -57,9 +53,6 @@ describe('userOrm', () => {
         });
     });
 
-    // it('should poopulate a user\'s reservations', (done) => {
-    //
-    // })
 
     after((done) => {
         Promise.all([
