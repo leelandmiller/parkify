@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Account from '../Account';
 import FormWrapper from '../FormWrapper';
+import AccountSettings from '../AccountSettings';
 import "./Body.css";
 import { Container} from "bloomer";
 
@@ -16,30 +17,30 @@ class Body extends Component {
 	this.changeActiveTab = this.changeActiveTab.bind(this);
 	this.changeActiveAccountTab = this.changeActiveAccountTab.bind(this);
     }
-	changeActiveTab(tab) { 
+	changeActiveTab(tab) {
 		this.setState(
 			{ activeLoginFormTab:tab }
 		)
 	};
-		changeActiveAccountTab(tab) { 
+		changeActiveAccountTab(tab) {
 		this.setState(
 			{ activeSettingsTab:tab }
 		)
 	};
 
-    render() { 
+    render() {
 
     	let style = {
 	      height: "100%"
     	}
 	return (
-		<Container 
+		<Container
 		 	style={style}
 		>
-		<FormWrapper 
-			activeTab = {this.state.activeLoginFormTab} 
+		<FormWrapper
+			activeTab = {this.state.activeLoginFormTab}
 			changeActiveTab = { this.changeActiveTab } />
-		<Account activeSettingsTab = {this.state.activeSettingsTab} 
+		<Account activeSettingsTab = {this.state.activeSettingsTab}
 			changeActiveAccountTab = { this.changeActiveAccountTab } />
 		{/*<MapContainer />*/}
 		</Container>
