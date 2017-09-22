@@ -52,6 +52,12 @@ render() {
                     <Button isLink>Cancel</Button>
                 </Control>
             </Field>
+           <Field isGrouped>
+              <ul>
+              <li>By logging in, I agree to themParkify <a>terms and conditions.</a></li>
+              <li>If I'm a seller, I also agree to the <a>Operator Dashboard terms.</a></li>
+                 </ul>
+           </Field>
             </div>
         )
     }
