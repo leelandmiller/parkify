@@ -25,7 +25,7 @@ class Nav extends Component {
 			<Navbar>
 				<NavbarBrand>
 				    <NavbarItem>
-				        <img className="logo" src={logo} alt="parkifyLogo" style={{ marginRight: 5 }} />
+				        <NavbarItem href='/'><img className="logo" src={logo} alt="parkifyLogo" style={{ marginRight: 5 }} /></NavbarItem>
 				    </NavbarItem>
 				    <NavbarItem isHidden='desktop'>
 				        <Icon icon='github' />
@@ -37,11 +37,8 @@ class Nav extends Component {
 				</NavbarBrand>
 				<NavbarMenu isActive={this.state.isActive} onClick={this.onClickNav}>
 				    <NavbarStart>
-				        <NavbarItem href='/'>Home</NavbarItem>
-
-				            <NavbarItem href='/account'>Account
-								</NavbarItem>
-
+						<NavbarItem href='/search'>Find a Spot</NavbarItem>
+						<NavbarItem href='/'>Sell a Spot</NavbarItem>
 				    </NavbarStart>
 				    <NavbarEnd>
 
@@ -49,6 +46,7 @@ class Nav extends Component {
 				            <Icon icon='github' />
 				        </NavbarItem>
 				        	<NavbarItem href='/login'>Login/SignUp</NavbarItem>
+				        	<NavbarItem href='/account'>Account</NavbarItem>
 				    </NavbarEnd>
 				</NavbarMenu>
 			</Navbar>

@@ -2,24 +2,39 @@ import React, { Component } from "react";
 import "./MapContainer.css";
 import { Container} from "bloomer";
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import API from "../../utils/API";
+import SimpleSearch from '../SimpleSearch';
  
 export class MapContainer extends Component {
 
-  constructor(props) {
-    super(props);
+    constructor(props) {
+        super(props);
 
-    this.state = {
-        lat: '',
-        lng: '',
-        locations: [
-            {
-                lat: 33.039139,
-                lng: -117.295425
-            }           
-        ]
+        this.state = {
+            lat: "",
+            lng: "",
+            location: this.props.location,
+            distance: this.props.distance,
+            closeBy: []
+        }
+
+        this.renderMarkers = this.renderMarkers.bind(this);
     }
 
-  }
+    calculateGeoCode = () => {
+        console.log('New dist');
+    };
+
+    renderMarkers = () => {
+        let searchLoc = this.state.location;
+        let searchDist = this.state.dist;
+
+        API.getSpotsByPoint(searchLoc, searchDist).then((res) => {
+            this.setState({ closeBy: res.data });
+        });
+    };
+
+  // Function to grab the info from the API and display the markers 
 
   render() {
     if (!this.props.loaded) {
@@ -28,14 +43,13 @@ export class MapContainer extends Component {
         const style = {
           width: '100vw',
           height: '430px'
-
         }
         return (
             <Container>
                 <div style={style}>
                     <Map google={this.props.google} visible={true}>
                         {
-                            this.state.locations.map(location => (
+                            this.state.closeBy.map(location => (
                                 <Marker
                                     title={'The marker`s title will appear as a tooltip.'}
                                     name={'La Jolla'}
@@ -44,7 +58,6 @@ export class MapContainer extends Component {
                                 )
                             )
                         }
-
                     </Map>
                 </div>
             </Container>

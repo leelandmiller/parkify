@@ -1,0 +1,26 @@
+#home-hero {
+	position: relative;
+}
+
+#hero-text {
+	left: 0;
+    position: absolute;
+    text-align: center;
+    top: 33%;
+    width: 100%
+}
+
+#hero-text h1 {
+	font-size: 4em;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.hero-img {
+	width: 100%;
+}
+
+#home-intro, #home-select {
+	text-align: center;
+	margin: 100px 0px;
+}

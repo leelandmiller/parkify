@@ -29,7 +29,6 @@ class Body extends Component {
 			{ activeSettingsTab:tab }
 		)
 	};
-
     render() { 
 		return (
 			<Container>
@@ -40,7 +39,7 @@ class Body extends Component {
 					changeActiveTab = { this.changeActiveTab } />
 				<Account activeSettingsTab = {this.state.activeSettingsTab} 
 					changeActiveAccountTab = { this.changeActiveAccountTab } />
-			</Container>d
+			</Container>
 		)
     }
 }
