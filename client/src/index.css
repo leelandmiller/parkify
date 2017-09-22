@@ -9,3 +9,11 @@ body, html, #root{
 	height: 100%;
 
 }
+
+.input{
+	  border-radius: 0px;
+}
+
+.button{
+	  border-radius: 0px;
+}

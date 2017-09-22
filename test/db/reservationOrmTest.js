@@ -30,12 +30,12 @@ describe("spotOrm", () => {
             }).then(()=>{
                 checkSpotObjAndAdd(correctSpotObj, correctScheduleObj)
                 .then(spotObj => {
-                    correctReservationObj.spot = spotObj._id;
-                    testSpotId = spotObj._id;
+                    correctReservationObj.spot = spotObj.spot._id;
+                    testSpotId = spotObj.spot._id;
                     checkSpotObjAndAdd(correctSpotObj, singleDayScheduleObj).then(spotObj => {
-                        lateCorrectReservationObj.spot = spotObj._id;
-                    })
-                }).then(done, done)
+                        lateCorrectReservationObj.spot = spotObj.spot._id;
+                    }).then(done, done)
+                })
             })
         });
     })
@@ -71,7 +71,7 @@ describe("spotOrm", () => {
         testReservation.save().then(newResObj => {
             finalReservationConflicts(newResObj._id, testSpotId).then(results => {
                 assert.equal(results.success, false)
-            }).then(done, done)
+            }).then(()=>done())
         })
    })
 

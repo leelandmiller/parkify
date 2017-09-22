@@ -14,6 +14,9 @@ const API = {
     deleteSpot: function(spotId) {
         return axios.delete('/api/spot', { spotId });
     },
+    getSpotsByPoint: function(locObj){
+        return axios.get('/api/spot/loc', { locObj });
+    },
     /**RESERVATION API CALLS**/
     addReservation: function(reservationObj) {
         return axios.post('/api/reservation', { reservationObj });

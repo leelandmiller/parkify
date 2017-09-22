@@ -19,12 +19,12 @@ class Body extends Component {
 	this.changeActiveAccountTab = this.changeActiveAccountTab.bind(this);
     }
 
-	changeActiveTab(tab) { 
+	changeActiveTab(tab) {
 		this.setState(
 			{ activeLoginFormTab:tab }
 		)
 	};
-		changeActiveAccountTab(tab) { 
+		changeActiveAccountTab(tab) {
 		this.setState(
 			{ activeSettingsTab:tab }
 		)
@@ -40,7 +40,7 @@ class Body extends Component {
 					changeActiveTab = { this.changeActiveTab } />
 				<Account activeSettingsTab = {this.state.activeSettingsTab} 
 					changeActiveAccountTab = { this.changeActiveAccountTab } />
-			</Container>
+			</Container>d
 		)
     }
 }
