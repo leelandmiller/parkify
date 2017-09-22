@@ -45,6 +45,14 @@ render() {
                 </Icon>
             </Control>
             </Field>
+           <Field isGrouped>
+              <Control>
+                 <input type="file"/>
+              </Control>
+
+           </Field>
+           
+           
             <Field isGrouped>
                 <Control>
                     <Button isColor='primary'>Submit</Button>

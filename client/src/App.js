@@ -15,10 +15,10 @@ class App extends Component {
                 <Nav />
                <Router>
                   <div>
+							{/*<Route path="/" component={Account}/>*/}
                      <Route exact path="/login" component={FormWrapper}/>
                      <Route exact path="/account" component={Account}/>
-                     {/*<Route path="/about" component={Account}/>*/}
-                     {/*<Route path="/topics" component={Topics}/>*/}
+                     {/*<Route path="/search" component={Search}/>*/}
                   </div>
                </Router>
                 <PageFooter />

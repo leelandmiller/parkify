@@ -38,15 +38,10 @@ class Nav extends Component {
 				<NavbarMenu isActive={this.state.isActive} onClick={this.onClickNav}>
 				    <NavbarStart>
 				        <NavbarItem href='/'>Home</NavbarItem>
-				        <NavbarItem hasDropdown isHoverable>
-				            <NavbarLink href='#/documentation'>Documentation</NavbarLink>
-				            <NavbarDropdown>
-				                <NavbarItem href='#'>One A</NavbarItem>
-				                <NavbarItem href='#'>Two B</NavbarItem>
-				                <NavbarDivider />
-				                <NavbarItem href='#'>Two A</NavbarItem>
-				            </NavbarDropdown>
-				        </NavbarItem>
+
+				            <NavbarItem href='/account'>Account
+								</NavbarItem>
+
 				    </NavbarStart>
 				    <NavbarEnd>
 
@@ -54,15 +49,6 @@ class Nav extends Component {
 				            <Icon icon='github' />
 				        </NavbarItem>
 				        	<NavbarItem href='/login'>Login/SignUp</NavbarItem>
-				        <NavbarItem>
-				            <Field isGrouped>
-				                <Control>
-				                    <Button id="log-in" href="/auth/google">
-				                        <span>Sign in test</span>
-				                    </Button>
-				                </Control>
-				            </Field>
-				        </NavbarItem>
 				    </NavbarEnd>
 				</NavbarMenu>
 			</Navbar>
