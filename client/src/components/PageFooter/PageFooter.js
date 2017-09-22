@@ -3,7 +3,7 @@ import "./PageFooter.css";
 import {Footer, Container, Content, Column, Columns, Icon} from 'bloomer';
 
 class PageFooter extends Component {
-
+	
     render() { 
 		return (
 			<Footer id='footer'>
@@ -30,7 +30,6 @@ class PageFooter extends Component {
 			</Footer>
 		)
     }
-
 }
 
 export default PageFooter;

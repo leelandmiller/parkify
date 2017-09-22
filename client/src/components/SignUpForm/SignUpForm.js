@@ -30,7 +30,6 @@ render() {
                     <span className="fa fa-check" aria-hidden="true" />
                 </Icon>
             </Control>
-                {/*<Help isColor='success'>This username is available</Help>*/}
             </Field>
             <Field>
                 <Label>
@@ -45,8 +44,15 @@ render() {
                     <span className="fa fa-check" aria-hidden="true" />
                 </Icon>
             </Control>
-                {/*<Help isColor='success'>This username is available</Help>*/}
             </Field>
+           <Field isGrouped>
+              <Control>
+                 <input type="file"/>
+              </Control>
+
+           </Field>
+           
+           
             <Field isGrouped>
                 <Control>
                     <Button isColor='primary'>Submit</Button>
@@ -55,9 +61,9 @@ render() {
                     <Button isLink>Cancel</Button>
                 </Control>
             </Field>
-</div>
-)
-}
+            </div>
+        )
+    }
 }
 
 export default SignUpForm;

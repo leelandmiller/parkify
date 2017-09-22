@@ -5,3 +5,12 @@
 .reservationButton {
 	margin-left: 43%;
 }
+
+a.button.reservationButton{
+    color: black !important;
+}
+
+.table tr.is-selected {
+    background-color: mediumaquamarine;
+    color: #fff;
+}
