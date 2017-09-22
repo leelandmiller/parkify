@@ -13,7 +13,7 @@ class AccountSettings extends Component {
 
 			render() {
 			    return (
-			        <div>
+			        <div className="accountDetails">
 			<Table isBordered isStriped isNarrow isSize={1} className="table">
 			    <thead>
 			        <tr>

@@ -1,5 +1,6 @@
 .reservations {
-	width:100%;
+    width: 113%;
+    margin-left: 7%;
 }
 
 .reservationButton {
@@ -11,6 +12,6 @@ a.button.reservationButton{
 }
 
 .table tr.is-selected {
-    background-color: mediumaquamarine;
+    background-color: ;
     color: #fff;
 }
