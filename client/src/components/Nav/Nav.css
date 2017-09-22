@@ -6,6 +6,12 @@ a.navbar-item {
     color:white;
 }
 
+a.navbar-item:hover {
+    color:black;
+    background: #1DA1F2;
+    font-weight: bold;
+}
+
 .navbar-menu {
     height: 70px;
 }
