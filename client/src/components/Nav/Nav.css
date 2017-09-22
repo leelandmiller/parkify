@@ -1,5 +1,9 @@
 .navbar {
-	background-color: #FFFFFF;
+    background: #1DA1F2;
+}
+
+a.navbar-item {
+    color:white;
 }
 
 .navbar-menu {

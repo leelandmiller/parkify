@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import { Navbar, NavbarBrand, NavbarItem, NavbarLink, NavbarStart, NavbarMenu, 
-	NavbarDropdown, Icon, NavbarBurger, NavbarDivider, NavbarEnd, Field,
+import { Navbar, NavbarBrand, NavbarItem, NavbarStart, NavbarMenu, Icon, NavbarBurger, NavbarEnd,
 	Control, Button } from "bloomer";
-import logo from './parkifyLogo.jpg';
-import { NavLink } from 'react-router-dom'
+import logo from './parkifyLogo.png';
 import "./Nav.css";
 
 
@@ -25,7 +23,7 @@ class Nav extends Component {
 			<Navbar>
 				<NavbarBrand>
 				    <NavbarItem>
-				        <img className="logo" src={logo} alt="parkifyLogo" style={{ marginRight: 5 }} />
+				        <img href="/home" className="logo" src={logo} alt="parkifyLogo" style={{ marginRight: 5 }} />
 				    </NavbarItem>
 				    <NavbarItem isHidden='desktop'>
 				        <Icon icon='github' />
@@ -37,7 +35,7 @@ class Nav extends Component {
 				</NavbarBrand>
 				<NavbarMenu isActive={this.state.isActive} onClick={this.onClickNav}>
 				    <NavbarStart>
-				        <NavbarItem href='/'>Home</NavbarItem>
+				        <NavbarItem href='/Home'>Home</NavbarItem>
 
 				            <NavbarItem href='/account'>Account
 								</NavbarItem>

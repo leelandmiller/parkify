@@ -13,7 +13,7 @@ import "./Reservations.css";
 
 			render() {
 			    return (
-			        <div>
+			        <div className="reservations">
 			<Table isBordered isStriped isNarrow isSize={1} className="reservations">
 			    <thead>
 			        <tr>

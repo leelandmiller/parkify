@@ -24,7 +24,7 @@ class Account extends Component {
 	render(){
 	
 	return (
-			<div>
+			<div className="acct">
 				<AccountTabs
 				activeSettingsTab = { this.state.activeSettingsTab }
 				changeActiveAccountTab = { this.changeActiveAccountTab } />
