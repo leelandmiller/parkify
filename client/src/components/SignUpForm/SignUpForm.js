@@ -83,10 +83,10 @@ class SignUpForm extends Component {
                </Field>
                 <Field isGrouped>
                     <Control>
-                        <Button isColor='primary'>Submit</Button>
+                        <Button isColor='primary' className="btn btn-3">Submit</Button>
                     </Control>
                     <Control>
-                        <Button isLink>Cancel</Button>
+                       <Button isColor='primary' className="btn btn-3">Cancel</Button>
                     </Control>
                 </Field>
             </form>

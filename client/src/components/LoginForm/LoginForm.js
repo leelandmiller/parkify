@@ -73,7 +73,7 @@ class LoginForm extends Component {
                         <Button className="btn btn-3" isColor='primary'>Submit</Button>
                     </Control>
                     <Control>
-                        <Button isLink>Cancel</Button>
+                       <Button isColor='primary' className="btn btn-3">Cancel</Button>
                     </Control>
                 </Field>
                
