@@ -1,3 +1,13 @@
 .navbar {
-	background-color: #FFFFFF;
+    background: #1DA1F2;
+}
+
+a.navbar-item {
+    color:white;
+}
+
+a.navbar-item:hover {
+    color:black;
+    background: #1DA1F2;
+    font-weight: bold;
 }

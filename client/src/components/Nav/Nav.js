@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import { Navbar, NavbarBrand, NavbarItem, NavbarLink, NavbarStart, NavbarMenu, 
-	NavbarDropdown, Icon, NavbarBurger, NavbarDivider, NavbarEnd, Field,
+import { Navbar, NavbarBrand, NavbarItem, NavbarStart, NavbarMenu, Icon, NavbarBurger, NavbarEnd,
 	Control, Button } from "bloomer";
-import logo from './parkifyLogo.jpg';
-import { NavLink } from 'react-router-dom'
+import logo from './parkifyLogo.png';
 import "./Nav.css";
 
 
@@ -45,6 +43,8 @@ class Nav extends Component {
 				        <NavbarItem href="https://github.com/leelandmiller/parkify" isHidden='touch'>
 				            <Icon icon='github' />
 				        </NavbarItem>
+						 <NavbarItem href='/account'>Account
+						 </NavbarItem>
 				        	<NavbarItem href='/login'>Login/SignUp</NavbarItem>
 				        	<NavbarItem href='/account'>Account</NavbarItem>
 				    </NavbarEnd>

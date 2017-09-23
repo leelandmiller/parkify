@@ -1,0 +1,27 @@
+.tabs {
+    margin-top: 5px;
+    margin-left: 15%;
+    border-bottom-color: transparent;
+}
+
+.tabs li.is-active a {
+    border-bottom-color: #1DA1F2;
+    color: #1DA1F2;
+}
+
+.button.is-primary {
+    background-color: #FED766;
+    border-color: transparent;
+    color: #fff;
+}
+
+.button.is-primary:hover {
+    background-color: #696773;
+    border-color: transparent;
+    color: #fff;
+}
+
+.table tr.is-selected {
+    background-color: #FED766;
+    color: #fff;
+}

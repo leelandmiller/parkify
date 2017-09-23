@@ -1,0 +1,11 @@
+.accountDetails{
+    display:flex;
+    margin-left: 15%;
+}
+
+.details {
+    margin-top: 0px;
+    margin-bottom: 25px;
+    margin-left: 25px;
+    width: 570px;
+}

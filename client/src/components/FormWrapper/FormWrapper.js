@@ -28,7 +28,7 @@ class FormWrapper extends Component {
 	
 	render(){
 		return(
-			<div>
+			<div className="formwrapper">
 				<LoginTabs
 					activeTab = { this.state.activeLoginFormTab }
 					changeActiveTab = { this.changeActiveTab } />
