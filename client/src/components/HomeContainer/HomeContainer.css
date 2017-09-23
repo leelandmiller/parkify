@@ -2,6 +2,12 @@
 	position: relative;
 }
 
+#home-hero::before {
+	position: absolute;
+	background-color: #000;
+	top: 50%;
+}
+
 #hero-text {
 	left: 0;
     position: absolute;
@@ -23,4 +29,11 @@
 #home-intro, #home-select {
 	text-align: center;
 	margin: 100px 0px;
+}
+
+.round-number {
+	border: 1px solid #ececec;
+	font-size: 2em;
+	border-radius: 50%;
+	padding: 20px 40px;
 }

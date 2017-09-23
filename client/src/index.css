@@ -7,7 +7,6 @@ body {
 
 body, html, #root{
 	height: 100%;
-
 }
 
 h1 { font-size: 3em; }
@@ -19,14 +18,17 @@ h6 { font-size: 1.75em; }
 
 h1, h2 { text-transform: uppercase; letter-spacing: 1.4px;} 
 
-h1, h2, h3, h4, h5, h6 {  }
+h1, h2, h3, h4, h5, h6 { font-family: 'futura', sans-serif;}
 
-p { font-size: 1em; }
+p { font-size: 1.5em; }
+
+button { background-color: #3fc9e6; }
 
 .input{
 	  border-radius: 0px;
 }
 
-.button{
+button{
 	  border-radius: 0px;
+	  margin: 20px;
 }

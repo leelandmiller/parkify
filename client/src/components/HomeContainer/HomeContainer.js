@@ -19,21 +19,24 @@ const HomeContainer = props => {
 			</div>
 			<Container>
 				<div id="home-intro">
-					<Title isSize={2}>Rent your parking spot</Title>
-					<p>Sell your parking spot or rent one from a verified owner.</p>
-					<Button isColor='success'>Start Now</Button>
+					<Title isSize={2}>Sell your parking spot</Title>
+					<p>Make extra moola with your parking spot.</p>
+					<button>Start Now</button>
 				</div>
 				<div id="home-select">
 					<Title isSize={2}>Sell your spot in a snap!</Title>
 					<Columns isCentered>
 					    <Column isSize='1/3'>
-					    	<Notification isColor='success' hasTextAlign='centered'> 1. Fill out the form </Notification>
+					    	<div><span className="round-number">1</span></div>
+					    	<Title isSize={5}  hasTextAlign='centered'>1. Fill out the form </Title>
 					    </Column>
 					   	<Column isSize='1/3'>
-					        <Notification isColor='success' hasTextAlign='centered'> 2. Start renting </Notification>
+					   		<span className="round-number">2</span>
+					   		<Title isSize={5}  hasTextAlign='centered'>2. Start renting </Title>
 					    </Column>
 					   	<Column isSize='1/3'>
-					        <Notification isColor='success' hasTextAlign='centered'> 3. Get Paid </Notification>
+					   		<span className="round-number">3</span>
+					        <Title isSize={5}  hasTextAlign='centered'>3. Get Paid</Title>
 					    </Column>
 					</Columns>
 				</div>
