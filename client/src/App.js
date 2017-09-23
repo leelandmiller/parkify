@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Nav from './components/Nav';
 import PageFooter from './components/PageFooter';
 import FormWrapper from './components/FormWrapper';
+import HomeContainer from './components/HomeContainer';
+import SimpleSearch from './components/SimpleSearch';
 import Account from './components/Account';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
@@ -14,10 +16,10 @@ class App extends Component {
                 <Nav />
                <Router>
                   <div>
-							{/*<Route path="/home" component={Home}/>*/}
+                     <Route exact path="/" component={HomeContainer}/>
                      <Route exact path="/login" component={FormWrapper}/>
                      <Route exact path="/account" component={Account}/>
-                     {/*<Route path="/search" component={Search}/>*/}
+                     <Route exact path="/search" component={SimpleSearch}/>
                   </div>
                </Router>
                 <PageFooter />

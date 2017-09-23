@@ -1,4 +1,5 @@
 .btn {
+    color: black;
     flex: 1 1 auto;
     margin: 10px;
     text-align: center;
@@ -16,14 +17,12 @@
 
 .btn:hover {
     background-position: right center; /* change the direction of the change here */
-    border: none;
 }
 
 .btn:active {
     background-position: right center; /* change the direction of the change here */
-    border: none;
 }
 
 .btn-3 {
-    background-image: linear-gradient(to right, #84fab0 0%, #8fd3f4 51%, #84fab0 100%);
+    background-image: linear-gradient(to right, #3fc8e8 0%, #92f2fe 51%, #3fc8e8 100%);
 }

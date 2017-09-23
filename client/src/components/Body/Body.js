@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import Account from '../Account';
 import FormWrapper from '../FormWrapper';
-import AccountSettings from '../AccountSettings';
+import SimpleSearch from '../SimpleSearch';
+import HomeContainer from '../HomeContainer';
 import "./Body.css";
 import { Container} from "bloomer";
 
 class Body extends Component {
-    constructor() {
 
+    constructor() {
       super();
 
       this.state = {
@@ -17,6 +18,7 @@ class Body extends Component {
 	this.changeActiveTab = this.changeActiveTab.bind(this);
 	this.changeActiveAccountTab = this.changeActiveAccountTab.bind(this);
     }
+
 	changeActiveTab(tab) {
 		this.setState(
 			{ activeLoginFormTab:tab }
@@ -27,23 +29,17 @@ class Body extends Component {
 			{ activeSettingsTab:tab }
 		)
 	};
-
-    render() {
-
-    	let style = {
-	      height: "100%"
-    	}
-	return (
-		<Container
-		 	style={style}
-		>
-		<FormWrapper
-			activeTab = {this.state.activeLoginFormTab}
-			changeActiveTab = { this.changeActiveTab } />
-		<Account activeSettingsTab = {this.state.activeSettingsTab}
-			changeActiveAccountTab = { this.changeActiveAccountTab } />
-		{/*<MapContainer />*/}
-		</Container>
+    render() { 
+		return (
+			<Container>
+				<HomeContainer />
+				<SimpleSearch />
+				<FormWrapper 
+					activeTab = {this.state.activeLoginFormTab} 
+					changeActiveTab = { this.changeActiveTab } />
+				<Account activeSettingsTab = {this.state.activeSettingsTab} 
+					changeActiveAccountTab = { this.changeActiveAccountTab } />
+			</Container>
 		)
     }
 }

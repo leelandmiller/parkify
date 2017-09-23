@@ -11,7 +11,3 @@ a.navbar-item:hover {
     background: transparent;
     font-weight: bold;
 }
-
-.navbar-menu {
-    height: 70px;
-}
