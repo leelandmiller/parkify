@@ -33,7 +33,6 @@ class FormWrapper extends Component {
 			</div>
 		)
 	}
-	
 }
 
 export default FormWrapper;

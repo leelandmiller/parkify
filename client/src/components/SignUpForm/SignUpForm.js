@@ -4,64 +4,92 @@ import "./SignUpForm.css";
 
 class SignUpForm extends Component {
 
+    constructor(props) {
+        super(props);
 
-render() {
-    return (
-        <div className="form">
-            <Field>
-                <Label>
-                    Username
-            </Label>
-            <Control>
-                <Input type="text" placeholder='Text Input' />
-            </Control>
-            </Field>
+        this.state = {
+            name: '',
+            email: '',
+            password: '',
+            confirmPass: ''
+        }
 
-            <Field>
-                <Label>
-                    Password
-                </Label>
-            <Control hasIcons>
-                <Input isColor='success' placeholder='Password' value='' />
-                    <Icon isSize='small' isAlign='left'>
-                        <span className="fa fa-user" aria-hidden="true" />
-                    </Icon>
-                <Icon isSize='small' isAlign='right'>
-                    <span className="fa fa-check" aria-hidden="true" />
-                </Icon>
-            </Control>
-            </Field>
-            <Field>
-                <Label>
-                    Repeat Password
-                </Label>
-            <Control hasIcons>
-                <Input isColor='success' placeholder='Repeat Password' value='' />
-                    <Icon isSize='small' isAlign='left'>
-                        <span className="fa fa-user" aria-hidden="true" />
-                    </Icon>
-                <Icon isSize='small' isAlign='right'>
-                    <span className="fa fa-check" aria-hidden="true" />
-                </Icon>
-            </Control>
-            </Field>
-           <Field isGrouped>
-              <Control>
-                 <input type="file"/>
-              </Control>
+        this.handleChange = this.handleChange.bind(this);
+    }
 
-           </Field>
-           
-           
-            <Field isGrouped>
+    handleChange(event) {
+
+        const val = event.target.value;
+        const name = event.target.name;
+
+        this.setState({
+            [name]: val
+        });
+    }
+
+    render() {
+        return (
+            <form className="form">
+                <Field>
+                    <Label>
+                        Name
+                    </Label>
                 <Control>
-                    <Button isColor='primary'>Submit</Button>
+                    <Input type="text" placeholder='Full Name' name='name' value={this.state.name} onChange={this.handleChange} />
                 </Control>
+                </Field>
+                <Field>
+                    <Label>
+                        Email
+                    </Label>
                 <Control>
-                    <Button isLink>Cancel</Button>
+                    <Input type="email" placeholder='Email' name='email' value={this.state.email} onChange={this.handleChange} />
                 </Control>
-            </Field>
-            </div>
+                </Field>
+
+                <Field>
+                    <Label>
+                        Password
+                    </Label>
+                <Control hasIcons>
+                    <Input type='password' name='password' isColor='success' placeholder='Password' value={this.state.password} onChange={this.handleChange} />
+                        <Icon isSize='small' isAlign='left'>
+                            <span className="fa fa-user" aria-hidden="true" />
+                        </Icon>
+                    <Icon isSize='small' isAlign='right'>
+                        <span className="fa fa-check" aria-hidden="true" />
+                    </Icon>
+                </Control>
+                </Field>
+                <Field>
+                    <Label>
+                        Repeat Password
+                    </Label>
+                <Control hasIcons>
+                    <Input type='password' name='confirmPass' isColor='success' placeholder='Repeat Password' value={this.state.confirmPass} onChange={this.handleChange} />
+                        <Icon isSize='small' isAlign='left'>
+                            <span className="fa fa-user" aria-hidden="true" />
+                        </Icon>
+                    <Icon isSize='small' isAlign='right'>
+                        <span className="fa fa-check" aria-hidden="true" />
+                    </Icon>
+                </Control>
+                </Field>
+               <Field isGrouped>
+                  <Control>
+                     <Input type="file"/>
+                  </Control>
+
+               </Field>
+                <Field isGrouped>
+                    <Control>
+                        <Button isColor='primary'>Submit</Button>
+                    </Control>
+                    <Control>
+                        <Button isLink>Cancel</Button>
+                    </Control>
+                </Field>
+            </form>
         )
     }
 }

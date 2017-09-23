@@ -12,6 +12,6 @@ a.button.reservationButton{
 }
 
 .table tr.is-selected {
-    background-color: ;
+    background-color: lightgray;
     color: #fff;
 }
