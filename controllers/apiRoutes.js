@@ -5,7 +5,7 @@ const {getUserSpots} = require('../db/userOrm');
 
 //get spot based on a location and search radius
 router.get('/spot/loc', (req, res)=>{
-    const loc = req.body.loc;
+    const loc = req.body.location;
     const distance = req.body.distance;
     getSpotsFromPoint(loc, distance).then(results => {
         res.json(results)
