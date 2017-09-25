@@ -11,7 +11,7 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    password: {
+    photo: {
         type: String
         // required: true
     },
@@ -30,6 +30,26 @@ const UserSchema = new Schema({
             ref: 'Spot'
         }
     ],
+    vehicles: [
+        {
+            make: {
+                type: String
+            },
+            model: {
+                type: String
+            },
+            license_plate: {
+                type: String
+            }
+        }
+    ],
+    credit_cards: [
+        {
+            type: Number,
+            min: 16,
+            max: 16
+        }
+    ],
     uuid: {
         type: String,
     },
@@ -40,10 +60,12 @@ const UserSchema = new Schema({
         type: String
     },
     total_spent: {
-        type: Number
+        type: Number,
+        default: 0
     },
     total_earned: {
-        type: Number
+        type: Number,
+        default: 0
     },
     created_at: {
         type: Date,

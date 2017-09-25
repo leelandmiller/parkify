@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from 'react-router-dom';
 import { Icon, Field, Label, Control, Input, Button } from "bloomer";
 import "./SignUpForm.css";
 import API from '../../utils/API';
@@ -40,6 +41,7 @@ class SignUpForm extends Component {
             password: this.state.password
         }).then(newUser => {
             console.log(newUser);
+            this.props.history.push('/account')
         });
     }
 
@@ -118,4 +120,4 @@ class SignUpForm extends Component {
     }
 }
 
-export default SignUpForm;
+export default withRouter(SignUpForm);

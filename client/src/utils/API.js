@@ -16,7 +16,7 @@ const API = {
     },
     getSpotsByPoint: function(locObj){
         return axios.get('/api/spot/loc', {
-            loc: locObj.loc,
+            location: locObj.loc,
             distance: locObj.distance
         });
     },

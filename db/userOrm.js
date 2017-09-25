@@ -117,7 +117,7 @@ module.exports = {
     addNewUser: function(userObj) {
         return bcrypt.hash(userObj.password, 10).then(hash => {
             // Store hash in your password DB.
-            userObj.password = hash;
+            userObj.pw_hash = hash;
             const user = new User(userObj);
 
             return user.save().then(savedUser => {
