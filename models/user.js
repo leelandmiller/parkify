@@ -11,8 +11,8 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    ph_num: {
-        type: String,
+    password: {
+        type: String
         // required: true
     },
     pw_hash: {
