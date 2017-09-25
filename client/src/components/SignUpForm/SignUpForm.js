@@ -83,7 +83,14 @@ class SignUpForm extends Component {
                </Field>
                 <Field isGrouped>
                     <Control>
-                        <Button isColor='primary'>Submit</Button>
+                        
+                        {this.state.password === this.state.confirmPass 
+                            && (this.state.confirmPass !== '' && this.state.password !== '') 
+                            && this.state.password.match(/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9@#$%^&+=*.\-_]){3,}$/)
+                            && this.state.email.match(/^[a-zA-Z0-9\.]+@[a-zA-Z0-9]+(\-)?[a-zA-Z0-9]+(\.)?[a-zA-Z0-9]{2,6}?\.[a-zA-Z]{2,6}$/)?
+                            <Button isColor='primary'>Submit</Button>
+                            :<Button disabled  isColor='primary'>Submit</Button>}
+                        {}
                     </Control>
                     <Control>
                         <Button isLink>Cancel</Button>
