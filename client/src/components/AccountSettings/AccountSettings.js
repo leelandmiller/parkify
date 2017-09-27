@@ -10,7 +10,6 @@ class AccountSettings extends Component {
         isActive: false
       };
     }
-
 			render() {
 			    return (
 			        <div className="accountDetails">

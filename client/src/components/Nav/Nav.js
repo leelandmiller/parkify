@@ -39,7 +39,6 @@ class Nav extends Component {
 						<NavbarItem href='/'>Sell a Spot</NavbarItem>
 				    </NavbarStart>
 				    <NavbarEnd>
-
 				        <NavbarItem href="https://github.com/leelandmiller/parkify" isHidden='touch'>
 				            <Icon icon='github' />
 				        </NavbarItem>

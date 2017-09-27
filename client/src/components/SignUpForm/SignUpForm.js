@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Icon, Field, Label, Control, Input, Button } from "bloomer";
 import "./SignUpForm.css";
 
+
+
 class SignUpForm extends Component {
 
     constructor(props) {
@@ -16,7 +18,7 @@ class SignUpForm extends Component {
 
         this.handleChange = this.handleChange.bind(this);
     }
-
+    
     handleChange(event) {
 
         const val = event.target.value;
@@ -56,9 +58,6 @@ class SignUpForm extends Component {
                         <Icon isSize='small' isAlign='left'>
                             <span className="fa fa-user" aria-hidden="true" />
                         </Icon>
-                    <Icon isSize='small' isAlign='right'>
-                        <span className="fa fa-check" aria-hidden="true" />
-                    </Icon>
                 </Control>
                 </Field>
                 <Field>
@@ -70,16 +69,12 @@ class SignUpForm extends Component {
                         <Icon isSize='small' isAlign='left'>
                             <span className="fa fa-user" aria-hidden="true" />
                         </Icon>
-                    <Icon isSize='small' isAlign='right'>
-                        <span className="fa fa-check" aria-hidden="true" />
-                    </Icon>
                 </Control>
                 </Field>
                <Field isGrouped>
                   <Control>
                      <Input type="file"/>
                   </Control>
-
                </Field>
                 <Field isGrouped>
                     <Control>

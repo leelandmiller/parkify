@@ -1,6 +1,6 @@
 .form {
-    width: 50%;
-    margin-left: 25%;
+    width: 80%;
+    margin-left: 15%;
 }
 
 input:-webkit-autofill {
@@ -24,22 +24,17 @@ input{
     transition: 0.5s;
     background-size: 200% auto;
     color: white;
-    /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
     box-shadow: 0 0 20px #eee;
     border-radius: 0px;
 }
 
-/* Demo Stuff End -> */
-
-/* <- Magic Stuff Start */
-
 .btn:hover {
-    background-position: right center; /* change the direction of the change here */
+    background-position: right center;
     border: none;
 }
 
 .btn:active {
-    background-position: right center; /* change the direction of the change here */
+    background-position: right center;
     border: none;
 }
 
@@ -47,3 +42,16 @@ input{
     background-image: linear-gradient(to right, #3fc8e8 0%, #92f2fe 51%, #3fc8e8 100%);
 }
 
+li {
+    text-align: justify;
+}
+
+img {
+    height: auto;
+    max-width: 125.5%;
+    margin-left: -19%;
+}
+
+.imageText {
+
+}

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Icon, Field, Label, Control, Input, Button } from "bloomer";
 import "./LoginForm.css";
+import parkingPic from '../../parking.png';
 
 class LoginForm extends Component {
     constructor(props) {
@@ -27,7 +28,9 @@ class LoginForm extends Component {
 
     render() {
         return (
+           
             <form className="form">
+               <img alt={"parking"} src={parkingPic}/>
                 <Field>
                     <Label>
                         Email
@@ -38,7 +41,7 @@ class LoginForm extends Component {
                             <span className="fa fa-user" aria-hidden="true" />
                         </Icon>
                         <Icon isSize='small' isAlign='right'>
-                            <span className="fa fa-check" aria-hidden="true" />
+                        
                         </Icon>
                     </Control>
                 </Field>
@@ -53,7 +56,7 @@ class LoginForm extends Component {
                             <span className="fa fa-user-secret" aria-hidden="true" />
                         </Icon>
                     <Icon isSize='small' isAlign='right'>
-                        <span className="fa fa-check" aria-hidden="true" />
+                    
                     </Icon>
                 </Control>
                 <Control>
@@ -62,12 +65,9 @@ class LoginForm extends Component {
             </Field>
            <Field isGrouped>
               <ul>
-              <li>By logging in, I agree to themParkify <a>terms and conditions.</a></li>
-              <li>If I'm a seller, I also agree to the <a>Operator Dashboard terms.</a></li>
+              <li className="terms">By logging in, I agree to them. Parkify <a>terms and conditions.</a> If I'm a seller, I also agree to the <a>Operator Dashboard terms.</a></li>
                  </ul>
            </Field>
-
-
                 <Field isGrouped>
                     <Control>
                         <Button className="btn btn-3" isColor='primary'>Submit</Button>

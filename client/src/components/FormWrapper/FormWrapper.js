@@ -24,8 +24,6 @@ class FormWrapper extends Component {
 		)
 	};
 	
-	
-	
 	render(){
 		return(
 			<div className="formwrapper">
