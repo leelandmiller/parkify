@@ -24,11 +24,11 @@ class AccountSettings extends Component {
                     <tbody>
                         <tr className='is-selected'>
                             <td>Userame/Email</td>
-                            <td>{this.props.currentUser.email}</td>
+                            <td id="email-td">{this.props.currentUser.email}</td>
                         </tr>
                         <tr>
                             <td>Name</td>
-                            <td>{this.props.currentUser.name}</td>
+                            <td id="name-td">{this.props.currentUser.name}</td>
                         </tr>
                     </tbody>
                 </Table>
