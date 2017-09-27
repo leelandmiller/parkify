@@ -1,12 +1,7 @@
 body, html {
-  /*background: #EFF1F3;*/
   height: 100%;
   font-family: 'Roboto Condensed', sans-serif;
-
-
-
 }
-
 
 #app-container {
   display: flex;
@@ -17,4 +12,38 @@ body, html {
 
 .full-height {
 	height: 100%;
+}
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+  background-color: #fff !important;
+  background-image: none;
+  color: rgb(0, 0, 0);
+}
+
+.btn {
+  flex: 1 1 auto;
+  margin: 10px;
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+  box-shadow: 0 0 20px #eee;
+  border-radius: 0px;
+}
+
+/* Demo Stuff End -> */
+
+/* <- Magic Stuff Start */
+
+.btn:hover {
+  background-position: right center; /* change the direction of the change here */
+}
+
+.btn:active {
+  background-position: right center; /* change the direction of the change here */
+}
+
+.btn-3 {
+  background-image: linear-gradient(to right, #3fc8e8 0%, #92f2fe 51%, #3fc8e8 100%);
 }

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Icon, Field, Label, Control, Input, Button } from "bloomer";
 import "./LoginForm.css";
+import parkingPic from '../../parking.png';
 
 class LoginForm extends Component {
     constructor(props) {
@@ -27,7 +28,9 @@ class LoginForm extends Component {
 
     render() {
         return (
+           
             <form className="form">
+               <img alt={"parking"} src={parkingPic}/>
                 <Field>
                     <Label>
                         Email
@@ -38,7 +41,7 @@ class LoginForm extends Component {
                             <span className="fa fa-user" aria-hidden="true" />
                         </Icon>
                         <Icon isSize='small' isAlign='right'>
-                            <span className="fa fa-check" aria-hidden="true" />
+                        
                         </Icon>
                     </Control>
                 </Field>
@@ -53,20 +56,29 @@ class LoginForm extends Component {
                             <span className="fa fa-user-secret" aria-hidden="true" />
                         </Icon>
                     <Icon isSize='small' isAlign='right'>
-                        <span className="fa fa-check" aria-hidden="true" />
+                    
                     </Icon>
                 </Control>
-                </Field>
-
+                <Control>
+                    <Button isLink>Cancel</Button>
+                </Control>
+            </Field>
+           <Field isGrouped>
+              <ul>
+              <li className="terms">By logging in, I agree to them. Parkify <a>terms and conditions.</a> If I'm a seller, I also agree to the <a>Operator Dashboard terms.</a></li>
+                 </ul>
+           </Field>
                 <Field isGrouped>
                     <Control>
-                        <Button isColor='primary'>Submit</Button>
+                        <Button className="btn btn-3" isColor='primary'>Submit</Button>
                     </Control>
                     <Control>
-                        <Button isLink>Cancel</Button>
+                       <Button isColor='primary' className="btn btn-3">Cancel</Button>
                     </Control>
                 </Field>
+               
             </form>
+
         )
     }
 }

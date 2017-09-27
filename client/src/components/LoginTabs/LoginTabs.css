@@ -1,7 +1,7 @@
 .tabs {
     margin-top: 5px;
     margin-left: 15%;
-    border-bottom-color: transparent;
+    border-bottom-color: white;
 }
 
 .tabs li.is-active a {
@@ -24,4 +24,16 @@
 .table tr.is-selected {
     background-color: #FED766;
     color: #fff;
+}
+
+.tabs ul {
+    border-bottom-color: #ffffff;
+}
+
+.log {
+    color: black;
+}
+
+.sign {
+    color: black;
 }

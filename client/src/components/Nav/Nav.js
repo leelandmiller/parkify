@@ -39,14 +39,12 @@ class Nav extends Component {
 						<NavbarItem href='/'>Sell a Spot</NavbarItem>
 				    </NavbarStart>
 				    <NavbarEnd>
-
 				        <NavbarItem href="https://github.com/leelandmiller/parkify" isHidden='touch'>
 				            <Icon icon='github' />
 				        </NavbarItem>
 						 <NavbarItem href='/account'>Account
 						 </NavbarItem>
 				        	<NavbarItem href='/login'>Login/SignUp</NavbarItem>
-				        	<NavbarItem href='/account'>Account</NavbarItem>
 				    </NavbarEnd>
 				</NavbarMenu>
 			</Navbar>
