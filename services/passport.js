@@ -1,4 +1,5 @@
 const passport = require('passport');
+const bcrypt = require('bcrypt');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const FacebookStrategy = require('passport-facebook').Strategy;
 const LocalStrategy = require('passport-local').Strategy;
@@ -38,15 +39,27 @@ passport.use(new FacebookStrategy({
     });
 }));
 
-passport.use(new LocalStrategy((email, password, done) => {
-    User.findOne({ email }).then(user => {
+passport.use(new LocalStrategy({
+    usernameField: 'email',
+    passwordField: 'password'
+}, (username, password, done) => {
+    User.findOne({ email: username }).then(user => {
         if (!user) {
             return done(null, false, {message: 'Incorrect username.'});
         }
-        if (!user.validPassword(password)) {
-            return done(null, false, {message: 'Incorrect password.'});
-        }
-        return done(null, user);
+
+        console.log(user)
+
+        bcrypt.compare(password, user.pw_hash).then(passRes => {
+            // res == true
+            if (passRes === true) {
+                return done(null, user);
+            } else if (passRes === false) {
+                return done(null, false);
+            }
+        });
+
+        // return done(null, user);
     }).catch(err => {
         return done(err);
     });

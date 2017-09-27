@@ -30,11 +30,11 @@ router.post('/signup', (req, res) => {
     });
 });
 
-router.post('/login', passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/login',
-    failureFlash: true
-}));
+router.post('/login', passport.authenticate('local', { failureRedirect: '/login' }),
+    (req, res) => {
+        res.redirect('/');
+    }
+);
 
 //** FETCH CURRENT USER FROM SESSION **//
 router.get('/api/currentuser', userOrm.getCurrentUser);

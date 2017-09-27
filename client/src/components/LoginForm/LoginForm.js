@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { withRouter } from 'react-router-dom';
 import { Icon, Field, Label, Control, Input, Button } from "bloomer";
 import "./LoginForm.css";
 import parkingPic from '../../parking.png';
+import API from '../../utils/API';
 
 class LoginForm extends Component {
     constructor(props) {
@@ -14,6 +16,7 @@ class LoginForm extends Component {
         }
 
         this.handleChange = this.handleChange.bind(this);
+        this.handleFormSubmit = this.handleFormSubmit.bind(this);
     }
 
     handleChange(event) {
@@ -26,9 +29,24 @@ class LoginForm extends Component {
         });
     }
 
+    handleFormSubmit(event) {
+        event.preventDefault();
+
+        const email = this.state.email;
+        const password = this.state.password;
+
+        API.loginUser(email, password).then(user => {
+            API.getCurrentUser().then(currentUser => {
+                console.log(currentUser)
+
+                window.location = '/account';
+            })
+        });
+    }
+
     render() {
         return (
-           
+
             <form className="form">
                <img alt={"parking"} src={parkingPic}/>
                 <Field>
@@ -41,7 +59,7 @@ class LoginForm extends Component {
                             <span className="fa fa-user" aria-hidden="true" />
                         </Icon>
                         <Icon isSize='small' isAlign='right'>
-                        
+
                         </Icon>
                     </Control>
                 </Field>
@@ -56,11 +74,8 @@ class LoginForm extends Component {
                             <span className="fa fa-user-secret" aria-hidden="true" />
                         </Icon>
                     <Icon isSize='small' isAlign='right'>
-                    
+
                     </Icon>
-                </Control>
-                <Control>
-                    <Button isLink>Cancel</Button>
                 </Control>
             </Field>
            <Field isGrouped>
@@ -70,13 +85,13 @@ class LoginForm extends Component {
            </Field>
                 <Field isGrouped>
                     <Control>
-                        <Button className="btn btn-3" isColor='primary'>Submit</Button>
+                        <Button className="btn btn-3" isColor='primary' onClick={this.handleFormSubmit}>Submit</Button>
                     </Control>
                     <Control>
                        <Button isColor='primary' className="btn btn-3">Cancel</Button>
                     </Control>
                 </Field>
-               
+
             </form>
 
         )

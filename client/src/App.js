@@ -6,10 +6,14 @@ import HomeContainer from './components/HomeContainer';
 import SimpleSearch from './components/SimpleSearch';
 import Account from './components/Account';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-
+import API from './utils/API';
 import './App.css';
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+    }
+    
     render() {
     return (
             <div id='app-container'>
@@ -23,7 +27,7 @@ class App extends Component {
                   </div>
                </Router>
                 <PageFooter />
-            </div>           
+            </div>
         )
     }
 }
