@@ -55,13 +55,13 @@ describe("spotOrm", () => {
         }).then(done, done)
     })
 
-    it('should return 3 points from db' , done => {
+    it('should return 4 points from db' , done => {
         getSpotsFromPoint([ -117.184500, 32.857850], 100000).then(data => {
-            assert.equal(data.spots.length, 3, 'should return 3 spots')
+            assert.equal(data.spots.length, 4, 'should return 3 spots')
         }).then(done, done)
     })
 
-    it('should return 3 points from db' , done => {
+    it('should return 2 errors' , done => {
         getSpotsFromPoint([ -100000, 100000], 100000).then(data => {
             assert.equal(data.err.length, 2, 'should return 2 errors')
         }).then(done, done)
