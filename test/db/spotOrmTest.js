@@ -1,6 +1,6 @@
 const assert = require('chai').assert;
 const mongoose = require("mongoose");
-const {deleteSpot, getSpotsFromPoint, checkSpotObjAndAdd, getSpotInfo} = require('../../db/spotOrm');
+const {deleteSpot, getSpotsFromPoint, checkSpotObjAndAdd, getSpotInfo,  getLatLngByAddress} = require('../../db/spotOrm');
 const User = require('../../models/user');
 const Spot = require('../../models/spot');
 const SpotSchdeule = require('../../models/spotSchedule');
@@ -39,7 +39,7 @@ describe("spotOrm", () => {
 
     it('should return a object with errors array length of three', done => {
         checkSpotObjAndAdd(falseSpotObj, correctScheduleObj).then(results => {
-            assert.equal(results.errors.length, 3)
+            assert.equal(results.errors.length, 1)
         }).then(done, done)
     })
 
@@ -57,7 +57,7 @@ describe("spotOrm", () => {
 
     it('should return 4 points from db' , done => {
         getSpotsFromPoint([ -117.184500, 32.857850], 100000).then(data => {
-            assert.equal(data.spots.length, 4, 'should return 3 spots')
+            assert.equal(data.spots.length, 6, 'should return 3 spots')
         }).then(done, done)
     })
 
@@ -84,6 +84,7 @@ describe("spotOrm", () => {
             assert.equal(results.success, false, 'should return object with success false')
         }).then(done, done)
     })
+
 
     after((done) => {
         Promise.all([
