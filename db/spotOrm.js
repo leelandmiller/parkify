@@ -4,7 +4,29 @@ const Reservation = require('../models/reservation');
 const User = require('../models/user');
 const { addSpotIDToUser } = require('./userOrm')
 const moment = require('moment');
+const axios = require('axios');
+const KEY = require('../config/keys').GEOCODE_KEY
+const REVERSEGEO = "https://maps.googleapis.com/maps/api/geocode/json?latlng="
 
+
+// $.ajax({
+//     url: REVERSEGEO + currentLocation.lat + "," + currentLocation.lng + "&key=" + KEY
+// }).done(function(result) {
+//     console.log(result)
+// })
+const getAddressByGeocode = (lat, lng) => {
+    return axios.get(REVERSEGEO + lat + "," + lng + "&key=" + KEY).then(results => {
+        if(!results.data.results[0].formatted_address){
+            console.log('Geocod Failed:', results)
+        }
+        return results.data.results[0].formatted_address
+    }).catch(err => {
+    return {
+        success: false,
+        err
+    }
+})
+}
 
 const _updateSpotSchedule = (spotId, newSpotSchedule) => SpotSchdeule.update({
     spot: spotId
@@ -43,7 +65,7 @@ const deleteSpot = (_id, userId) => {
                 func: 'deleteSpot'
             }
         } else {
-           return Spot.remove({
+            return Spot.remove({
                 _id
             }).then(results => {
                 return {
@@ -59,12 +81,12 @@ const deleteSpot = (_id, userId) => {
             })
         }
     }).catch(err => {
-                return {
-                    success: false,
-                    err,
-                    func: 'deleteSpot'
-                }
-            })
+        return {
+            success: false,
+            err,
+            func: 'deleteSpot'
+        }
+    })
 
 }
 
@@ -79,9 +101,9 @@ const getSpotsFromPoint = (coordinates, distance) => {
     if (lng > 180 || lng < -180) {
         errors.push('Longitude out of range')
     }
-    if(errors.length > 0){
-       return Promise.resolve({
-            success:false,
+    if (errors.length > 0) {
+        return Promise.resolve({
+            success: false,
             err: errors,
             func: 'getSpotsFromPoint'
         })
@@ -97,12 +119,12 @@ const getSpotsFromPoint = (coordinates, distance) => {
                 "spherical": true,
                 "maxDistance": distance
             }
-        }]).then( data => {
-            return{
-                success:true,
-                spots: data
-            }
-        })
+        }]).then(data => {
+        return {
+            success: true,
+            spots: data
+        }
+    })
 
 }
 
@@ -124,14 +146,30 @@ const getSpotInfo = _id =>
 
 
 const _addSpot = spotObj => {
-    const newSpot = new Spot(spotObj)
-    return newSpot.save().catch(err => {
-        return {
-            success: false,
-            err,
-            func: '_addSpot'
+    const lat = spotObj.loc.coordinates[1]
+    const lng = spotObj.loc.coordinates[0]
+    return getAddressByGeocode(lat, lng).then(results => {
+        if(!results){
+            return Promise.resolve({
+                success:false,
+            })
         }
-    })
+        spotObj.loc.formatted_address = results
+        const newSpot = new Spot(spotObj)
+        return newSpot.save().catch(err => {
+            return {
+                success: false,
+                err,
+                func: '_addSpot'
+            }
+        })
+    }).catch(err => {
+    return {
+        success: false,
+        err
+    }
+})
+
 }
 
 const _addSpotSchedule = scheduleObj => {
@@ -193,6 +231,12 @@ const _checkSpotSchedulAndAdd = (scheduleObj, spotObj, spotId, update) => {
             return _updateSpotSchedule(spotId, scheduleObj)
         } else {
             return _addSpot(spotObj).then(res => {
+               if(res.success === false){
+                return Promise.resolve({
+                                    success:false,
+                                    err:["invaild geocode coordinates"]
+                                })
+               }
                 scheduleObj.spot = res._id
                 addSpotIDToUser(res.owner, res._id)
                 return _addSpotSchedule(scheduleObj)

@@ -1,49 +1,50 @@
 {
-	"name": "parkify",
-	"version": "1.0.0",
-	"description": "Parkify app",
-	"main": "server.js",
-	"dependencies": {
-		"axios": "^0.16.2",
-		"body-parser": "^1.18.0",
-		"express": "^4.15.4",
-		"express-session": "^1.15.5",
-		"moment": "^2.18.1",
-		"mongoose": "^4.11.10",
-		"mongoose-deep-populate": "^3.0.0",
-		"mongoose-findorcreate": "^2.0.0",
-		"morgan": "^1.8.2",
-		"passport": "^0.4.0",
-		"passport-facebook": "^2.1.1",
-		"passport-google-oauth20": "^1.0.0",
-		"path": "^0.12.7"
-	},
-	"devDependencies": {
-		"concurrently": "^3.5.0",
-		"chai": "^4.1.2",
-		"mocha": "^3.5.0"
-	},
-	"scripts": {
-		"test": "mocha --recursive",
-		"start": "concurrently \"nodemon server.js\" \"cd client && npm run start\""
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/leelandmiller/parkify.git"
-	},
-	"keywords": [
-		"MERN",
-		"Node",
-		"Express",
-		"React",
-		"MongoDB",
-		"mongoose",
-		"passport"
-	],
-	"author": "MALL",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/leelandmiller/parkify/issues"
-	},
-	"homepage": "https://github.com/leelandmiller/parkify#readme"
+  "name": "parkify",
+  "version": "1.0.0",
+  "description": "Parkify app",
+  "main": "server.js",
+  "dependencies": {
+    "aws-sdk": "^2.121.0",
+    "axios": "^0.16.2",
+    "body-parser": "^1.18.0",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "moment": "^2.18.1",
+    "mongoose": "^4.11.10",
+    "mongoose-deep-populate": "^3.0.0",
+    "mongoose-findorcreate": "^2.0.0",
+    "morgan": "^1.8.2",
+    "passport": "^0.4.0",
+    "passport-facebook": "^2.1.1",
+    "passport-google-oauth20": "^1.0.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.0",
+    "chai": "^4.1.2",
+    "mocha": "^3.5.0"
+  },
+  "scripts": {
+    "test": "mocha --recursive",
+    "start": "concurrently \"nodemon server.js\" \"cd client && npm run start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leelandmiller/parkify.git"
+  },
+  "keywords": [
+    "MERN",
+    "Node",
+    "Express",
+    "React",
+    "MongoDB",
+    "mongoose",
+    "passport"
+  ],
+  "author": "MALL",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leelandmiller/parkify/issues"
+  },
+  "homepage": "https://github.com/leelandmiller/parkify#readme"
 }

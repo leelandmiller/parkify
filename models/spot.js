@@ -11,7 +11,10 @@ const SpotSchema = new Schema({
         coordinates:{
             type:[Number],
             required:true
-        } 
+        } ,
+        formatted_address: {
+            type: String
+        }
     },
     cost: {
         day: {
