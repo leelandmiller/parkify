@@ -1,9 +1,10 @@
 const User = require('../models/user');
 const axios = require('axios');
+const bcrypt = require('bcrypt');
 
 module.exports = {
     getCurrentUser: function(req, res) {
-        res.json(req.user);
+        res.json(req.user.name);
     },
     findOrCreate: function(profile) {
         // find user w/id from passport strategy
@@ -100,15 +101,28 @@ module.exports = {
     },
     getUserProfileInfo: function(_id) {
         return User.findOne({ _id }).then(user => {
+            const userObj = { name, email };
+
             return {
                 success: true,
-                user
+                userObj
             }
         }).catch(err => {
             return {
                 success: false,
                 err
             }
+        });
+    },
+    addNewUser: function(userObj) {
+        return bcrypt.hash(userObj.password, 10).then(hash => {
+            // Store hash in your password DB.
+            userObj.pw_hash = hash;
+            const user = new User(userObj);
+
+            return user.save().then(savedUser => {
+                return savedUser;
+            });
         });
     }
 }

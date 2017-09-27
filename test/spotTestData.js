@@ -2,7 +2,7 @@ const moment = require('moment')
 const correctSpotObj = {
     loc:{
         type:'Point',
-        coordinates:[0,0]
+        coordinates:[-117.144470, 32.710763]
     },
     cost:{
         day:1,

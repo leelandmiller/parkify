@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { withRouter } from 'react-router-dom';
 import { Icon, Field, Label, Control, Input, Button } from "bloomer";
 import "./SignUpForm.css";
+import API from '../../utils/API';
 
 
 
@@ -17,6 +19,7 @@ class SignUpForm extends Component {
         }
 
         this.handleChange = this.handleChange.bind(this);
+        this.handleFormSubmit = this.handleFormSubmit.bind(this);
     }
     
     handleChange(event) {
@@ -28,6 +31,22 @@ class SignUpForm extends Component {
             [name]: val
         });
     }
+
+    handleFormSubmit(event) {
+        event.preventDefault();
+
+        //TODO: check if passwords match before adding user
+
+        API.addNewUser({
+            name: this.state.name,
+            email: this.state.email,
+            password: this.state.password
+        }).then(newUser => {
+            console.log(newUser);
+            this.props.history.push('/account')
+        });
+    }
+
 
     render() {
         return (
@@ -78,7 +97,13 @@ class SignUpForm extends Component {
                </Field>
                 <Field isGrouped>
                     <Control>
-                        <Button isColor='primary' className="btn btn-3">Submit</Button>
+                        {this.state.password === this.state.confirmPass
+                            && (this.state.confirmPass !== '' && this.state.password !== '')
+                            && this.state.password.match(/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9@#$%^&+=*.\-_]){3,}$/)
+                            && this.state.email.match(/^[a-zA-Z0-9\.]+@[a-zA-Z0-9]+(\-)?[a-zA-Z0-9]+(\.)?[a-zA-Z0-9]{2,6}?\.[a-zA-Z]{2,6}$/)?
+                            <Button isColor='primary' onClick={this.handleFormSubmit}>Submit</Button>
+                            :<Button disabled  isColor='primary'>Submit</Button>}
+                        {}
                     </Control>
                     <Control>
                        <Button isColor='primary' className="btn btn-3">Cancel</Button>
@@ -89,4 +114,4 @@ class SignUpForm extends Component {
     }
 }
 
-export default SignUpForm;
+export default withRouter(SignUpForm);
