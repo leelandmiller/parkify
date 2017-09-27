@@ -1,5 +1,5 @@
 .navbar {
-    background: #1DA1F2;
+    background: #000000;
 }
 
 a.navbar-item {
@@ -8,6 +8,6 @@ a.navbar-item {
 
 a.navbar-item:hover {
     color:black;
-    background: #1DA1F2;
+    background: transparent;
     font-weight: bold;
 }

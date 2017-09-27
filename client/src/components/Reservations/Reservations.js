@@ -22,7 +22,7 @@ import "./Reservations.css";
 			    </thead>
 			    <tbody>
 			        <tr className='is-selected'>
-			            <td style={{ height: '150px' }}><Button className="reservationButton" style={{ top: '60px' }}>Reserve A Spot</Button></td>
+			            <td style={{ height: '150px' }}><Button className="reservationButton btn btn-3" style={{ top: '60px' }}>Reserve A Spot</Button></td>
 			        </tr>
 			        <tr>
 			            <td>Reservation History</td>

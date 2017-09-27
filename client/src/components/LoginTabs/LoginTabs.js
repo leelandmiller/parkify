@@ -10,14 +10,13 @@ const LoginTabs = props => {
         <Tab onClick =  { () => { props.changeActiveTab("login") }} className = { props.activeTab === "login" ? "is-active" : "" }>
             <TabLink>
                 <Icon isSize='small'><span className='fa fa-sign-in' aria-hidden='true' /></Icon>
-                <span>Login</span>
+                <span className={"log"}>Login</span>
             </TabLink>
         </Tab>
-
         <Tab onClick =  { () => { props.changeActiveTab("signUp") }} className = { props.activeTab === "signUp" ? "is-active" : "" }>
             <TabLink>
                 <Icon isSize='small'><span className='fa fa-user-plus' aria-hidden='true' /></Icon>
-                <span>Sign Up</span>
+                <span className={"sign"}>Sign Up</span>
             </TabLink>
         </Tab>
     </TabList>

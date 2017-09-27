@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-import LoginTabs from '../LoginTabs';
-import SignUpForm from '../SignUpForm';
-import LoginForm from '../LoginForm';
-import "./FormWrapper.css";
+import "./ReservationWrapper.css";
 
 
 
@@ -12,7 +9,7 @@ class FormWrapper extends Component {
 		
 		this.state = {
 			activeLoginFormTab:"login",
-
+			
 		};
 		
 		this.changeActiveTab = this.changeActiveTab.bind(this);
@@ -24,6 +21,8 @@ class FormWrapper extends Component {
 		)
 	};
 	
+	
+	
 	render(){
 		return(
 			<div className="formwrapper">
@@ -34,7 +33,6 @@ class FormWrapper extends Component {
 			</div>
 		)
 	}
-	
 }
 
 export default FormWrapper;

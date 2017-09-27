@@ -4,6 +4,8 @@ import { Icon, Field, Label, Control, Input, Button } from "bloomer";
 import "./SignUpForm.css";
 import API from '../../utils/API';
 
+
+
 class SignUpForm extends Component {
 
     constructor(props) {
@@ -19,7 +21,7 @@ class SignUpForm extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
     }
-
+    
     handleChange(event) {
 
         const val = event.target.value;
@@ -75,9 +77,6 @@ class SignUpForm extends Component {
                         <Icon isSize='small' isAlign='left'>
                             <span className="fa fa-user" aria-hidden="true" />
                         </Icon>
-                    <Icon isSize='small' isAlign='right'>
-                        <span className="fa fa-check" aria-hidden="true" />
-                    </Icon>
                 </Control>
                 </Field>
                 <Field>
@@ -89,20 +88,15 @@ class SignUpForm extends Component {
                         <Icon isSize='small' isAlign='left'>
                             <span className="fa fa-user" aria-hidden="true" />
                         </Icon>
-                    <Icon isSize='small' isAlign='right'>
-                        <span className="fa fa-check" aria-hidden="true" />
-                    </Icon>
                 </Control>
                 </Field>
                <Field isGrouped>
                   <Control>
                      <Input type="file"/>
                   </Control>
-
                </Field>
                 <Field isGrouped>
                     <Control>
-
                         {this.state.password === this.state.confirmPass
                             && (this.state.confirmPass !== '' && this.state.password !== '')
                             && this.state.password.match(/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9@#$%^&+=*.\-_]){3,}$/)
@@ -112,7 +106,7 @@ class SignUpForm extends Component {
                         {}
                     </Control>
                     <Control>
-                        <Button isLink>Cancel</Button>
+                       <Button isColor='primary' className="btn btn-3">Cancel</Button>
                     </Control>
                 </Field>
             </form>

@@ -34,4 +34,11 @@ button{
 	background-color: #3fc9e6;
 	border-radius: 0px;
 	margin: 20px;
+    color: black;
+}
+
+.formwrapper {
+    margin-left: 35%;
+    margin-right: 35%;
+    border: 1px solid black;
 }
