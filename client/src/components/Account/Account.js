@@ -3,14 +3,12 @@ import "./Account.css";
 import AccountTabs from '../AccountTabs';
 import Reservations from '../Reservations';
 import AccountSettings from '../AccountSettings';
-import API from '../../utils/API';
 
 class Account extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			activeSettingsTab: "AccountSettings",
-			currentUser: {}
 		};
 		this.changeActiveAccountTab = this.changeActiveAccountTab.bind(this);
 	}
@@ -21,13 +19,6 @@ class Account extends Component {
 		)
 	};
 
-	componentDidMount() {
-        API.getCurrentUser().then(currentUser => {
-            this.setState({ currentUser })
-        })
-    }
-
-
 	render(){
 
 		return (
@@ -35,7 +26,7 @@ class Account extends Component {
 				<AccountTabs
 				activeSettingsTab = { this.state.activeSettingsTab }
 				changeActiveAccountTab = { this.changeActiveAccountTab } />
-			{ this.state.activeSettingsTab === "AccountSettings" ? <AccountSettings currentUser={ this.state.currentUser }/> : <Reservations /> }
+			{ this.state.activeSettingsTab === "AccountSettings" ? <AccountSettings currentUser={ this.props.currentUser }/> : <Reservations /> }
 			</div>
 			)
 		}

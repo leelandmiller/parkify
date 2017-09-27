@@ -7,19 +7,12 @@ import "./Nav.css";
 
 class Nav extends Component {
 
-	// onComponentDidMount = () => {
-	// 	call the getCurrentUser, change the state to 
-	// }
-
-    constructor() {
-
-		super();
+    constructor(props) {
+		super(props);
 
 		this.state = {
 			isActive: false,
-			isLoggedIn: false
 		};
-
     }
 
     render() {
@@ -47,8 +40,7 @@ class Nav extends Component {
 				        <NavbarItem href="https://github.com/leelandmiller/parkify" isHidden='touch'>
 				            <Icon icon='github' />
 				        </NavbarItem>
-				        	<NavbarItem isLoggedIn={this.state.isLoggedIn} href='/login'>Login/SignUp</NavbarItem>
-				        	<NavbarItem isLoggedIn={this.state.isLoggedIn} href='/account'>Account</NavbarItem>
+				        	{this.props.isLoggedIn ? <NavbarItem href='/account'>Account</NavbarItem> : <NavbarItem href='/login'>Login/SignUp</NavbarItem>}
 				    </NavbarEnd>
 				</NavbarMenu>
 			</Navbar>
