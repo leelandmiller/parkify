@@ -15,7 +15,10 @@ const API = {
         return axios.delete('/api/spot', { spotId });
     },
     getSpotsByPoint: function(locObj){
-        return axios.get('/api/spot/loc', { locObj });
+        return axios.get('/api/spot/loc', {
+            location: locObj.loc,
+            distance: locObj.distance
+        });
     },
     /**RESERVATION API CALLS**/
     addReservation: function(reservationObj) {
@@ -28,6 +31,9 @@ const API = {
     getCurrentUser: function() {
         return axios.get('/auth/api/currentuser');
     },
+    addNewUser: function(user) {
+        return axios.post('/auth/signup', { user });
+    }
 }
 
 export default API;
