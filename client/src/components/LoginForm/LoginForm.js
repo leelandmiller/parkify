@@ -54,7 +54,7 @@ class LoginForm extends Component {
                         Email
                     </Label>
                     <Control hasIcons>
-                        <Input type="email" placeholder='Email' name='email' value={this.state.email} onChange={this.handleChange} />
+                        <Input id="email" type="email" placeholder='Email' name='email' value={this.state.email} onChange={this.handleChange} />
                         <Icon isSize='small' isAlign='left'>
                             <span className="fa fa-user" aria-hidden="true" />
                         </Icon>
@@ -69,7 +69,7 @@ class LoginForm extends Component {
                         Password
                     </Label>
                 <Control hasIcons>
-                    <Input type='password' name='password' isColor='success' placeholder='Password' value={this.state.password} onChange={this.handleChange} />
+                    <Input id="password" type='password' name='password' isColor='success' placeholder='Password' value={this.state.password} onChange={this.handleChange} />
                         <Icon isSize='small' isAlign='left'>
                             <span className="fa fa-user-secret" aria-hidden="true" />
                         </Icon>
@@ -85,7 +85,7 @@ class LoginForm extends Component {
            </Field>
                 <Field isGrouped>
                     <Control>
-                        <Button className="btn btn-3" isColor='primary' onClick={this.handleFormSubmit}>Submit</Button>
+                        <Button id="login-submit" className="btn btn-3" isColor='primary' onClick={this.handleFormSubmit}>Submit</Button>
                     </Control>
                     <Control>
                        <Button isColor='primary' className="btn btn-3">Cancel</Button>
