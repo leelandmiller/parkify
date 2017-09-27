@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { withRouter } from 'react-router-dom';
 import { Icon, Field, Label, Control, Input, Button } from "bloomer";
 import "./LoginForm.css";
 import parkingPic from '../../parking.png';
@@ -39,6 +38,7 @@ class LoginForm extends Component {
             API.getCurrentUser().then(currentUser => {
                 console.log(currentUser)
 
+                this.props.setCurrentUser(currentUser);
                 window.location = '/account';
             })
         });

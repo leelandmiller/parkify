@@ -27,8 +27,8 @@ class AccountSettings extends Component {
                             <td>{this.props.currentUser.email}</td>
                         </tr>
                         <tr>
-                            <td>Password</td>
-                            <td>************</td>
+                            <td>Name</td>
+                            <td>{this.props.currentUser.name}</td>
                         </tr>
                     </tbody>
                 </Table>

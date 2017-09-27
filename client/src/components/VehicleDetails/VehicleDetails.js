@@ -25,16 +25,16 @@ render() {
             <MediaContent>
                 <Title isSize={6}>License Plate</Title>
                 <Subtitle isSize={6}>----------</Subtitle>
-                <a href="/plate">Add License Plate</a>
+                <a href="/add/plate">Add License Plate</a>
                 <hr />
                 <Title isSize={6}>Vehicles</Title>
                 <Subtitle isSize={6}>----------</Subtitle>
-                <a href="/vehicles">Add Vehicle</a>
+                <a href="/add/vehicle">Add Vehicle</a>
             </MediaContent>
             <MediaContent>
                 <Title isSize={6}>Credit Cards</Title>
                 <Subtitle isSize={6}>----------</Subtitle>
-                <a href="/cards">Add Credit Card</a>
+                <a href="/add/creditcard">Add Credit Card</a>
                 <hr />
             </MediaContent>
         </Media>
