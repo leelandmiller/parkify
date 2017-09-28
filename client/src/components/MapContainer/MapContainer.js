@@ -7,6 +7,10 @@ import SimpleSearch from '../SimpleSearch';
  
 export class MapContainer extends Component {
 
+    componentDidMount() {
+
+    }
+
     constructor(props) {
         super(props);
 
@@ -18,49 +22,46 @@ export class MapContainer extends Component {
             closeBy: []
         }
 
-        this.renderMarkers = this.renderMarkers.bind(this);
+        // this.renderMarkers = this.renderMarkers.bind(this);
     }
 
     calculateGeoCode = () => {
         console.log('New dist');
     };
 
-    renderMarkers = () => {
-        let searchLoc = this.state.location;
-        let searchDist = this.state.dist;
+    // renderMarkers = () => {
+    //     let searchLoc = this.state.location;
+    //     let searchDist = this.state.dist;
 
-        API.getSpotsByPoint(searchLoc, searchDist).then((res) => {
-            this.setState({ closeBy: res.data });
-        });
-    };
+    //     API.getSpotsByPoint(searchLoc, searchDist).then((res) => {
+    //         this.setState({ closeBy: res.data });
+    //     });
+    // };
 
-  // Function to grab the info from the API and display the markers 
 
   render() {
     if (!this.props.loaded) {
       return <div>Loading...</div>
     } else {
         const style = {
-          width: '100vw',
-          height: '430px'
+         "min-height": '600px'
         }
         return (
-            <Container>
-                <div style={style}>
-                    <Map google={this.props.google} visible={true}>
-                        {
-                            this.state.closeBy.map(location => (
-                                <Marker
-                                    title={'The marker`s title will appear as a tooltip.'}
-                                    name={'La Jolla'}
-                                    position={{lat: location.lat, lng: location.lng}} />
-                                
-                                )
+            <div style={style}>
+                <Map google={this.props.google} visible={true}>
+                    {   
+                        // Takes in close by locations from the SimpleSearch component
+                        this.props.closeBy.map(location => (
+                            <Marker
+                                title={'The marker`s title will appear as a tooltip.'}
+                                name={'La Jolla'}
+                                position={{lat: location.lat, lng: location.lng}} />
+                            
                             )
-                        }
-                    </Map>
-                </div>
-            </Container>
+                        )
+                    }
+                </Map>
+            </div>
         )
      }
   }
@@ -68,7 +69,7 @@ export class MapContainer extends Component {
 }
 
 Map.defaultProps = {
-    zoom: 14,
+    zoom: 10,
     initialCenter: {
         lat: 33.039139,
         lng: -117.295425

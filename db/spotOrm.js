@@ -6,7 +6,8 @@ const { addSpotIDToUser } = require('./userOrm')
 const moment = require('moment');
 const axios = require('axios');
 const KEY = require('../config/keys').GEOCODE_KEY
-const REVERSEGEO = "https://maps.googleapis.com/maps/api/geocode/json?latlng="
+const REVERSEGEO = "https://maps.googleapis.com/maps/api/geocode/json?latlng=";
+const GEOCODE = "https://maps.googleapis.com/maps/api/geocode/json?address=";
 
 
 // $.ajax({
@@ -16,16 +17,23 @@ const REVERSEGEO = "https://maps.googleapis.com/maps/api/geocode/json?latlng="
 // })
 const getAddressByGeocode = (lat, lng) => {
     return axios.get(REVERSEGEO + lat + "," + lng + "&key=" + KEY).then(results => {
-        if(!results.data.results[0].formatted_address){
+        if (!results.data.results[0].formatted_address) {
             console.log('Geocod Failed:', results)
         }
         return results.data.results[0].formatted_address
     }).catch(err => {
-    return {
-        success: false,
-        err
-    }
-})
+        return {
+            success: false,
+            err
+        }
+    })
+}
+
+const getLatLngByAddress = (address) => {
+    address = address.replace(/ /g, '+')
+    return axios.get(GEOCODE + address + '&key=' + KEY).then(results => {
+        return results.data.results[0].geometry.location
+    })
 }
 
 const _updateSpotSchedule = (spotId, newSpotSchedule) => SpotSchdeule.update({
@@ -90,41 +98,47 @@ const deleteSpot = (_id, userId) => {
 
 }
 
-const getSpotsFromPoint = (coordinates, distance) => {
-    let errors = []
-    const lat = coordinates[1]
-    const lng = coordinates[0]
-    //check that all data is vaild
-    if (lat > 90 || lat < -90) {
-        errors.push('Latitude out of range')
-    }
-    if (lng > 180 || lng < -180) {
-        errors.push('Longitude out of range')
-    }
-    if (errors.length > 0) {
-        return Promise.resolve({
-            success: false,
-            err: errors,
-            func: 'getSpotsFromPoint'
-        })
-    }
-    return Spot.aggregate(
-        [{
-            "$geoNear": {
-                "near": {
-                    "type": "Point",
-                    coordinates
-                },
-                "distanceField": "distance",
-                "spherical": true,
-                "maxDistance": distance
+const getSpotsFromPoint = (address, distance) => {
+    // let errors = []
+    // const lat = coordinates[1]
+    // const lng = coordinates[0]
+    // //check that all data is vaild
+    // if (lat > 90 || lat < -90) {
+    //     errors.push('Latitude out of range')
+    // }
+    // if (lng > 180 || lng < -180) {
+    //     errors.push('Longitude out of range')
+    // }
+    // if (errors.length > 0) {
+    //     return Promise.resolve({
+    //         success: false,
+    //         err: errors,
+    //         func: 'getSpotsFromPoint'
+    //     })
+    // }
+   return getLatLngByAddress(address).then(results => {
+        const lat = results.lat
+        const lng = results.lng
+        const coordinates = [lng, lat];
+        return Spot.aggregate(
+            [{
+                "$geoNear": {
+                    "near": {
+                        "type": "Point",
+                        coordinates
+                    },
+                    "distanceField": "distance",
+                    "spherical": true,
+                    "maxDistance": distance
+                }
+            }]).then(data => {
+            return {
+                success: true,
+                spots: data
             }
-        }]).then(data => {
-        return {
-            success: true,
-            spots: data
-        }
+        })
     })
+
 
 }
 
@@ -146,29 +160,15 @@ const getSpotInfo = _id =>
 
 
 const _addSpot = spotObj => {
-    const lat = spotObj.loc.coordinates[1]
-    const lng = spotObj.loc.coordinates[0]
-    return getAddressByGeocode(lat, lng).then(results => {
-        if(!results){
-            return Promise.resolve({
-                success:false,
-            })
+    const newSpot = new Spot(spotObj)
+    return newSpot.save().catch(err => {
+        return {
+            success: false,
+            err,
+            func: '_addSpot'
         }
-        spotObj.loc.formatted_address = results
-        const newSpot = new Spot(spotObj)
-        return newSpot.save().catch(err => {
-            return {
-                success: false,
-                err,
-                func: '_addSpot'
-            }
-        })
-    }).catch(err => {
-    return {
-        success: false,
-        err
-    }
-})
+    })
+
 
 }
 
@@ -231,12 +231,6 @@ const _checkSpotSchedulAndAdd = (scheduleObj, spotObj, spotId, update) => {
             return _updateSpotSchedule(spotId, scheduleObj)
         } else {
             return _addSpot(spotObj).then(res => {
-               if(res.success === false){
-                return Promise.resolve({
-                                    success:false,
-                                    err:["invaild geocode coordinates"]
-                                })
-               }
                 scheduleObj.spot = res._id
                 addSpotIDToUser(res.owner, res._id)
                 return _addSpotSchedule(scheduleObj)
@@ -249,39 +243,41 @@ const _checkSpotSchedulAndAdd = (scheduleObj, spotObj, spotId, update) => {
 }
 
 const checkSpotObjAndAdd = (spotObj, scheduleObj) => {
-
+    const address = spotObj.loc.formatted_address
     let errors = []
-    const lat = spotObj.loc.coordinates[1]
-    const lng = spotObj.loc.coordinates[0]
     const cost = spotObj.cost
+    if (!spotObj.loc.formatted_address) {
+        return Promise.resolve({
+            success: false,
+            err: ['must have a formatted_address']
+        })
+    }
     //check that all data is vaild
-    if (lat > 90 || lat < -90) {
-        errors.push('Latitude out of range')
-    }
-    if (lng > 180 || lng < -180) {
-        errors.push('Longitude out of range')
-    }
-    if (cost.day <= 0 || cost.hr <= 0) {
-        errors.push('cost must be above 0')
-    }
-    //makes sure the user id exists in db
-    return User.findById(spotObj.owner).then(res => {
-        if (!res || errors.length > 0) {
+    return getLatLngByAddress(address).then(results => {
+        spotObj.loc.coordinates = [results.lng, results.lat]
+        if (cost.day <= 0 || cost.hr <= 0) {
+            errors.push('cost must be above 0')
+        }
+        //makes sure the user id exists in db
+        return User.findById(spotObj.owner).then(res => {
+            if (!res || errors.length > 0) {
+                return {
+                    success: false,
+                    errors,
+                    func: 'checkSpotObjAndAdd'
+                }
+            } else {
+                return _checkSpotSchedulAndAdd(scheduleObj, spotObj)
+            }
+        }).catch(err => {
             return {
                 success: false,
-                errors,
+                err,
                 func: 'checkSpotObjAndAdd'
             }
-        } else {
-            return _checkSpotSchedulAndAdd(scheduleObj, spotObj)
-        }
-    }).catch(err => {
-        return {
-            success: false,
-            err,
-            func: 'checkSpotObjAndAdd'
-        }
+        })
     })
+
 }
 
 module.exports = {
@@ -289,5 +285,6 @@ module.exports = {
     getSpotInfo,
     checkAndUpdateSpotSchedule,
     deleteSpot,
-    getSpotsFromPoint
+    getSpotsFromPoint,
+    getLatLngByAddress
 }

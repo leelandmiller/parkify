@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Container, Field, Label, Control, Input, Icon, Select, Button, Column, Columns} from "bloomer";
 import MapContainer from '../MapContainer';
+import MapResults from '../MapResults';
 import "./SimpleSearch.css";
 
 export class SimpleSearch extends Component {
@@ -11,13 +12,27 @@ export class SimpleSearch extends Component {
 		this.state = {
 			// Takes in a zip code or address
 			location: "",
-			// Categorized by hourly dail
+			// Distance away from the search location
 			distance: "",
 	        closeBy: [
 	            {
+	                name: "Encinitas",
+	                addr1: "Encinitas Way",
+	                addr2: "Encinitas, CA USA",
+	                price: 45,
+	                distance: 5,
 	                lat: 33.039139,
 	                lng: -117.295425
-	            }           
+	            },
+	            {
+	                name: "Margaret's House",
+	                addr1: "8825 Revelstoke Way",
+	                addr2: "San Diego, CA 92126",
+	                price: 25,
+	                distance: 10,
+	                lat: 32.931521,
+	                lng: -117.132951
+	            }            
 	        ]
 		}
 
@@ -53,10 +68,11 @@ export class SimpleSearch extends Component {
 	};
 
 	render() { 
+		
 		return (
-			<Container style={{ marginBottom: 20 }}>
-				<form>
-					<Label>Search Available Parking Spots</Label>
+			<Container style={{ marginBottom: 20, marginTop: 20 }}>
+				<h1>Search Available Parking Spots</h1>
+				<form className="simplesearch-form">
 					<Columns>
 					    <Column isSize='3/4'>
 							<Field>
@@ -95,6 +111,7 @@ export class SimpleSearch extends Component {
 									<Button 
 										isColor='primary' 
 										onClick={this.handleSearchClick}
+										className='search-btn'
 									>
 										Search
 									</Button>
@@ -103,11 +120,22 @@ export class SimpleSearch extends Component {
 					    </Column>
 					</Columns>	
 				</form>	
-				<MapContainer 
-					location={this.state.location}
-					distance={this.state.distance}
-					closeBy={this.state.closeBy}
-				/>	
+				<Container>
+					<Columns isGapless="true"  className='map-results'>
+						<Column isSize='1/4'>
+							<MapResults
+								closeBy={this.state.closeBy}
+							/>
+						</Column>
+						<Column isSize='3/4'>
+							<MapContainer 
+								location={this.state.location}
+								distance={this.state.distance}
+								closeBy={this.state.closeBy}
+							/>	
+						</Column>
+					</Columns>	
+				</Container>
 			</Container>
 		)
 	}

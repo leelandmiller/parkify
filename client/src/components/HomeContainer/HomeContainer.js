@@ -9,7 +9,7 @@ const HomeContainer = props => {
 				<div className="hero">
 					<img 
 						alt="parkify hero" 
-						src="assets/images/parkify-hero.png"
+						src="assets/images/parkify-hero.jpeg"
 						className="hero-img"
 					></img>
 					<div id="hero-text">
@@ -21,7 +21,7 @@ const HomeContainer = props => {
 				<div id="home-intro">
 					<Title isSize={2}>Sell your parking spot</Title>
 					<p>Make extra moola with your parking spot.</p>
-					<button>Start Now</button>
+					<a className="" href="/login">Start Now</a>
 				</div>
 				<div id="home-select">
 					<Title isSize={2}>Sell your spot in a snap!</Title>

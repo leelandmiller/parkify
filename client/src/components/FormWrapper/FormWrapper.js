@@ -7,34 +7,33 @@ import "./FormWrapper.css";
 
 
 class FormWrapper extends Component {
-	constructor(){
-		super();
-		
+	constructor(props){
+		super(props);
+
 		this.state = {
 			activeLoginFormTab:"login",
 
 		};
-		
+
 		this.changeActiveTab = this.changeActiveTab.bind(this);
 	}
-	
+
 	changeActiveTab(tab) {
 		this.setState(
 			{ activeLoginFormTab:tab }
 		)
 	};
-	
+
 	render(){
 		return(
 			<div className="formwrapper">
 				<LoginTabs
 					activeTab = { this.state.activeLoginFormTab }
 					changeActiveTab = { this.changeActiveTab } />
-				{ this.state.activeLoginFormTab === "login" ? <LoginForm /> : <SignUpForm /> }
+				{ this.state.activeLoginFormTab === "login" ? <LoginForm setCurrentUser={this.props.setCurrentUser} /> : <SignUpForm /> }
 			</div>
 		)
 	}
-	
 }
 
 export default FormWrapper;

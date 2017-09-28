@@ -25,7 +25,8 @@ const correctSpotObj = {
 const closeSpotLocations = [{
         loc: {
             type: 'Point',
-            coordinates: [-117.182875, 32.853002]
+            // coordinates: [-117.182875, 32.853002]
+            formatted_address: '518 21ST ST, San Diego,CA'
         },
         cost: {
             day: 1,
@@ -35,7 +36,8 @@ const closeSpotLocations = [{
     {
         loc: {
             type: 'Point',
-            coordinates: [ -117.215338, 32.869911]
+            // coordinates: [ -117.215338, 32.869911]
+            formatted_address: '519 21ST ST, San Diego,CA'
         },
         cost: {
             day: 1,
@@ -45,7 +47,8 @@ const closeSpotLocations = [{
     {
         loc: {
             type: 'Point',
-            coordinates: [-117.417940, 32.854810]
+            // coordinates: [-117.417940, 32.854810]
+            formatted_address: '520 21ST ST, San Diego,CA'
         },
         cost: {
             day: 1,
@@ -57,7 +60,7 @@ const closeSpotLocations = [{
 const farSpotLocations = [{
         loc: {
             type: 'Point',
-            coordinates: [-93.734039, 16.685658]
+            formatted_address: '4029 Chamoune Ave San Diego, CA 92105'
         },
         cost: {
             day: 1,
@@ -67,7 +70,7 @@ const farSpotLocations = [{
     {
         loc: {
             type: 'Point',
-            coordinates: [-93.717173, 16.550729]
+            formatted_address: '4030 Chamoune Ave San Diego, CA 92105'
         },
         cost: {
             day: 1,

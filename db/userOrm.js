@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 
 module.exports = {
     getCurrentUser: function(req, res) {
-        res.json(req.user.name);
+        res.json(req.user);
     },
     findOrCreate: function(profile) {
         // find user w/id from passport strategy

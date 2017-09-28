@@ -3,18 +3,17 @@ import { Navbar, NavbarBrand, NavbarItem, NavbarStart, NavbarMenu, Icon, NavbarB
 	Control, Button } from "bloomer";
 import logo from './parkifyLogo.png';
 import "./Nav.css";
+import API from '../../utils/API';
 
 
 class Nav extends Component {
 
-    constructor() {
+    constructor(props) {
+		super(props);
 
-      super();
-
-      this.state = {
-        isActive: false
-      };
-
+		this.state = {
+			isActive: false,
+		};
     }
 
     render() {
@@ -42,9 +41,11 @@ class Nav extends Component {
 				        <NavbarItem href="https://github.com/leelandmiller/parkify" isHidden='touch'>
 				            <Icon icon='github' />
 				        </NavbarItem>
-						 <NavbarItem href='/account'>Account
-						 </NavbarItem>
-				        	<NavbarItem href='/login'>Login/SignUp</NavbarItem>
+				        	{this.props.isLoggedIn ?
+								<NavbarItem href='/account'>Account</NavbarItem> :
+								<NavbarItem href='/login'>Login/SignUp</NavbarItem>
+							}
+							{ this.props.isLoggedIn && <NavbarItem href='/auth/logout'>Logout</NavbarItem> }
 				    </NavbarEnd>
 				</NavbarMenu>
 			</Navbar>
