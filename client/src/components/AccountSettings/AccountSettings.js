@@ -36,31 +36,6 @@ class AccountSettings extends Component {
             </div>
         )
     }
-			render() {
-			    return (
-			        <div className="accountDetails">
-			<Table isBordered isStriped isNarrow className="table">
-			    <thead>
-			        <tr>
-			            <th>Account Settings</th>
-			            <th></th>
-			        </tr>
-			    </thead>
-			    <tbody>
-			        <tr className='is-selected'>
-			            <td>Userame/Email</td>
-			            <td>someone@somewhere.com</td>
-			        </tr>
-			        <tr>
-			            <td>Password</td>
-			            <td>************</td>
-			        </tr>
-			    </tbody>
-			</Table>
-			<VehicleDetails />
-			</div>
-		)
-	}
 }
 
 export default AccountSettings;

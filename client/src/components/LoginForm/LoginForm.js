@@ -38,11 +38,9 @@ class LoginForm extends Component {
 
         API.loginUser(email, password).then(user => {
             API.getCurrentUser().then(currentUser => {
-                console.log(currentUser);
-
                 this.props.setCurrentUser(currentUser);
                 window.location = '/account';
-            })
+            });
         });
     }
 
