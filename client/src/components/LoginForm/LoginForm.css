@@ -46,7 +46,7 @@ li {
     text-align: justify;
 }
 
-img {
+.login-form-img {
     height: auto;
     max-width: 125.5%;
     margin-left: -19%;

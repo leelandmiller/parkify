@@ -36,6 +36,11 @@ router.post('/login', passport.authenticate('local', { failureRedirect: '/login'
     }
 );
 
+router.get('/logout', (req, res) => {
+    req.logout();
+    res.redirect('/')
+})
+
 //** FETCH CURRENT USER FROM SESSION **//
 router.get('/api/currentuser', userOrm.getCurrentUser);
 

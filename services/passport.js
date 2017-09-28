@@ -48,8 +48,6 @@ passport.use(new LocalStrategy({
             return done(null, false, {message: 'Incorrect username.'});
         }
 
-        console.log(user)
-
         bcrypt.compare(password, user.pw_hash).then(passRes => {
             // res == true
             if (passRes === true) {

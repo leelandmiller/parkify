@@ -3,6 +3,7 @@ import { Navbar, NavbarBrand, NavbarItem, NavbarStart, NavbarMenu, Icon, NavbarB
 	Control, Button } from "bloomer";
 import logo from './parkifyLogo.png';
 import "./Nav.css";
+import API from '../../utils/API';
 
 
 class Nav extends Component {
@@ -40,7 +41,11 @@ class Nav extends Component {
 				        <NavbarItem href="https://github.com/leelandmiller/parkify" isHidden='touch'>
 				            <Icon icon='github' />
 				        </NavbarItem>
-				        	{this.props.isLoggedIn ? <NavbarItem href='/account'>Account</NavbarItem> : <NavbarItem href='/login'>Login/SignUp</NavbarItem>}
+				        	{this.props.isLoggedIn ?
+								<NavbarItem href='/account'>Account</NavbarItem> :
+								<NavbarItem href='/login'>Login/SignUp</NavbarItem>
+							}
+							{ this.props.isLoggedIn && <NavbarItem href='/auth/logout'>Logout</NavbarItem> }
 				    </NavbarEnd>
 				</NavbarMenu>
 			</Navbar>

@@ -36,7 +36,7 @@ const API = {
     },
     loginUser: function(email, password) {
         return axios.post('/auth/login', { email, password });
-    }
+    },
 }
 
 export default API;
