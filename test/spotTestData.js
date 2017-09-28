@@ -2,7 +2,10 @@ const moment = require('moment')
 const correctSpotObj = {
     loc:{
         type:'Point',
-        formatted_address: '517 21ST ST, San Diego,CA'
+        formatted_address: {
+                addr1: '517 21ST ST',
+                addr2: 'San Diego, CA'
+            }
     },
     cost:{
         day:1,
@@ -13,7 +16,10 @@ const correctSpotObj = {
 const falseSpotObj = {
     loc:{
         type:'Point',
-       formatted_address: '511231237 21ST ST, San Diego,CA'
+       formatted_address: {
+                addr1: '517 21ST ST',
+                addr2: 'San Diego, CA'
+            }
     },
     cost:{
         day:0,

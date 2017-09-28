@@ -13,7 +13,12 @@ const SpotSchema = new Schema({
             required:true
         } ,
         formatted_address: {
-            type: String
+            addr1:{
+                type:String
+            },
+            addr2:{
+                type:String
+            }
         }
     },
     cost: {

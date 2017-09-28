@@ -56,7 +56,7 @@ describe("spotOrm", () => {
     })
 
     it('should return 4 points from db' , done => {
-        getSpotsFromPoint("University City, San Diego, CA, USA", 100000).then(data => {
+        getSpotsFromPoint({addr1:'University City', addr2:'San Diego, CA, USA'}, 100000).then(data => {
             assert.equal(data.spots.length, 6, 'should return 3 spots')
         }).then(done, done)
     })
