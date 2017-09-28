@@ -13,23 +13,6 @@ import './App.css';
 
 
 class App extends Component {
-	render() {
-		return (
-			<div id='app-container'>
-				<Nav/>
-				<Router>
-					<div>
-						<Route exact path="/" component={HomeContainer}/>
-						<Route exact path="/login" component={FormWrapper}/>
-						<Route exact path="/account" component={Account}/>
-						<Route exact path="/search" component={SimpleSearch}/>
-						<Route exact path="/reserve" component={ReservationWrapper}/>
-					</div>
-				</Router>
-				<PageFooter/>
-			</div>
-		)
-	}
     constructor(props) {
         super(props);
 
