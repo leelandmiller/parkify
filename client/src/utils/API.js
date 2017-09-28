@@ -37,6 +37,19 @@ const API = {
     loginUser: function(email, password) {
         return axios.post('/auth/login', { email, password });
     },
+    /**VEHICLE API CALLS**/
+    addVehicle: function(vehicleObj) {
+        return axios.post('/api/add/vehicle', { vehicleObj });
+    },
+    updateVehicle: function() {
+
+    },
+    removeVehicle: function() {
+
+    },
+    getVehicle: function(vehicleId) {
+        return axios.get(`/api/vehicle/${vehicleId}`);
+    }
 }
 
 export default API;

@@ -32,15 +32,8 @@ const UserSchema = new Schema({
     ],
     vehicles: [
         {
-            make: {
-                type: String
-            },
-            model: {
-                type: String
-            },
-            license_plate: {
-                type: String
-            }
+            type: Schema.Types.ObjectId,
+            ref: 'Vehicle'
         }
     ],
     credit_cards: [

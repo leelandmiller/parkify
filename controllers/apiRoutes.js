@@ -2,6 +2,7 @@ const router = require('express').Router();
 const {checkSpotObjAndAdd, getSpotInfo, checkAndUpdateSpotSchedule, deleteSpot, getSpotsFromPoint} = require('../db/spotOrm');
 const {checkResevationObj, getAllReservations, finalReservationConflicts} = require('../db/reservationOrm');
 const {getUserSpots} = require('../db/userOrm');
+const { addVehicle } = require('../db/vehicleOrm');
 
 //get spot based on a location and search radius
 router.get('/spot/loc', (req, res)=>{
@@ -79,5 +80,13 @@ router.get('/myspots', (req, res) => {
 });
 //get users reservation
 //get all users info
+
+
+//**Vehicle Routes
+router.post('/add/vehicle', (req, res) => {
+    const vehicle = req.body.vehicleObj;
+
+
+});
 
 module.exports = router
