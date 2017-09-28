@@ -96,8 +96,9 @@ class SignUpForm extends Component {
                             && (this.state.confirmPass !== '' && this.state.password !== '')
                             && this.state.password.match(/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9@#$%^&+=*.\-_]){3,}$/)
                             && this.state.email.match(/^[a-zA-Z0-9\.]+@[a-zA-Z0-9]+(\-)?[a-zA-Z0-9]+(\.)?[a-zA-Z0-9]{2,6}?\.[a-zA-Z]{2,6}$/)?
-                            <Button isColor='primary' onClick={this.handleFormSubmit} className="btn btn-3">Submit</Button>
-                            :<Button disabled  isColor='primary' className="btn btn-3">Submit</Button>}
+                            <Button isColor='primary' className="btn btn-3" onClick={this.handleFormSubmit}>Submit</Button>
+                            :<Button disabled className="btn btn-3" isColor='primary'>Submit</Button>}
+
                         {}
                     </Control>
                     <Control>

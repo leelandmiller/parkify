@@ -5,9 +5,12 @@ import FormWrapper from './components/FormWrapper';
 import HomeContainer from './components/HomeContainer';
 import SimpleSearch from './components/SimpleSearch';
 import Account from './components/Account';
+import ReservationWrapper from "./components/ReservationWrapper";
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import API from './utils/API';
 import './App.css';
+
+
 
 class App extends Component {
     constructor(props) {
@@ -45,6 +48,7 @@ class App extends Component {
                      <Route exact path="/login" render={() => <FormWrapper setCurrentUser={this.setCurrentUser}/>}/>
                      <Route exact path="/account" render={() => <Account isLoggedIn={this.state.isLoggedIn} currentUser={this.state.currentUser}/>}/>
                      <Route exact path="/search" component={SimpleSearch}/>
+							<Route exact path="/reserve" component={ReservationWrapper}/>
                   </div>
                </Router>
                 <PageFooter />
