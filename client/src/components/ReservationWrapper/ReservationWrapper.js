@@ -1,38 +1,24 @@
 import React, { Component } from "react";
 import "./ReservationWrapper.css";
+import SpotPreview from "../SpotPreview";
+import AccountInfo from "../AccountInfo";
+import PaymentInfo from "../PaymentInfo";
+import SpotDetails from "../SpotDetails";
 
 
 
-class FormWrapper extends Component {
-	constructor(){
-		super();
+class ReservationWrapper extends Component {
+
 		
-		this.state = {
-			activeLoginFormTab:"login",
-			
-		};
-		
-		this.changeActiveTab = this.changeActiveTab.bind(this);
+		render(){
+			return (
+				<div>
+					<SpotPreview/>
+					<AccountInfo/>
+					<PaymentInfo/>
+					<SpotDetails/>
+				</div>
+			)
+		}
 	}
-	
-	changeActiveTab(tab) {
-		this.setState(
-			{ activeLoginFormTab:tab }
-		)
-	};
-	
-	
-	
-	render(){
-		return(
-			<div className="formwrapper">
-				<LoginTabs
-					activeTab = { this.state.activeLoginFormTab }
-					changeActiveTab = { this.changeActiveTab } />
-				{ this.state.activeLoginFormTab === "login" ? <LoginForm /> : <SignUpForm /> }
-			</div>
-		)
-	}
-}
-
-export default FormWrapper;
+export default ReservationWrapper;

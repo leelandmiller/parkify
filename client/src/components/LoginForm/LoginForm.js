@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Icon, Field, Label, Control, Input, Button } from "bloomer";
 import "./LoginForm.css";
-import parkingPic from '../../parking.png';
 
 class LoginForm extends Component {
     constructor(props) {
@@ -30,7 +29,6 @@ class LoginForm extends Component {
         return (
            
             <form className="form">
-               <img alt={"parking"} src={parkingPic}/>
                 <Field>
                     <Label>
                         Email
