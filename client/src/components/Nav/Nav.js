@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Navbar, NavbarBrand, NavbarItem, NavbarStart, NavbarMenu, Icon, NavbarBurger, NavbarEnd,
-	Control, Button } from "bloomer";
+import { Navbar, NavbarBrand, NavbarItem, NavbarStart, NavbarMenu, Icon, NavbarBurger, NavbarEnd,} from "bloomer";
 import logo from './parkifyLogo.png';
 import "./Nav.css";
 import API from '../../utils/API';

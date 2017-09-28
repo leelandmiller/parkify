@@ -14,7 +14,7 @@ class LoginForm extends Component {
             isActive: false,
             email: '',
             password: '',
-        }
+        };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -38,7 +38,7 @@ class LoginForm extends Component {
 
         API.loginUser(email, password).then(user => {
             API.getCurrentUser().then(currentUser => {
-                console.log(currentUser)
+                console.log(currentUser);
 
                 this.props.setCurrentUser(currentUser);
                 window.location = '/account';
@@ -48,13 +48,7 @@ class LoginForm extends Component {
 
     render() {
         return (
-           
-            <form className="form">
-                <Field>
-                    <Label>
-                        Email
-                    </Label>
-            <div>
+			  <div>
                 <form className="form">
                    <img className="login-form-img" alt={"parking"} src={parkingPic}/>
                     <Field>
@@ -98,7 +92,7 @@ class LoginForm extends Component {
                     </Field>
                 </form>
                 <PassportSignIn />
-            </div>
+			  </div>
         )
     }
 }

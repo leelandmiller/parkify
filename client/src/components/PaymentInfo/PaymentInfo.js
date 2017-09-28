@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./PaymentInfo.css";
-import {Message, MessageHeader, MessageBody} from 'bloomer';
+import {Message, MessageHeader, MessageBody, Input} from 'bloomer';
 
 class PaymentInfo extends Component {
 	
@@ -11,11 +11,19 @@ class PaymentInfo extends Component {
 					<p>Payment Info</p>
 				</MessageHeader>
 				<MessageBody>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>,
-					tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida
-					purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis
-					lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna
-					a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+<ul>
+	<li><b>Payment Method:</b></li>
+	<li>Debit or Credit Card</li>
+	<i className="fa fa-cc-mastercard" aria-hidden="true"></i>
+	<i className="fa fa-paypal" aria-hidden="true"></i>
+	<i className="fa fa-cc-visa" aria-hidden="true"></i>
+	<i className="fa fa-cc-amex" aria-hidden="true"></i>
+	<i className="fa fa-cc-discover" aria-hidden="true"></i>
+	<li>Cardholder Name</li>
+	<li><Input type="text"></Input></li>
+	<li>Debit/Credit Card Number</li>
+	<li><Input type="text"></Input></li>
+</ul>
 				</MessageBody>
 			</Message>
 		)

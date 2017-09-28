@@ -98,8 +98,6 @@ class SignUpForm extends Component {
                             && this.state.email.match(/^[a-zA-Z0-9\.]+@[a-zA-Z0-9]+(\-)?[a-zA-Z0-9]+(\.)?[a-zA-Z0-9]{2,6}?\.[a-zA-Z]{2,6}$/)?
                             <Button isColor='primary' className="btn btn-3" onClick={this.handleFormSubmit}>Submit</Button>
                             :<Button disabled className="btn btn-3" isColor='primary'>Submit</Button>}
-                            <Button isColor='primary' onClick={this.handleFormSubmit} className="btn btn-3">Submit</Button>
-                            :<Button disabled  isColor='primary' className="btn btn-3">Submit</Button>}
 
                         {}
                     </Control>

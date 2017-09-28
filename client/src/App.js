@@ -13,7 +13,6 @@ import './App.css';
 
 
 class App extends Component {
-<<<<<<< HEAD
 	render() {
 		return (
 			<div id='app-container'>
@@ -66,6 +65,7 @@ class App extends Component {
                      <Route exact path="/login" render={() => <FormWrapper setCurrentUser={this.setCurrentUser}/>}/>
                      <Route exact path="/account" render={() => <Account isLoggedIn={this.state.isLoggedIn} currentUser={this.state.currentUser}/>}/>
                      <Route exact path="/search" component={SimpleSearch}/>
+							<Route exact path="/reserve" component={ReservationWrapper}/>
                   </div>
                </Router>
                 <PageFooter />

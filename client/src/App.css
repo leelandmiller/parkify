@@ -47,3 +47,7 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 .btn-3 {
   background-image: linear-gradient(to right, #3fc8e8 0%, #92f2fe 51%, #3fc8e8 100%);
 }
+
+.message{
+  margin: 25px;
+}
