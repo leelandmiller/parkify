@@ -30,8 +30,8 @@ const getAddressByGeocode = (lat, lng) => {
 }
 
 const getLatLngByAddress = (address) => {
-    address = address.replace(/ /g, '+')
-    return axios.get(GEOCODE + address + '&key=' + KEY).then(results => {
+    let fullAddress = address.addr1.replace(/ /g, '+')+","+address.addr2.replace(/ /g, '+')
+    return axios.get(GEOCODE + fullAddress + '&key=' + KEY).then(results => {
         return results.data.results[0].geometry.location
     })
 }
@@ -99,23 +99,6 @@ const deleteSpot = (_id, userId) => {
 }
 
 const getSpotsFromPoint = (address, distance) => {
-    // let errors = []
-    // const lat = coordinates[1]
-    // const lng = coordinates[0]
-    // //check that all data is vaild
-    // if (lat > 90 || lat < -90) {
-    //     errors.push('Latitude out of range')
-    // }
-    // if (lng > 180 || lng < -180) {
-    //     errors.push('Longitude out of range')
-    // }
-    // if (errors.length > 0) {
-    //     return Promise.resolve({
-    //         success: false,
-    //         err: errors,
-    //         func: 'getSpotsFromPoint'
-    //     })
-    // }
    return getLatLngByAddress(address).then(results => {
         const lat = results.lat
         const lng = results.lng
@@ -246,7 +229,7 @@ const checkSpotObjAndAdd = (spotObj, scheduleObj) => {
     const address = spotObj.loc.formatted_address
     let errors = []
     const cost = spotObj.cost
-    if (!spotObj.loc.formatted_address) {
+    if (!spotObj.loc.formatted_address.addr1 || !spotObj.loc.formatted_address.addr2) {
         return Promise.resolve({
             success: false,
             err: ['must have a formatted_address']
