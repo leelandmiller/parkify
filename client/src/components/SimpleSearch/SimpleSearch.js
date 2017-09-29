@@ -16,24 +16,24 @@ export class SimpleSearch extends Component {
 			// Distance away from the search location
 			distance: 10000,
 	        closeBy: [
-	            {
-	                name: "Encinitas",
-	                addr1: "Encinitas Way",
-	                addr2: "Encinitas, CA USA",
-	                price: 45,
-	                distance: 5,
-	                lat: 33.039139,
-	                lng: -117.295425
-	            },
-	            {
-	                name: "Margaret's House",
-	                addr1: "8825 Revelstoke Way",
-	                addr2: "San Diego, CA 92126",
-	                price: 25,
-	                distance: 10,
-	                lat: 32.931521,
-	                lng: -117.132951
-	            }            
+	            // {
+	            //     name: "Encinitas",
+	            //     addr1: "Encinitas Way",
+	            //     addr2: "Encinitas, CA USA",
+	            //     price: 45,
+	            //     distance: 5,
+	            //     lat: 33.039139,
+	            //     lng: -117.295425
+	            // },
+	            // {
+	            //     name: "Margaret's House",
+	            //     addr1: "8825 Revelstoke Way",
+	            //     addr2: "San Diego, CA 92126",
+	            //     price: 25,
+	            //     distance: 10,
+	            //     lat: 32.931521,
+	            //     lng: -117.132951
+	            // }            
 	        ]
 		}
 
@@ -69,7 +69,7 @@ export class SimpleSearch extends Component {
 
 	    API.getSpotsByPoint(newSearch).then((res) => {
 	        this.setState({ closeBy: res.data.spots });
-	        console.log(res.data.spots);
+	        console.log("SPOTS BY POINT", res.data.spots);
 	    });
 	};
 
