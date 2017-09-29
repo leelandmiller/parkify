@@ -1,4 +1,9 @@
-.details{
-	margin-top: 25px;
+.column {
+	width: 320px !important;
+	padding: 1rem;
+	margin-left: 50px;
+	margin-top: -15px;
 	margin-bottom: 25px;
 }
+
+
