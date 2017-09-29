@@ -5,9 +5,10 @@ const {getUserSpots} = require('../db/userOrm');
 const { addVehicle } = require('../db/vehicleOrm');
 
 //get spot based on a location and search radius
-router.get('/spot/loc', (req, res)=>{
+router.post('/spot/loc', (req, res)=>{
     const loc = req.body.location;
     const distance = req.body.distance;
+    console.log("API ROUTES", req.body);
     getSpotsFromPoint(loc, distance).then(results => {
         res.json(results)
     })
