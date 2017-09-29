@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Icon, Field, Label, Control, Input, Button } from "bloomer";
+import { Icon, Field, Control, Input, Button } from "bloomer";
 import "./LoginForm.css";
-import parkingPic from '../../parking.png';
 import API from '../../utils/API';
 import PassportSignIn from '../PassportSignIn';
 
@@ -48,7 +47,6 @@ class LoginForm extends Component {
         return (
 			  <div>
                 <form className="form">
-                   {/*<img className="login-form-img" alt={"parking"} src={parkingPic}/>*/}
                     <Field>
                         <Control>
                            <Icon isSize='medium' isAlign='left'>

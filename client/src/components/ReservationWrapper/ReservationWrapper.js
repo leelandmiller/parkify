@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Columns, Column } from "bloomer";
 import "./ReservationWrapper.css";
 import SpotPreview from "../SpotPreview";
 import AccountInfo from "../AccountInfo";
@@ -12,12 +13,16 @@ class ReservationWrapper extends Component {
 		
 		render(){
 			return (
-				<div>
+				<Columns>
+					<Column>
 					<SpotPreview/>
 					<AccountInfo/>
 					<PaymentInfo/>
+					</Column>
+				<Column>
 					<SpotDetails/>
-				</div>
+					</Column>
+				</Columns>
 			)
 		}
 	}

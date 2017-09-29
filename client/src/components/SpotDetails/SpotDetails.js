@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "./SpotDetails.css";
 import {Message, MessageHeader, MessageBody} from 'bloomer';
-import spotPic from '../../parking.png';
-
 class SpotDetails extends Component {
 	
 	render() {
@@ -14,8 +12,11 @@ class SpotDetails extends Component {
 				</MessageHeader>
 				<MessageBody>
 					<ul>
-						<li><img className="login-form-img" alt={"parking"} src={spotPic}/></li>
+						<li><img className="login-form-img" alt={"parking"} src="assets/images/parking.png"/></li>
+						
 					<li><b>7973 La Jolla Shores Dr. (7955 La Jolla Shores Dr.) - Hotel La Jolla - Valet Lot
+						<br>
+						</br>
 						7973 La Jolla Shores Drive, San Diego, CA</b></li>
 					<li></li>
 						<li><a>See on Map</a></li>

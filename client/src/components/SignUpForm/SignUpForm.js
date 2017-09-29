@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Icon, Field, Label, Control, Input, Button } from "bloomer";
+import { Icon, Field, Control, Input, Button } from "bloomer";
 import "./SignUpForm.css";
-import parkingPic from '../../parking.png';
 import API from '../../utils/API';
 
 class SignUpForm extends Component {
