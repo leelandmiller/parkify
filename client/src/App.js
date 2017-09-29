@@ -10,6 +10,9 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import AddVehicle from './components/AddVehicle';
 import API from './utils/API';
 import './App.css';
+import createBrowserHistory from 'history/createBrowserHistory'
+
+const history = createBrowserHistory()
 
 class App extends Component {
     constructor(props) {
@@ -46,7 +49,7 @@ class App extends Component {
         return (
             <div id='app-container'>
                 <Nav isLoggedIn={this.state.isLoggedIn} />
-                <BrowserRouter>
+                <BrowserRouter history={history}>
                     <Switch>
                         <Route exact path="/" component={HomeContainer}/>
                         <Route path="/login" render={() => <FormWrapper setCurrentUser={this.setCurrentUser}/>}/>
