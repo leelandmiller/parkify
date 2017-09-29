@@ -117,7 +117,8 @@ const getSpotsFromPoint = (address, distance) => {
             }]).then(data => {
             return {
                 success: true,
-                spots: data
+                spots: data,
+                searchCoords: coordinates
             }
         })
     })
