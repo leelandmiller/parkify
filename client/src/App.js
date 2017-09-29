@@ -15,7 +15,7 @@ class App extends Component {
         super(props);
 
         this.state = {
-            isLoggedIn: false,
+            isLoggedIn: true,
             currentUser: {}
         }
         this.setCurrentUser = this.setCurrentUser.bind(this);
@@ -25,6 +25,10 @@ class App extends Component {
         API.getCurrentUser().then(user => {
             if (user.data) {
                 this.setCurrentUser(user.data);
+            } else {
+                this.setState({
+                    isLoggedIn: false
+                })
             }
         });
     }

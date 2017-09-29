@@ -2,7 +2,7 @@ const router = require('express').Router();
 const {checkSpotObjAndAdd, getSpotInfo, checkAndUpdateSpotSchedule, deleteSpot, getSpotsFromPoint} = require('../db/spotOrm');
 const {checkResevationObj, getAllReservations, finalReservationConflicts} = require('../db/reservationOrm');
 const {getUserSpots} = require('../db/userOrm');
-const { addVehicle } = require('../db/vehicleOrm');
+const { addVehicle, updateVehicle, removeVehicle, getUserVehicle } = require('../db/vehicleOrm');
 
 //get spot based on a location and search radius
 router.post('/spot/loc', (req, res)=>{
@@ -68,8 +68,9 @@ router.get('/reservation', (req, res) => {
 
 // add a reservation
 router.post('/reservation', (req, res) => {
-    const reservationObj = req.body.reservationObj
-    reservationObj.retner = req.user._id
+    const reservationObj = req.body.reservationObj;
+    reservationObj.renter = req.user._id;
+
     checkResevationObj(reservationObj).then(results => {
         res.json(results);
     });
@@ -86,8 +87,35 @@ router.get('/myspots', (req, res) => {
 //**Vehicle Routes
 router.post('/add/vehicle', (req, res) => {
     const vehicle = req.body.vehicleObj;
+    vehicle.owner = req.user._id;
 
+    addVehicle(vehicle).then(vehicleSaved => {
+        res.json(vehicleSaved);
+    });
+});
 
+router.put('/update/vehicle/:vehicleId', (req, res) => {
+    const vehicleId = req.params.vehicleId;
+
+    updateVehicle(vehicleId).then(vehicleUpdated => {
+        res.json(vehicleUpdated);
+    });
+});
+
+router.delete('/remove/vehicle/:vehicleId', (req, res) => {
+    const vehicleId = req.params.vehicleId;
+
+    removeVehicle(vehicleId, req.user._id).then(vehicleRemoved => {
+        res.json(vehicleRemoved);
+    });
+});
+
+router.get('/vehicle/:userId', (req, res) => {
+    const _id = req.params.userId;
+
+    getUserVehicle(_id).then(vehicle => {
+        res.json(vehicle);
+    });
 });
 
 module.exports = router

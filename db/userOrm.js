@@ -63,7 +63,7 @@ module.exports = {
                 posted_spots: spotId
             }
         }).catch(err => {
-            console.log(`hey, ${err}`);
+            console.log(`addSpotIdToUserERR, ${err}`);
         });
     },
     addReservationIDToUser: function(_id, reservationId) {
@@ -72,7 +72,16 @@ module.exports = {
                 reservations: reservationId
             }
         }).catch(err => {
-            console.log(`addResERR, ${err}`);
+            console.log(`addResToUserERR, ${err}`);
+        });
+    },
+    addVehicleIDToUser: function(_id, vehicleId) {
+        User.update({ _id }, {
+            $set: {
+                vehicle: vehicleId
+            }
+        }).catch(err => {
+            console.log(`addVehIDToUserERR, ${err}`);
         });
     },
     getUserSpots: function(_id) {
@@ -95,6 +104,14 @@ module.exports = {
             ])
             .exec((err, populate) => {
 
+                return populate;
+            }
+        );
+    },
+    getUserVehicle: function(_id) {
+        return User.findOne({ _id })
+            .populate('vehicle')
+            .exec((err, populate) => {
                 return populate;
             }
         );

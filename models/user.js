@@ -30,12 +30,10 @@ const UserSchema = new Schema({
             ref: 'Spot'
         }
     ],
-    vehicles: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Vehicle'
-        }
-    ],
+    vehicle: {
+        type: Schema.Types.ObjectId,
+        ref: 'Vehicle'
+    },
     credit_cards: [
         {
             type: Number,

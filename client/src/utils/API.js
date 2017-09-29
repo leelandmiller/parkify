@@ -42,14 +42,14 @@ const API = {
     addVehicle: function(vehicleObj) {
         return axios.post('/api/add/vehicle', { vehicleObj });
     },
-    updateVehicle: function() {
-
+    updateVehicle: function(vehicleId) {
+        return axios.put(`/api/update/vehicle/${vehicleId}`);
     },
-    removeVehicle: function() {
-
+    removeVehicle: function(vehicleId) {
+        return axios.delete(`/api/remove/vehicle/${vehicleId}`);
     },
-    getVehicle: function(vehicleId) {
-        return axios.get(`/api/vehicle/${vehicleId}`);
+    getVehicle: function(userId) {
+        return axios.get(`/api/vehicle/${userId}`);
     }
 }
 

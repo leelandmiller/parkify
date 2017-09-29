@@ -11,7 +11,7 @@ let userId = goodUser.save();
 let badUser = new User(missingFieldsUserObj);
 
 describe('userOrmTest', () => {
-    
+
     before(function(done) {
         mongoose.connect('mongodb://localhost/parkifyTestDatabase');
         const db = mongoose.connection;
@@ -67,7 +67,12 @@ describe('userOrmTest', () => {
     });
 
     after((done) => {
-        Promise.all([User.remove()]).then(() => {
+        Promise.all([
+            User.remove(),
+            Spot.remove(),
+            SpotSchedule.remove()
+            Reservation.remove()
+        ]).then(() => {
             mongoose.connection.close();
             done();
         });
