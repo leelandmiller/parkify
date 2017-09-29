@@ -1,27 +1,39 @@
-.btn {
-    color: black;
-    flex: 1 1 auto;
-    margin: 10px;
-    text-align: center;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: black;
-    box-shadow: 0 0 20px #eee;
-    border-radius: 0px;
+/*.fa-user,*/
+/*.fa-envelope-o,*/
+/*.fa-lock,*/
+/*.fa-picture-o {*/
+    /*padding: 7px;*/
+/*}*/
+
+
+
+body{
+
 }
 
-.btn:hover {
-    background-position: right center;
+.icon .fa.fa-envelope-o{
+    font-size: 21px;
+    margin-top: 11px;
+    border: 1px solid #5085EC;
+    width: 44px;
+    height: 43px;
+    padding: 7px 11px 7px 12px;
 }
 
-.btn:active {
-    background-position: right center;
+.icon .fa.fa-user, .fa.fa-lock {
+    font-size: 21px;
+    margin-top: 11px;
+    border: 1px solid #5085EC;
+    width: 44px;
+    height: 43px;
+    padding: 7px 14px;
 }
 
-.btn-3 {
-    background-image: linear-gradient(to right, #3fc8e8 0%, #92f2fe 51%, #3fc8e8 100%);
-}
-
-.input {
-    width:300px;
+.icon .fa.fa-picture-o {
+    font-size: 21px;
+    margin-top: 11px;
+    border: 1px solid #5085EC;
+    width: 44px;
+    height: 43px;
+    padding: 10px 11px;
 }
