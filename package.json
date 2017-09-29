@@ -29,7 +29,9 @@
   },
   "scripts": {
     "test": "mocha --recursive",
-    "start": "concurrently \"nodemon server.js\" \"cd client && npm run start\""
+    "start": "concurrently \"nodemon server.js\" \"cd client && npm run start\"",
+    "deploy": "yarn build && git add . && git commit -m \"Building for production\" && git push heroku master",
+    "build": "cd client && npm run build"
   },
   "repository": {
     "type": "git",

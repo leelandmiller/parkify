@@ -40,7 +40,7 @@ passport.deserializeUser(function(user, done) {
 
 mongoose.Promise = Promise;
 
-mongoose.connect("mongodb://localhost/parkifyTest", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/parkifyTest", {
     useMongoClient: true
 })
 //.then(() => saveAllSpotLocations());
