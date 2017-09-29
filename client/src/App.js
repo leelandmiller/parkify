@@ -49,7 +49,7 @@ class App extends Component {
         return (
             <div id='app-container'>
                 <Nav isLoggedIn={this.state.isLoggedIn} />
-                <BrowserRouter history={history}>
+                <BrowserRouter history={history} basename="/">
                     <Switch>
                         
                         <Route path="/login" render={() => <FormWrapper setCurrentUser={this.setCurrentUser}/>}/>
