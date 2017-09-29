@@ -6,7 +6,7 @@ import HomeContainer from './components/HomeContainer';
 import SimpleSearch from './components/SimpleSearch';
 import Account from './components/Account';
 import ReservationWrapper from "./components/ReservationWrapper";
-import {Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import AddVehicle from './components/AddVehicle';
 import API from './utils/API';
 import './App.css';
@@ -49,11 +49,11 @@ class App extends Component {
                 <Router>
                     <div>
                         <Route exact path="/" component={HomeContainer}/>
-                        <Route path="/login" render={() => <FormWrapper setCurrentUser={this.setCurrentUser}/>}/>
-                        <Route path="/account" render={() => <Account isLoggedIn={this.state.isLoggedIn} currentUser={this.state.currentUser}/>}/>
-                        <Route path="/search" component={SimpleSearch}/>
-                        <Route path="/reserve" component={ReservationWrapper}/>
-                        <Route path="/add/vehicle" component={AddVehicle}/>
+                        <Route exact path="/login" render={() => <FormWrapper setCurrentUser={this.setCurrentUser}/>}/>
+                        <Route exact path="/account" render={() => <Account isLoggedIn={this.state.isLoggedIn} currentUser={this.state.currentUser}/>}/>
+                        <Route exact path="/search" component={SimpleSearch}/>
+                        <Route exact path="/reserve" component={ReservationWrapper}/>
+                        <Route exact path="/add/vehicle" component={AddVehicle}/>
                     </div>
                 </Router>
                 <PageFooter />
