@@ -71,11 +71,11 @@ export class MapContainer extends Component {
                                 <Marker
                                     title={'The marker`s title will appear as a tooltip.'}
                                     name={location.name}
-                                    addr1={location.addr1}
-                                    addr2={location.addr2}
-                                    price={location.price}
+                                    addr1={location.loc.formatted_address.addr1}
+                                    addr2={location.loc.formatted_address.addr2}
+                                    price={location.cost.day}
                                     distance={location.distance}
-                                    position={{lat: location.lat, lng: location.lng}}
+                                    position={{lat: location.loc.coordinates[1], lng: location.loc.coordinates[0]}}
                                     onClick={this.onMarkerClick} />
                             )
 
