@@ -75,7 +75,7 @@ export class SimpleSearch extends Component {
 				<form className="simplesearch-form">
 					<Columns>
 					    <Column isSize='3/4'>
-							<Field>
+							<Field >
 								<Control hasIcons>
 								<Input 
 									isColor='success' 
@@ -122,12 +122,12 @@ export class SimpleSearch extends Component {
 				</form>	
 				<Container>
 					<Columns isGapless="true"  className='map-results'>
-						<Column isSize='1/4'>
+						<Column isSize='1/3'>
 							<MapResults
 								closeBy={this.state.closeBy}
 							/>
 						</Column>
-						<Column isSize='3/4'>
+						<Column isSize='2/3'>
 							<MapContainer 
 								location={this.state.location}
 								distance={this.state.distance}

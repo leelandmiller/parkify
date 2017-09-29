@@ -10,3 +10,7 @@
 .simplesearch-form {
 	margin-bottom: 20px;
 }
+
+.simplesearch-form input{
+	width: 100%;
+}
