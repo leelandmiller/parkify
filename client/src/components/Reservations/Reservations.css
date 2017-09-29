@@ -21,3 +21,10 @@ a.button.reservationButton{
     border: 1px solid lightgray;
     background: white;
 }
+
+.table tr.is-selected td, .table tr.is-selected th {
+    border-color: #eee;
+    color: black;
+    border: 1px solid lightgray;
+    background: white;
+}
