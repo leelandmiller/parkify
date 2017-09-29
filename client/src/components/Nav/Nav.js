@@ -3,7 +3,7 @@ import { Navbar, NavbarBrand, NavbarItem, NavbarStart, NavbarMenu, Icon, NavbarB
 import logo from './parkifyLogo.png';
 import "./Nav.css";
 import API from '../../utils/API';
-
+import {Link} from 'react-router-dom'
 
 class Nav extends Component {
 
@@ -33,8 +33,9 @@ class Nav extends Component {
 				</NavbarBrand>
 				<NavbarMenu isActive={this.state.isActive} onClick={this.onClickNav}>
 				    <NavbarStart>
-						<NavbarItem href='/search'>Find a Spot</NavbarItem>
-						<NavbarItem href='/'>Sell a Spot</NavbarItem>
+					{/*	<NavbarItem href='/search'>Find a Spot</NavbarItem>
+						<NavbarItem href='/'>Sell a Spot</NavbarItem>*/}
+						<Link to ='/search'> Search </Link>
 				    </NavbarStart>
 				    <NavbarEnd>
 				        <NavbarItem href="https://github.com/leelandmiller/parkify" isHidden='touch'>
