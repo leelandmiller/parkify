@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Icon, Field, Control, Input, Button } from "bloomer";
+   import { Icon, Field, Control, Input, Button } from "bloomer";
 import "./LoginForm.css";
 import API from '../../utils/API';
 import PassportSignIn from '../PassportSignIn';
@@ -54,7 +54,6 @@ class LoginForm extends Component {
                            </Icon>
                             <Input id="email" type="email" placeholder='Email' name='email' value={this.state.email} onChange={this.handleChange} />
                             <Icon isSize='small' isAlign='right'>
-
                             </Icon>
                         </Control>
                     </Field>

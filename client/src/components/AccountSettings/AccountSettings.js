@@ -11,11 +11,11 @@ class AccountSettings extends Component {
         };
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (!nextProps.isLoggedIn) {
-            window.location = '/login'
-        }
-    }
+    // componentWillReceiveProps(nextProps) {
+    //     if (!nextProps.isLoggedIn) {
+    //         window.location = '/login'
+    //     }
+    // }
 
     render() {
         return (
