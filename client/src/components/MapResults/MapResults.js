@@ -55,7 +55,7 @@ export class MapResults extends Component {
                         	return (
                             	<div>
 	                            	<hr/>
-	        						<a className="result-wrapper" href="#" onClick={this.props.onMarkerClick}>
+	        						<a className="result-wrapper" href={"/reserve/" + location._id } onClick={this.props.onMarkerClick}>
 	        							<Columns className="result-column">
 	        								<Column>
 	        									<img className="result-img" src="http://lorempixel.com/300/300/cats"></img>
@@ -66,6 +66,7 @@ export class MapResults extends Component {
 	        									<li className="result-addr1">{location.loc.formatted_address.addr1}</li>
 	        									<li className="result-addr2">{location.loc.formatted_address.addr2}</li>
 	        									<li className="result-distance">{this.calculateMiles(location.distance).toFixed(2)} miles</li>
+	        									<a href="/reserve">Reserve This Spot</a>
 	        								</Column>
 	        							</Columns>
 	        						</a>
