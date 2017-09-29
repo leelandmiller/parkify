@@ -29,7 +29,7 @@
   },
   "scripts": {
     "test": "mocha --recursive",
-    "start": "server.js",
+    "start": "node server.js",
     "deploy": "yarn build && git add . && git commit -m \"Building for production\" && git push heroku master",
     "build": "cd client && npm run build"
   },
