@@ -15,7 +15,8 @@ const API = {
         return axios.delete('/api/spot', { spotId });
     },
     getSpotsByPoint: function(locObj){
-        return axios.get('/api/spot/loc', {
+        console.log(locObj);
+        return axios.post('/api/spot/loc', {
             location: locObj.loc,
             distance: locObj.distance
         });

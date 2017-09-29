@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Container, Field, Label, Control, Input, Icon, Select, Button, Column, Columns} from "bloomer";
 import MapContainer from '../MapContainer';
 import MapResults from '../MapResults';
+import API from "../../utils/API";
 import "./SimpleSearch.css";
 
 export class SimpleSearch extends Component {
@@ -13,7 +14,7 @@ export class SimpleSearch extends Component {
 			// Takes in a zip code or address
 			location: "",
 			// Distance away from the search location
-			distance: "",
+			distance: 10000,
 	        closeBy: [
 	            {
 	                name: "Encinitas",
@@ -43,29 +44,39 @@ export class SimpleSearch extends Component {
 
 	handleLocChange = (event) => {
 		 this.setState({ location: event.target.value });
-		 console.log(this.state);
+		 // console.log('Location', this.state);
 	};
 	
 	handleDistChange = (event) => {
-		 this.setState({ distance: event.target.value });
-		 console.log(this.state);
+		 this.setState({ distance: (event.target.value*1600) });
+		 // console.log('Distance', this.state);
 	};
 
 	handleSearchClick = (event) => {
 		event.preventDefault();
 
-		let searchLoc = this.state.location;
-		let searchDist = this.state.dist;
+	    let searchLoc = {
+	    	addr1: this.state.location,
+	   		addr2: ""
+	    };
 
-		const newSearch = {location: searchLoc, distance: searchDist};
-		console.log("Searching", this.state);
+	    let searchDist = this.state.distance;
 
-		//Send call to DB for spots near search location
+	    let newSearch = {
+	    	loc: searchLoc,
+	    	distance: searchDist
+	    };
+
+	    API.getSpotsByPoint(newSearch).then((res) => {
+	        this.setState({ closeBy: res.data.spots });
+	        console.log(res.data.spots);
+	    });
 	};
 
 	convertLocation = () => {
 		console.log("Lat and long");
 	};
+
 
 	render() { 
 		

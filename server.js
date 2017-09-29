@@ -10,6 +10,8 @@ const secret = require('./config/keys').SESSION_SECRET;
 
 require('./services/passport');
 
+const {saveAllSpotLocations} = require('./test/spotLocationTestData');
+
 const PORT = process.env.PORT || 3001;
 const app = express();
 
@@ -40,7 +42,7 @@ mongoose.Promise = Promise;
 
 mongoose.connect("mongodb://localhost/parkifyTest", {
     useMongoClient: true
-});
+}).then(() => saveAllSpotLocations());
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }));
 if (process.env.NODE_ENV === "production") {
