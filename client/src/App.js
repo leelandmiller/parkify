@@ -6,7 +6,7 @@ import HomeContainer from './components/HomeContainer';
 import SimpleSearch from './components/SimpleSearch';
 import Account from './components/Account';
 import ReservationWrapper from "./components/ReservationWrapper";
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import {Router, Route } from 'react-router-dom'
 import AddVehicle from './components/AddVehicle';
 import API from './utils/API';
 import './App.css';
