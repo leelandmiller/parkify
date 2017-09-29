@@ -25,13 +25,16 @@ import "./Reservations.css";
 			            <td style={{ height: '150px' }}><Button className="reservationButton btn btn-3" style={{ top: '60px' }}>Reserve A Spot</Button></td>
 			        </tr>
 			        <tr>
-			            <td>Reservation History</td>
+						  <td><b>Reservation History</b></td>
 			        </tr>
 			        <tr>
-			            <td>---</td>
-			        </tr>
-			            <tr>
-			            <td>---</td>
+			            <td>
+							  <tr className={"ReservationAddress"}>Address: </tr>
+							  <tr className={"ReservationDate"}>Date: </tr>
+							  <tr className={"ReservationTime"}>Time: </tr>
+							  <tr className={"ReservationPrice"}>Price: </tr>
+							</td>
+
 			        </tr>
 			    </tbody>
 			</Table>

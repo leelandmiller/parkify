@@ -48,16 +48,13 @@ class LoginForm extends Component {
         return (
 			  <div>
                 <form className="form">
-                   <img className="login-form-img" alt={"parking"} src={parkingPic}/>
+                   {/*<img className="login-form-img" alt={"parking"} src={parkingPic}/>*/}
                     <Field>
-                        <Label>
-                            Email
-                        </Label>
-                        <Control hasIcons>
+                        <Control>
+                           <Icon isSize='medium' isAlign='left'>
+                              <span className="fa fa-envelope-o fa-4x" aria-hidden="true" />
+                           </Icon>
                             <Input id="email" type="email" placeholder='Email' name='email' value={this.state.email} onChange={this.handleChange} />
-                            <Icon isSize='small' isAlign='left'>
-                                <span className="fa fa-user" aria-hidden="true" />
-                            </Icon>
                             <Icon isSize='small' isAlign='right'>
 
                             </Icon>
@@ -65,29 +62,26 @@ class LoginForm extends Component {
                     </Field>
 
                     <Field>
-                        <Label>
-                            Password
-                        </Label>
-                    <Control hasIcons>
+                    <Control>
+                       <Icon isSize='medium' isAlign='left'>
+                          <span className="fa fa-lock fa-4x" aria-hidden="true" />
+                       </Icon>
                         <Input id="password" type='password' name='password' isColor='success' placeholder='Password' value={this.state.password} onChange={this.handleChange} />
-                            <Icon isSize='small' isAlign='left'>
-                                <span className="fa fa-user-secret" aria-hidden="true" />
-                            </Icon>
                         <Icon isSize='small' isAlign='right'>
 
                         </Icon>
                     </Control>
                 </Field>
-               <Field isGrouped>
-                  <ul>
-                  <li className="terms">By logging in, I agree to them. Parkify <a>terms and conditions.</a> If I'm a seller, I also agree to the <a>Operator Dashboard terms.</a></li>
-                     </ul>
-               </Field>
                     <Field isGrouped>
                         <Control>
                             <Button id="login-submit" className="btn btn-3" isColor='primary' onClick={this.handleFormSubmit}>Submit</Button>
                         </Control>
                     </Field>
+                   <Field isGrouped>
+                      <ul>
+                         <li className="terms">By logging in, I agree to them. Parkify <a>terms and conditions.</a> If I'm a seller, I also agree to the <a>Operator Dashboard terms.</a></li>
+                      </ul>
+                   </Field>
                 </form>
                 <PassportSignIn />
 			  </div>

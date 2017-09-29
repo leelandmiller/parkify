@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Icon, Field, Label, Control, Input, Button } from "bloomer";
 import "./SignUpForm.css";
+import parkingPic from '../../parking.png';
 import API from '../../utils/API';
 
 class SignUpForm extends Component {
@@ -47,46 +48,42 @@ class SignUpForm extends Component {
         return (
             <form className="form">
                 <Field>
-                    <Label>
-                        Name
-                    </Label>
                 <Control>
+                   <Icon isSize='medium' isAlign='left'>
+                      <span className="fa fa-user fa-4x" aria-hidden="true" />
+                   </Icon>
                     <Input type="text" placeholder='Full Name' name='name' value={this.state.name} onChange={this.handleChange} />
                 </Control>
                 </Field>
                 <Field>
-                    <Label>
-                        Email
-                    </Label>
                 <Control>
+                   <Icon isSize='medium' isAlign='left'>
+                      <span className="fa fa-envelope-o fa-4x" aria-hidden="true" />
+                   </Icon>
                     <Input type="email" placeholder='Email' name='email' value={this.state.email} onChange={this.handleChange} />
                 </Control>
                 </Field>
-
                 <Field>
-                    <Label>
-                        Password
-                    </Label>
-                <Control hasIcons>
+                <Control>
+                   <Icon isSize='medium' isAlign='left'>
+                      <span className="fa fa-lock fa-4x" aria-hidden="true" />
+                   </Icon>
                     <Input type='password' name='password' isColor='success' placeholder='Password' value={this.state.password} onChange={this.handleChange} />
-                        <Icon isSize='small' isAlign='left'>
-                            <span className="fa fa-user" aria-hidden="true" />
-                        </Icon>
                 </Control>
                 </Field>
                 <Field>
-                    <Label>
-                        Repeat Password
-                    </Label>
-                <Control hasIcons>
+                <Control>
+                   <Icon isSize='medium' isAlign='left'>
+                      <span className="fa fa-lock fa-4x" aria-hidden="true" />
+                   </Icon>
                     <Input type='password' name='confirmPass' isColor='success' placeholder='Repeat Password' value={this.state.confirmPass} onChange={this.handleChange} />
-                        <Icon isSize='small' isAlign='left'>
-                            <span className="fa fa-user" aria-hidden="true" />
-                        </Icon>
                 </Control>
                 </Field>
                <Field isGrouped>
                   <Control>
+                     <Icon isSize='medium' isAlign='left'>
+                        <span className="fa fa-picture-o fa-4x" aria-hidden="true" />
+                     </Icon>
                      <Input type="file"/>
                   </Control>
                </Field>
@@ -98,13 +95,14 @@ class SignUpForm extends Component {
                             && this.state.email.match(/^[a-zA-Z0-9\.]+@[a-zA-Z0-9]+(\-)?[a-zA-Z0-9]+(\.)?[a-zA-Z0-9]{2,6}?\.[a-zA-Z]{2,6}$/)?
                             <Button isColor='primary' className="btn btn-3" onClick={this.handleFormSubmit}>Submit</Button>
                             :<Button disabled className="btn btn-3" isColor='primary'>Submit</Button>}
-
                         {}
                     </Control>
-                    <Control>
-                       <Button isColor='primary' className="btn btn-3">Cancel</Button>
-                    </Control>
                 </Field>
+               <ul className={"tAndC"}>
+                  <li>By creating an account, you're agreeing to the</li>
+                  <li><a>SpotHero Terms and Conditions.</a></li>
+                  <li><a>Already have an account? Sign In</a></li>
+               </ul>
             </form>
         )
     }

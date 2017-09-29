@@ -16,32 +16,6 @@ input{
     color: rgb(0, 0, 0);
 }
 
-.btn {
-    flex: 1 1 auto;
-    margin: 10px;
-    padding: ;
-    text-align: center;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;
-    box-shadow: 0 0 20px #eee;
-    border-radius: 0px;
-}
-
-.btn:hover {
-    background-position: right center;
-    border: none;
-}
-
-.btn:active {
-    background-position: right center;
-    border: none;
-}
-
-.btn-3 {
-    background-image: linear-gradient(to right, #3fc8e8 0%, #92f2fe 51%, #3fc8e8 100%);
-}
-
 li {
     text-align: justify;
 }
@@ -52,6 +26,7 @@ li {
     margin-left: -19%;
 }
 
-.imageText {
-
+.google-btn {
+    width: 100%;
+    height: 100%;
 }
