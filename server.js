@@ -33,7 +33,7 @@ passport.serializeUser(function(user, done) {
 
 // deserialize user into session
 passport.deserializeUser(function(user, done) {
-    User.findOne( { _id: user.user._id }).then(dbUser => {
+    User.findOne( { _id: user._id }).then(dbUser => {
         done(null, dbUser);
     });
 });
