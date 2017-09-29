@@ -51,12 +51,13 @@ class App extends Component {
                 <Nav isLoggedIn={this.state.isLoggedIn} />
                 <BrowserRouter history={history}>
                     <Switch>
-                        <Route exact path="/" component={HomeContainer}/>
+                        
                         <Route path="/login" render={() => <FormWrapper setCurrentUser={this.setCurrentUser}/>}/>
                         <Route path="/account" render={() => <Account isLoggedIn={this.state.isLoggedIn} currentUser={this.state.currentUser}/>}/>
                         <Route path="/search" component={SimpleSearch}/>
                         <Route path="/reserve" component={ReservationWrapper}/>
                         <Route path="/add/vehicle" component={AddVehicle}/>
+                        <Route exact path="/" component={HomeContainer}/>
                     </Switch>
                 </BrowserRouter>
                 <PageFooter />
