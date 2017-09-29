@@ -1,0 +1,16 @@
+.column {
+    width: 200px;
+    padding: 1rem;
+}
+
+.columns {
+    margin-left: -39px;
+    margin-right: 0.75rem;
+    margin-top: 0px;
+}
+
+.message-header {
+    background-color: #3fc9e6;
+    border-radius: 0px;
+    color: #000;
+}
