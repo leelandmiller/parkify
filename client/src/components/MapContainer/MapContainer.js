@@ -7,11 +7,6 @@ import SimpleSearch from '../SimpleSearch';
  
 export class MapContainer extends Component {
 
-    componentDidMount() {
-        this.setState({
-            closeBy: [this.props.closeBy]
-        })
-    }
 
     constructor(props) {
         super(props);
@@ -31,9 +26,16 @@ export class MapContainer extends Component {
         this.onMarkerClick = this.onMarkerClick.bind(this);
     }
 
-    calculateGeoCode = () => {
-        console.log('New dist');
-    };
+    componentDidMount() {
+        this.setState({
+            closeBy: [this.props.closeBy]
+        })
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        Map.center = this.props.searchLoc
+    }
+
 
     onMarkerClick = (props, marker, e) => {
       this.setState({
@@ -71,11 +73,12 @@ export class MapContainer extends Component {
                                 <Marker
                                     title={'The marker`s title will appear as a tooltip.'}
                                     name={location.name}
-                                    addr1={location.addr1}
-                                    addr2={location.addr2}
-                                    price={location.price}
+                                    id={location._id}
+                                    addr1={location.loc.formatted_address.addr1}
+                                    addr2={location.loc.formatted_address.addr2}
+                                    price={location.cost.day}
                                     distance={location.distance}
-                                    position={{lat: location.lat, lng: location.lng}}
+                                    position={{lat: location.loc.coordinates[1], lng: location.loc.coordinates[0]}}
                                     onClick={this.onMarkerClick} />
                             )
 
@@ -100,11 +103,9 @@ export class MapContainer extends Component {
                                 {this.state.selectedPlace.distance} miles
                             </div>
                             <div>${this.state.selectedPlace.price}</div>
-                            <button>Reserve This Spot</button>
+                            <a href={"/reserve/" + this.state.selectedPlace.id } >Reserve This Spot</a>
                         </div>
                     </InfoWindow>
-
-
 
                 </Map>
             </div>
@@ -119,6 +120,7 @@ Map.defaultProps = {
     initialCenter: {
         lat: 33.039139,
         lng: -117.295425
+
     }
 };
 

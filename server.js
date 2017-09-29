@@ -33,7 +33,7 @@ passport.serializeUser(function(user, done) {
 
 // deserialize user into session
 passport.deserializeUser(function(user, done) {
-    User.findOne( { passport_id: user.passport_id }).then(dbUser => {
+    User.findOne( { _id: user.user._id }).then(dbUser => {
         done(null, dbUser);
     });
 });
@@ -42,7 +42,8 @@ mongoose.Promise = Promise;
 
 mongoose.connect("mongodb://localhost/parkifyTest", {
     useMongoClient: true
-}).then(() => saveAllSpotLocations());
+})
+//.then(() => saveAllSpotLocations());
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }));
 if (process.env.NODE_ENV === "production") {

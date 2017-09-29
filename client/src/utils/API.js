@@ -49,7 +49,7 @@ const API = {
         return axios.delete(`/api/remove/vehicle/${vehicleId}`);
     },
     getVehicle: function(userId) {
-        return axios.get(`/api/vehicle/${userId}`);
+        return axios.get('/api/vehicle');
     }
 }
 

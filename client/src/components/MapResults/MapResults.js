@@ -8,15 +8,13 @@ export class MapResults extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-	        closeBy: [
-	            {
-	                lat: 33.039139,
-	                lng: -117.295425
-	            }           
-	        ]
-		}
+		this.calculateMiles = this.calculateMiles.bind(this);
+	}
 
+	calculateMiles(km) {
+		const half = (km/2);
+		const quarter = (half/4);
+		return half + quarter
 	}
 
 	render() {
@@ -52,25 +50,28 @@ export class MapResults extends Component {
 				</div>
 				<div>
 					<ul>
-                        {this.props.closeBy.map(location => (
-                        	<div>
-                        	<hr/>
-							<a className="result-wrapper" href="#" onClick={this.props.onMarkerClick}>
-								<Columns className="result-column">
-									<Column>
-										<img className="result-img" src="http://lorempixel.com/300/300/cats"></img>
-									</Column>
-									<Column>
-										<li className="result-price">${location.price}</li>
-										<li className="result-title">{location.name}</li>
-										<li className="result-sub">{location.addr1}</li>
-										<li className="result-sub">{location.addr2}</li>
-										<li className="result-distance">{location.distance} miles</li>
-									</Column>
-								</Columns>
-							</a>
-                            </div>
-                            )
+                        {this.props.closeBy.map(location => { 
+                        	console.log("RESULT LOCATION", location.loc.formatted_address);
+                        	return (
+                            	<div>
+	                            	<hr/>
+	        						<a className="result-wrapper" href={"/reserve/" + location._id } onClick={this.props.onMarkerClick}>
+	        							<Columns className="result-column">
+	        								<Column>
+	        									<img className="result-img" src="http://lorempixel.com/300/300/cats"></img>
+	        								</Column>
+	        								<Column>
+	        									<li className="result-price">${location.cost.day}</li>
+	        									<li className="result-title"></li>
+	        									<li className="result-addr1">{location.loc.formatted_address.addr1}</li>
+	        									<li className="result-addr2">{location.loc.formatted_address.addr2}</li>
+	        									<li className="result-distance">{this.calculateMiles(location.distance).toFixed(2)} miles</li>
+	        									<a href="/reserve">Reserve This Spot</a>
+	        								</Column>
+	        							</Columns>
+	        						</a>
+                                </div>
+                            )}
                         )}
 					</ul>
 					<hr/>

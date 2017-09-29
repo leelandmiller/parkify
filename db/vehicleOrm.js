@@ -3,11 +3,11 @@ const axios = require('axios');
 const { addVehicleIDToUser } = require('./userOrm');
 
 module.exports = {
-    addVehicle: function(vehicle) {
-        const newVehicle = new Vehicle(vehicle);
+    addVehicle: function(userId, vehicle) {
+        let newVehicle = new Vehicle(vehicle);
 
         return newVehicle.save().then(savedVehicle => {
-            addVehicleIDToUser(req.user._id, savedVehicle._id);
+            addVehicleIDToUser(userId, savedVehicle._id);
             return savedVehicle;
         });
     },
