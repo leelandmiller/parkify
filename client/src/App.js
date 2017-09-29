@@ -49,11 +49,11 @@ class App extends Component {
                 <Router>
                     <div>
                         <Route exact path="/" component={HomeContainer}/>
-                        <Route exact path="/login" render={() => <FormWrapper setCurrentUser={this.setCurrentUser}/>}/>
-                        <Route exact path="/account" render={() => <Account isLoggedIn={this.state.isLoggedIn} currentUser={this.state.currentUser}/>}/>
-                        <Route exact path="/search" component={SimpleSearch}/>
-                        <Route exact path="/reserve" component={ReservationWrapper}/>
-                        <Route exact path="/add/vehicle" component={AddVehicle}/>
+                        <Route path="/login" render={() => <FormWrapper setCurrentUser={this.setCurrentUser}/>}/>
+                        <Route path="/account" render={() => <Account isLoggedIn={this.state.isLoggedIn} currentUser={this.state.currentUser}/>}/>
+                        <Route path="/search" component={SimpleSearch}/>
+                        <Route path="/reserve" component={ReservationWrapper}/>
+                        <Route path="/add/vehicle" component={AddVehicle}/>
                     </div>
                 </Router>
                 <PageFooter />
