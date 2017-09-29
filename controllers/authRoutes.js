@@ -24,7 +24,6 @@ router.get('/facebook', passport.authenticate('facebook', {
 }));
 
 router.post('/signup', (req, res) => {
-    // TODO: save new user
     userOrm.addNewUser(req.body.user).then(newUser => {
         res.json(newUser);
     });

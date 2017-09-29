@@ -18,10 +18,10 @@ module.exports = {
             } else {
                 // else create new user, retrurn the new user
                 const newUser = new User(profile);
-                return newUser.save().then(newUserRes => {
+                return newUser.save().then(user => {
                     return {
                         success: true,
-                        newUserRes
+                        user
                     };
                 }).catch(err => {
                     return {

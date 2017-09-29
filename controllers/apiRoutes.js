@@ -89,7 +89,7 @@ router.post('/add/vehicle', (req, res) => {
     const vehicle = req.body.vehicleObj;
     vehicle.owner = req.user._id;
 
-    addVehicle(vehicle).then(vehicleSaved => {
+    addVehicle(vehicle.owner, vehicle).then(vehicleSaved => {
         res.json(vehicleSaved);
     });
 });
@@ -110,8 +110,8 @@ router.delete('/remove/vehicle/:vehicleId', (req, res) => {
     });
 });
 
-router.get('/vehicle/:userId', (req, res) => {
-    const _id = req.params.userId;
+router.get('/vehicle', (req, res) => {
+    const _id = req.user._id;
 
     getUserVehicle(_id).then(vehicle => {
         res.json(vehicle);

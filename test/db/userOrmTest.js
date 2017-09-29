@@ -6,9 +6,10 @@ const {correctUserObj, missingFieldsUserObj} = require('../userTestData');
 const {correctSpotObj, correctScheduleObj, correctReservationObj} = require('../spotTestData');
 mongoose.Promise = Promise;
 
-let goodUser = new User(correctUserObj);
-let userId = goodUser.save();
-let badUser = new User(missingFieldsUserObj);
+//TODO: FIX
+// let goodUser = new User(correctUserObj);
+// let userId = goodUser.save();
+// let badUser = new User(missingFieldsUserObj);
 
 describe('userOrmTest', () => {
 
