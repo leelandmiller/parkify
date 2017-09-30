@@ -27,9 +27,8 @@ render() {
 					<MediaContent>
 
                 <Title isSize={6}>Vehicles</Title>
-						 <Subtitle isSize={6}>----------</Subtitle>
-							 <a href="/add/vehicle">Add Vehicle</a>
-                <hr />
+						<hr />
+						<a href="/add/vehicle">Add Vehicle</a>
 					</MediaContent>
 			  </Media>
 		 </CardContent>

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Field, Label, Control, Input, Button } from 'bloomer';
 import API from '../../utils/API';
+import "./AddVehicle.css"
 
 class AddVehicle extends Component {
     constructor(props) {
@@ -43,7 +44,8 @@ class AddVehicle extends Component {
 
     render() {
         return (
-            <form>
+            <form className={"addVehicle"}>
+                <h2 className="addVTitle">Fill out this form to add a car.</h2>
                 <Field>
                     <Label>Make</Label>
                     <Control>
@@ -70,7 +72,7 @@ class AddVehicle extends Component {
                 </Field>
                 <Field>
                     <Control>
-                        <Button onClick={this.handleFormSubmit} isColor='primary'>Add Vehicle</Button>
+                        <Button className="vehicleButton" onClick={this.handleFormSubmit} isColor='primary'>Add Vehicle</Button>
                     </Control>
                 </Field>
             </form>
