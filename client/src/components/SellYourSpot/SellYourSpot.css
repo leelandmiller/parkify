@@ -99,3 +99,7 @@ border: 1px solid #5085EC;
     height: 35px;
     border: 1px solid #1DA1F2;
 }
+
+div.columns.passport-signin-container {
+    width:300px;
+}

@@ -71,7 +71,7 @@ class LoginForm extends Component {
                 </Field>
                    <Field isGrouped>
                       <ul>
-                         <li className="terms">By logging in, you agree to them. <a>Parkify terms and conditions.</a> If you're a seller, I also agree to the <a>Operator Dashboard terms.</a></li>
+                         <li className="terms">By logging in, you agree to them. <a>Parkify terms and conditions.</a> If you'rea seller, I also agree to the <a>Operator Dashboard terms.</a></li>
                       </ul>
                    </Field>
                     <Field isGrouped>

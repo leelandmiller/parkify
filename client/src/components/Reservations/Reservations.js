@@ -41,6 +41,14 @@ import "./Reservations.css";
 						</tr>
 				    </tbody>
 				</Table>
+
+					  <div className={"textForRes"}>
+						  <h1 className={"lineOne"}>Book more than a great space!</h1>
+						  <h3>Stop wasting time looking for parking</h3>
+				
+						  <p>Book with Parkify and have more time for free time.</p>
+					  </div>
+
 			</div>
 		)
 	}
