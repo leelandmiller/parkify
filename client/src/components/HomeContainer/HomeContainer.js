@@ -7,11 +7,11 @@ const HomeContainer = props => {
 		<div>
 			<div id="home-hero" className="">
 				<div className="hero">
-					<img 
-						alt="parkify hero" 
-						src="assets/images/parkify-hero.jpeg"
+					<img
+						alt="parkify hero"
+						src="assets/images/parked_cars.jpg"
 						className="hero-img"
-					></img>
+					/>
 					<div id="hero-text">
 						<Title isSize={1}>Never be looking.<br/> Always be parking.</Title>
 					</div>
