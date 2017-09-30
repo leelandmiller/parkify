@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="594510c7-a34f-4b86-b1ea-060e4fa0a4ea" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pallette.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/App.js" afterPath="$PROJECT_DIR$/client/src/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/ReservationWrapper/ReservationWrapper.css" afterPath="$PROJECT_DIR$/client/src/components/ReservationWrapper/ReservationWrapper.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/Reservations/Reservations.css" afterPath="$PROJECT_DIR$/client/src/components/Reservations/Reservations.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/Reservations/Reservations.js" afterPath="$PROJECT_DIR$/client/src/components/Reservations/Reservations.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/HomeContainer/HomeContainer.js" afterPath="$PROJECT_DIR$/client/src/components/HomeContainer/HomeContainer.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,13 +24,25 @@
     <splitter split-orientation="horizontal" split-proportion="0.5004277">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/src/App.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="483">
+                <state relative-caret-position="855">
                   <caret line="57" column="47" lean-forward="false" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="HomeContainer.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/client/src/components/HomeContainer/HomeContainer.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1035">
+                  <caret line="69" column="0" lean-forward="true" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#0#26#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -99,16 +107,6 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="180">
                   <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="LoginForm.css" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/client/src/components/LoginForm/LoginForm.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="465">
-                  <caret line="31" column="23" lean-forward="false" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
                   <folding />
                 </state>
               </provider>
@@ -234,7 +232,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/src/components/AccountInto/AccountInfo.css" />
         <option value="$PROJECT_DIR$/client/src/components/AccountTabs/index.js" />
         <option value="$PROJECT_DIR$/client/src/components/AccountInto/index.js" />
         <option value="$PROJECT_DIR$/client/src/components/AccountInto/AccountInfo.js" />
@@ -285,6 +282,7 @@
         <option value="$PROJECT_DIR$/client/src/components/Reservations/Reservations.css" />
         <option value="$PROJECT_DIR$/client/src/components/Reservations/Reservations.js" />
         <option value="$PROJECT_DIR$/client/src/App.js" />
+        <option value="$PROJECT_DIR$/client/src/components/HomeContainer/HomeContainer.js" />
       </list>
     </option>
   </component>
@@ -350,6 +348,14 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="parkify" type="b2602c69:ProjectViewProjectNode" />
+              <item name="parkify" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="HomeContainer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="parkify" type="b2602c69:ProjectViewProjectNode" />
@@ -421,12 +427,12 @@
       <workItem from="1506484331594" duration="1508000" />
       <workItem from="1506567017985" duration="8917000" />
       <workItem from="1506628566584" duration="21677000" />
-      <workItem from="1506717170869" duration="26445000" />
+      <workItem from="1506717170869" duration="26932000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="108926000" />
+    <option name="totallyTimeSpent" value="109413000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -520,16 +526,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/src/components/LoginTabs/LoginTabs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -915,10 +911,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
+        <state relative-caret-position="855">
           <caret line="57" column="47" lean-forward="false" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/HomeContainer/HomeContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="69" column="0" lean-forward="true" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
