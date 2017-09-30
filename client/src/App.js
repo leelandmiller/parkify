@@ -59,6 +59,7 @@ class App extends Component {
                         <Route path="/reserve" component={ReservationWrapper}/>
                         <Route path="/add/vehicle" component={AddVehicle}/>
                         <Route exact path="/" component={HomeContainer}/>
+                        <Route component={FourohFour} />
                     </Switch>
                 </BrowserRouter>
 
