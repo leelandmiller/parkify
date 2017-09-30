@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const {checkSpotObjAndAdd, getSpotInfo, checkAndUpdateSpotSchedule, deleteSpot, getSpotsFromPoint} = require('../db/spotOrm');
 const {checkResevationObj, getAllReservations, finalReservationConflicts} = require('../db/reservationOrm');
-const {getUserSpots} = require('../db/userOrm');
+const {getUserSpots, getUserReservations} = require('../db/userOrm');
 const { addVehicle, updateVehicle, removeVehicle, getUserVehicle } = require('../db/vehicleOrm');
 
 //get spot based on a location and search radius
@@ -28,7 +28,7 @@ router.post("/spot", (req, res) => {
     const spotObj = req.body.spotObj
     const spotSchedule = req.body.spotScheduleObj
     spotObj.owner = req.user._id
-    checkSpotObjAndAdd(spotObj, spotScheduleObj).then(result =>{
+    checkSpotObjAndAdd(spotObj, spotSchedule).then(result =>{
         res.json(result);
     });
 });
@@ -77,10 +77,22 @@ router.post('/reservation', (req, res) => {
 });
 
 //get users spots
-router.get('/myspots', (req, res) => {
+router.get('/myspots/:id', (req, res) => {
+    const _id = req.params.id;
 
+    getUserSpots(_id).then(userSpots => {
+        res.json(userSpots)
+    })
 });
 //get users reservation
+router.get('/myreservations/:id',  (req, res) => {
+    const _id = req.params.id;
+    console.log(req.params.id)
+
+    getUserReservations(_id).then(userReservations => {
+        res.json(userReservations)
+    })
+})
 //get all users info
 
 
