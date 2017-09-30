@@ -29,9 +29,9 @@
 }
 
 .hero-img {
-	width: auto;
-	height: 400px;
-	overflow:hidden;
+	/*width: auto;*/
+	/*height: 400px;*/
+	/*overflow:hidden;*/
 	width: 100%;
 	margin-top: -200px;
 	filter: brightness(70%);

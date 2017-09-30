@@ -18,6 +18,8 @@ class App extends Component {
 
         this.state = {
             isLoggedIn: true,
+            hasSpot: false,
+            spot: {},
             currentUser: {}
         }
         this.setCurrentUser = this.setCurrentUser.bind(this);
@@ -28,6 +30,16 @@ class App extends Component {
 
             if (user.data) {
                 this.setCurrentUser(user.data);
+
+                API.getUserSpots(user.data._id).then(spot => {
+                    if (spot.data) {
+                        this.setState({
+                            hasSpot:true,
+                            spot: spot.data
+                        });
+                    }
+                });
+
             } else {
                 this.setState({
                     isLoggedIn: false
@@ -51,7 +63,7 @@ class App extends Component {
                     <div>
                         <Route exact path="/" component={HomeContainer}/>
                         <Route exact path="/login" render={() => <FormWrapper setCurrentUser={this.setCurrentUser}/>}/>
-                        <Route exact path="/account" render={() => <Account isLoggedIn={this.state.isLoggedIn} currentUser={this.state.currentUser}/>}/>
+                        <Route exact path="/account" render={() => <Account {...this.state}/>}/>
                         <Route exact path="/search" component={SimpleSearch}/>
                         <Route exact path="/reserve/*" component={ReservationWrapper}/>
                         <Route exact path="/add/vehicle" component={AddVehicle}/>

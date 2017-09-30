@@ -28,6 +28,13 @@ const API = {
     getAllReservations: function(spotId) {
         return axios.get(`/api/reservation/${spotId}`);
     },
+    getUserReservations: function(userId) {
+        console.log(userId)
+        return axios.get(`/api/myreservations/${userId}`);
+    },
+    getUserSpots: function(userId) {
+        return axios.get(`/api/myspots/${userId}`);
+    },
     /**USER API CALLS**/
     getCurrentUser: function() {
         return axios.get('/auth/api/currentuser');

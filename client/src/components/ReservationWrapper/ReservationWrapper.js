@@ -33,7 +33,6 @@ class ReservationWrapper extends Component {
         // console.log(spotId);
 
         API.getSpot(spotId).then(spotInfo => {
-            console.log(spotInfo.data.spot[0])
 			const thisSpot = spotInfo.data.spot[0];
 
 			this.setState({
@@ -49,7 +48,6 @@ class ReservationWrapper extends Component {
     }
 
 	getAllOpenDays(spotObj, resArr) {
-		console.log(spotObj)
 
 		const end_dates = spotObj.schedule.end_dates.end;
 
@@ -58,10 +56,10 @@ class ReservationWrapper extends Component {
 		const startDate = moment()
 		const openDays = spotObj.schedule.open_times.map(ele => ele.day)
 		const openDates = []
-		const checkDistance = moment().add(15, 'd').isAfter(endDate)? 15 : endDate.diff(moment(), 'days')
-		for(let i =0; i< checkDistance; i++ ){
-			let mEndDate = moment(endDate)
-			let testDate = moment(mEndDate.add(i, 'd'));
+		const checkDistance = moment().add(15, 'd').isBefore(endDate)? 15 : endDate.diff(moment(), 'days') + 1
+		for(let i = 0; i <= checkDistance; i++ ){
+			let mStartDate = moment(startDate)
+			let testDate = moment(mStartDate.add(i, 'd'));
 			openDays.forEach(day => {
 				if(testDate.format('ddd').toLowerCase().replace('thu', 'thr') === day){
 					openDates.push(testDate)
@@ -140,12 +138,11 @@ class ReservationWrapper extends Component {
 				spot: this.state.thisSpot._id,
 				start: this.state.startDate.toDate(),
 				end: this.state.endDateMoment.toDate(),
-				renter: renter._id
+				renter: renter.data._id
 			};
 
 			API.addReservation(reservationObj).then((results) => {
-				console.log(results)
-				// window.location = '/account'
+				window.location = '/account'
 			})
 		})
 	}
