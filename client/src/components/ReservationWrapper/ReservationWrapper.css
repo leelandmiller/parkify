@@ -1,9 +1,9 @@
-.column {
+.column.res {
     width: 200px;
     padding: 1rem;
 }
 
-.columns {
+.columns.res {
     margin-left: -39px;
     margin-right: 0.75rem;
     margin-top: 0px;
