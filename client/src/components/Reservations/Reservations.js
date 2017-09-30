@@ -17,15 +17,15 @@ import "./Reservations.css";
 			<Table isBordered isStriped isNarrow isSize={1} className="reservations">
 			    <thead>
 			        <tr>
-			            <th>Reservations</th>
+			            <th className={"resHeader"}>Reservations</th>
 			        </tr>
 			    </thead>
 			    <tbody>
 			        <tr className='is-selected'>
-			            <td style={{ height: '150px' }}><Button className="reservationButton btn btn-3" style={{ top: '60px' }}>Reserve A Spot</Button></td>
+			            <td style={{ height: '150px' }}><Button href="/search" className="reservationButton btn btn-3" style={{ top: '60px' }}>Reserve A Spot</Button></td>
 			        </tr>
 			        <tr>
-						  <td><b>Reservation History</b></td>
+						  <td className={"resHistoryHeader"}><b>Reservation History</b></td>
 			        </tr>
 			        <tr>
 			            <td>

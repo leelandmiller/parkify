@@ -44,3 +44,7 @@ border: 1px solid #5085EC;
     margin-top: -19px;
     margin-bottom: 25px;
 }
+
+.control {
+    position: inherit;
+}

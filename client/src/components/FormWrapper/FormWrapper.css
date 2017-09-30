@@ -3,15 +3,24 @@
 }
 
 .formwrapper {
-    margin-top: 25px;
-    margin-bottom: 25px;
+    /*margin-top: 25px;*/
+    /*margin-bottom: 25px;*/
     border: none;
     background: white;
+
 }
 
-/*.pageWrapper{*/
-/*background-image: ("parking.png");*/
-/*}*/
+.pageWrapper {
+    background-image: url('/assets/images/parking.png');
+    background-size: cover;
+    padding-bottom: 60px;
+    padding-top: 60px;
+}
+
+div{
+    padding:0px;
+    margin: 0px;
+}
 
 .button.is-primary[disabled] {
     background-color: #3fc9e6;

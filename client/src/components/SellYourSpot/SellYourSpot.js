@@ -27,12 +27,12 @@ class SellYourSpot extends Component {
 <form className="form">
 	
 	<Field>
-		<Control hasIcon>
+
 			<Icon isSize='small' isAlign='left'>
 				<span className="fa fa-address-book-o" aria-hidden="true" />
 			</Icon>
 			<Input className={"fieldsForSellForm"} type='text' name='address' isColor='success' placeholder='Address'/>
-		</Control>
+
 	</Field>
 	
 	<Field>
