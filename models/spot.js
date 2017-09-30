@@ -6,6 +6,7 @@ const SpotSchema = new Schema({
     loc: {
         type:{
             type:String,
+            default: 'Point',
             required:true
         },
         coordinates:{

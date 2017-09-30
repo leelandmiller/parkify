@@ -37,8 +37,8 @@ class App extends Component {
                 API.getUserSpots(user.data._id).then(spot => {
                     if (spot.data.posted_spots[0]) {
                         this.setState({
-                            hasSpot:true,
-                            spot: spot.data
+                            hasSpot: true,
+                            spot: spot.data.posted_spots[0]
                         });
                     }
                 });
