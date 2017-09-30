@@ -70,7 +70,7 @@ handleChange(date) {
 	}
 
 	sendSpot(){
-		let formatted_address = this.state.address+' ,'+this.state.city+' ,'+this.state.state+' ,'
+		let formatted_address = this.state.address+' ,'+this.state.city+' ,'+this.state.state
 		let open_times = [];
 		for(let day in this.state.days){
 			if(this.state.days[day]){
@@ -81,7 +81,10 @@ handleChange(date) {
 		}
 		let spotObj = {
 			loc:{
-				formatted_address
+				formatted_address:{
+					addr1: formatted_address,
+					addr2:" "
+				}
 			},
 			cost:{
 				day:this.state.cost,
@@ -90,7 +93,7 @@ handleChange(date) {
 		}
 		let scheduleObj = {
 			end_dates:{
-				end: this.state.endDate
+				end: moment(this.state.endDate).toDate()
 			},
 			open_times
 		}
@@ -118,7 +121,7 @@ handleChange(date) {
 <form className="form">
 
 	<Field>
-		<Control hasIcon>
+		<Control>
 			<Icon className={"sell"} isSize='small' isAlign='left'>
 				<span className="fa fa-address-book-o" aria-hidden="true" />
 			</Icon>
@@ -127,7 +130,7 @@ handleChange(date) {
 	</Field>
 
 	<Field>
-		<Control hasIcon>
+		<Control>
 			<Icon className={"sell"} isSize='small' isAlign='left'>
 				<span className="fa fa-globe" aria-hidden="true" />
 			</Icon>
@@ -136,7 +139,7 @@ handleChange(date) {
 	</Field>
 
 	<Field>
-		<Control hasIcon>
+		<Control>
 			<Icon className={"sell"} isSize='small' isAlign='left'>
 				<span className="fa fa-location-arrow" aria-hidden="true" />
 			</Icon>
@@ -145,7 +148,7 @@ handleChange(date) {
 	</Field>
 
 	<Field>
-		<Control hasIcon>
+		<Control>
 			<Icon className={"sell"} isSize='small' isAlign='left'>
 				<span className="fa fa-usd" aria-hidden="true" />
 			</Icon>
@@ -154,7 +157,7 @@ handleChange(date) {
 	</Field>
 
 	<Field>
-		<Control hasIcon>
+		<Control>
 			<Icon className={"sell"} isSize='small' isAlign='left'>
 				<span className="fa fa-play" aria-hidden="true" />
 			</Icon>
@@ -188,7 +191,7 @@ handleChange(date) {
 	</Field>
 
 	<Field>
-		<Control hasIcon>
+		<Control>
 			<Icon className={"sell"} isSize='small' isAlign='left'>
 				<span className="fa fa-stop" aria-hidden="true" />
 			</Icon>

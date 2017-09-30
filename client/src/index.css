@@ -6,7 +6,6 @@ body {
 }
 
 body, html, #root{
-	height: 100%;
 }
 
 h1 { font-size: 3em; }
