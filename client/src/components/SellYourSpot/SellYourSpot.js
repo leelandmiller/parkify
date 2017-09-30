@@ -28,6 +28,7 @@ class SellYourSpot extends Component {
 	}
 	
 	handleInput(event){
+
 		this.setState({
 			[event.target.name]:event.target.value
 		})
@@ -86,7 +87,7 @@ class SellYourSpot extends Component {
 <Title isSize={6}>Fill out this form to sell your spot.</Title>
 <hr />
 <form className="form">
-	
+
 	<Field>
 		<Control hasIcon>
 			<Icon isSize='small' isAlign='left'>
@@ -95,7 +96,7 @@ class SellYourSpot extends Component {
 			<Input onChange={this.handleInput} className={"fieldsForSellForm"} type='text' name='address' isColor='success' placeholder='Address'/>
 		</Control>
 	</Field>
-	
+
 	<Field>
 		<Control hasIcon>
 			<Icon isSize='small' isAlign='left'>
@@ -104,7 +105,7 @@ class SellYourSpot extends Component {
 			<Input onChange={this.handleInput} className={"fieldsForSellForm"} type='text' name='city' isColor='success' placeholder='City'/>
 		</Control>
 	</Field>
-	
+
 	<Field>
 		<Control hasIcon>
 			<Icon isSize='small' isAlign='left'>
@@ -113,7 +114,7 @@ class SellYourSpot extends Component {
 			<Input onChange={this.handleInput} className={"fieldsForSellForm"} type='text' name='state' isColor='success' placeholder='State'/>
 		</Control>
 	</Field>
-	
+
 	<Field>
 		<Control hasIcon>
 			<Icon isSize='small' isAlign='left'>
@@ -122,7 +123,7 @@ class SellYourSpot extends Component {
 			<Input onChange={this.handleInput} className={"fieldsForSellForm"} type='text' name='cost' isColor='success' placeholder='Price'/>
 		</Control>
 	</Field>
-	
+
 	<Field>
 		<Control hasIcon>
 			<Icon isSize='small' isAlign='left'>
@@ -131,7 +132,7 @@ class SellYourSpot extends Component {
 			<Input onChange={this.handleInput} className={"fieldsForSellForm"} type='text' name='schedule' isColor='success' placeholder='Start Date'/>
 		</Control>
 	</Field>
-	
+
 	<Field>
 		<Control hasIcon>
 			<Icon isSize='small' isAlign='left'>
@@ -140,7 +141,7 @@ class SellYourSpot extends Component {
 			<Input className={"fieldsForSellForm"} type='text' name='endDate' isColor='success' placeholder='End Date'/>
 		</Control>
 	</Field>
-	
+
 	<Field>
 		<Control>
 			<Button onClick={this.sendSpot} id="login-submit" className="butt" isColor='primary'>Submit</Button>

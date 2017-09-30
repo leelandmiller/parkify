@@ -62,6 +62,7 @@ class App extends Component {
                     </Switch>
                 </BrowserRouter>
 
+
                 <PageFooter />
             </div>
         )
