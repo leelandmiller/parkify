@@ -15,31 +15,30 @@ class VehicleDetails extends Component {
 render() {
     return(
 <Columns>
-	<Column>
+	<Column className='column-custom'>
 		<Card>
-    <CardHeader>
-			  <CardHeaderTitle>
+            <CardHeader>
+                <CardHeaderTitle>
 					Details
-			  </CardHeaderTitle>
-		 </CardHeader>
-		 <CardContent>
-			  <Media>
-					<MediaContent>
-                <Title isSize={6}>License Plate</Title>
-						 <Subtitle isSize={6}>----------</Subtitle>
-							 <a href="/add/plate">Add License Plate</a>
-                <hr />
-
-                <Title isSize={6}>Vehicles</Title>
-						 <Subtitle isSize={6}>----------</Subtitle>
-							 <a href="/add/vehicle">Add Vehicle</a>
-                <hr />
-					</MediaContent>
-			  </Media>
-		 </CardContent>
-	</Card>
-</Column>
-	<Column>
+                </CardHeaderTitle>
+            </CardHeader>
+            <CardContent>
+                <Media>
+                    <MediaContent>
+                        <Title isSize={6}>License Plate</Title>
+                        <Subtitle isSize={6}>----------</Subtitle>
+                        <a href="/add/plate">Add License Plate</a>
+                        <hr />
+                        <Title isSize={6}>Vehicles</Title>
+                        <Subtitle isSize={6}>----------</Subtitle>
+                        <a href="/add/vehicle">Add Vehicle</a>
+                        <hr />
+                    </MediaContent>
+                </Media>
+            </CardContent>
+        </Card>
+    </Column>
+	<Column className='column-custom'>
 		 <SellYourSpot/>
 	</Column>
 </Columns>
