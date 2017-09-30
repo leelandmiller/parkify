@@ -4,36 +4,12 @@ import { Table, thead, tr, th, tbody, td, Button } from "bloomer";
 import "./Reservations.css";
 
 	class Reservations extends Component {
-	    constructor() {
-	      super();
-	      this.state = {
-	        isActive: false
-	    };
-	}
-
-			render() {
-			    return (
-			        <div className="reservations">
-			<Table isBordered isStriped isNarrow isSize={1} className="reservations">
-			    <thead>
-			        <tr>
-			            <th className={"resHeader"}>Reservations</th>
-			        </tr>
-			    </thead>
-			    <tbody>
-			        <tr className='is-selected'>
-			            <td style={{ height: '150px' }}><Button href="/search" className="reservationButton btn btn-3" style={{ top: '60px' }}>Reserve A Spot</Button></td>
-			        </tr>
-			        <tr>
-						  <td className={"resHistoryHeader"}><b>Reservation History</b></td>
-			        </tr>
-			        <tr>
-			            <td>
-							  <tr className={"ReservationAddress"}>Address: </tr>
-							  <tr className={"ReservationDate"}>Date: </tr>
-							  <tr className={"ReservationTime"}>Time: </tr>
-							  <tr className={"ReservationPrice"}>Price: </tr>
-							</td>
+		constructor(props) {
+			super(props);
+			this.state = {
+				isActive: false
+			};
+		}
 
 			        </tr>
 			    </tbody>
@@ -44,6 +20,36 @@ import "./Reservations.css";
 				
 						  <p>Book with Parkify and have more time for free time.</p>
 					  </div>
+		render() {
+		    return (
+		        <div className="reservations">
+				<Table isBordered isStriped isNarrow className="reservations">
+				    <thead>
+				        <tr>
+				            <th className={"resHeader"}>Reservations</th>
+				        </tr>
+				    </thead>
+				    <tbody>
+				        <tr className='is-selected'>
+				            <td style={{ height: '150px' }}><Button href="/search" className="reservationButton btn btn-3" style={{ top: '60px' }}>Reserve A Spot</Button></td>
+				        </tr>
+				        <tr>
+							<td className={"resHistoryHeader"}><b>Reservation History</b></td>
+				        </tr>
+						<tr className={"ReservationAddress"}>
+							<th>Address:</th>
+						</tr>
+						<tr className={"ReservationDate"}>
+							<th>Date: </th>
+						</tr>
+						<tr className={"ReservationTime"}>
+							<th>Time: </th>
+						</tr>
+						<tr className={"ReservationPrice"}>
+							<th>Price:</th>
+						</tr>
+				    </tbody>
+				</Table>
 			</div>
 		)
 	}

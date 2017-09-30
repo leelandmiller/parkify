@@ -3,6 +3,7 @@ import "./Account.css";
 import AccountTabs from '../AccountTabs';
 import Reservations from '../Reservations';
 import AccountSettings from '../AccountSettings';
+import API from '../../utils/API';
 
 class Account extends Component {
 	constructor(props) {
@@ -10,7 +11,9 @@ class Account extends Component {
 		this.state = {
 			activeSettingsTab: "AccountSettings",
 		};
+
 		this.changeActiveAccountTab = this.changeActiveAccountTab.bind(this);
+		this.getMyReservations = this.getMyReservations.bind(this);
 	}
 
 	changeActiveAccountTab(tab) {
@@ -18,6 +21,19 @@ class Account extends Component {
 			{ activeSettingsTab:tab }
 		)
 	};
+
+	getMyReservations() {
+		API.getCurrentUser().then(user => {
+			console.log(user.data._id)
+			API.getUserReservations(user.data._id).then(results => {
+				console.log(results)
+			})
+		});
+	}
+
+	componentDidMount() {
+		this.getMyReservations()
+	}
 
 	render(){
 
