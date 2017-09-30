@@ -19,7 +19,7 @@ class PassportSignIn extends Component {
                     </div>
                     <div className='facebook-btn-container'>
                         <a href='auth/facebook' className='google-link'>
-                            <img alt="facebook-signin-btn" className="google-btn" src="assets/images/facebook/btn_facebook.png"/>
+                            <img alt="facebook-signin-btn" className="google-btn facebook-btn" src="assets/images/facebook/btn_facebook.png"/>
                         </a>
                     </div>
                 </Columns>

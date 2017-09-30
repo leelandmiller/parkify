@@ -88,8 +88,8 @@ class SignUpForm extends Component {
                </Field>
                <ul className={"tAndC"}>
                   <li>By creating an account, you're agreeing to the</li>
-                  <li><a>SpotHero Terms and Conditions.</a></li>
-                  <li className={"lastLine"}><a>Already have an account? Sign In</a></li>
+                  <li><a>Parkify's Terms and Conditions.</a></li>
+                  <li className={"lastLine"}>Already have an account? <a>Sign In</a></li>
                </ul>
                 <Field isGrouped>
                     <Control>
