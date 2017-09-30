@@ -1,16 +1,54 @@
 import React, { Component } from "react";
-import { Checkbox, Button, Select, Label, Title, Field, Control, Input, Icon, Card, CardHeader, CardHeaderTitle, Media, MediaContent, CardContent } from "bloomer";import "./SellYourSpot.css";
+
+import { Checkbox, Button, Select, Label, Title, Field, Control, Input, Icon, Card, CardHeader, CardHeaderTitle, Media, MediaContent, CardContent } from "bloomer";
+import "./SellYourSpot.css";
 import Calendar from 'react-input-calendar'
+
+import API from './../../utils/API'
+
 
 class SellYourSpot extends Component {
 	constructor() {
 		super();
 		this.state = {
-			isActive: false
+			isActive: false,
+			address: '',
+			city: '',
+			state: '',
+			cost: 1,
+			schedule: '',
+			endDate: ''
 		};
-		
+		this.handleInput = this.handleInput.bind(this)
 	}
-	
+
+	handleInput(event){
+		console.log(event.target)
+		this.setState({
+			[event.target.name]:event.target.value
+		})
+	}
+
+	sendSpot(){
+		let open_times = [];
+		let formatted_address = this.state.address+' ,'+this.state.city+' ,'+this.state.state+' ,'
+		let spotObj = {
+			loc:{
+				formatted_address
+			},
+			cost:{
+				day:this.state.cost,
+				hr:1
+			}
+		}
+		let scheduleObj = {
+			end_dates:{
+				end: this.state.endDate
+			}
+		}
+
+	}
+
 	render() {
 		return(
 <div className={"SellYourSpot"}>
@@ -26,43 +64,43 @@ class SellYourSpot extends Component {
 <Title isSize={6}>Fill out this form to sell your spot.</Title>
 <hr />
 <form className="form">
-	
+
 	<Field>
 		<Control hasIcon>
 			<Icon isSize='small' isAlign='left'>
 				<span className="fa fa-address-book-o" aria-hidden="true" />
 			</Icon>
-			<Input className={"fieldsForSellForm"} type='text' name='address' isColor='success' placeholder='Address'/>
+			<Input onChange={this.handleInput} className={"fieldsForSellForm"} type='text' name='address' isColor='success' placeholder='Address'/>
 		</Control>
 	</Field>
-	
+
 	<Field>
 		<Control hasIcon>
 			<Icon isSize='small' isAlign='left'>
 				<span className="fa fa-globe" aria-hidden="true" />
 			</Icon>
-			<Input className={"fieldsForSellForm"} type='text' name='city' isColor='success' placeholder='City'/>
+			<Input onChange={this.handleInput} className={"fieldsForSellForm"} type='text' name='city' isColor='success' placeholder='City'/>
 		</Control>
 	</Field>
-	
+
 	<Field>
 		<Control hasIcon>
 			<Icon isSize='small' isAlign='left'>
 				<span className="fa fa-location-arrow" aria-hidden="true" />
 			</Icon>
-			<Input className={"fieldsForSellForm"} type='text' name='state' isColor='success' placeholder='State'/>
+			<Input onChange={this.handleInput} className={"fieldsForSellForm"} type='text' name='state' isColor='success' placeholder='State'/>
 		</Control>
 	</Field>
-	
+
 	<Field>
 		<Control hasIcon>
 			<Icon isSize='small' isAlign='left'>
 				<span className="fa fa-usd" aria-hidden="true" />
 			</Icon>
-			<Input className={"fieldsForSellForm"} type='text' name='cost' isColor='success' placeholder='Price'/>
+			<Input onChange={this.handleInput} className={"fieldsForSellForm"} type='text' name='cost' isColor='success' placeholder='Price'/>
 		</Control>
 	</Field>
-	
+
 	<Field>
 		<Control>
 			<Select className={"dropDown"}>
@@ -78,7 +116,7 @@ class SellYourSpot extends Component {
 					</Select>
 		</Control>
 	</Field>
-	
+
 	<Field>
 		<Control hasIcon>
 			<Icon isSize='small' isAlign='left'>
@@ -88,7 +126,7 @@ class SellYourSpot extends Component {
 			<Calendar className={"calendar"}  format='DD/MM/YYYY' date='4-12-2014' />
 		</Control>
 	</Field>
-	
+
 	<Field>
 		<Control>
 			<Button id="login-submit" className="butt" isColor='primary'>Submit</Button>

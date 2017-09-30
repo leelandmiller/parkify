@@ -43,8 +43,8 @@ router.post('/reservation', (req, res) => {
 
 
 //get a spots info based on spotId
-router.get('/spot', (req, res) => {
-        getSpotInfo(req.body.spotId).then(results => {
+router.get('/spot/:spotId', (req, res) => {
+        getSpotInfo(req.params.spotId).then(results => {
             res.json(results);
         });
 
@@ -60,8 +60,8 @@ router.delete('/spot', (req, res) => {
 });
 
 // get all reservations for a spot
-router.get('/reservation', (req, res) => {
-    getAllReservations(req.body.spotId).then(results => {
+router.get('/reservation/:spotId', (req, res) => {
+    getAllReservations(req.params.spotId).then(results => {
         res.json(results);
     });
 });

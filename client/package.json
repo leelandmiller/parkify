@@ -16,6 +16,7 @@
     "bulma": "^0.5.1",
     "google-maps-react": "^1.1.0",
     "moment-range": "^3.0.3",
+    "moment": "^2.18.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-input-calendar": "^0.4.1",
