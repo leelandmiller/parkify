@@ -157,7 +157,10 @@ handleChange(date) {
 	</Field>
 
 	<Field>
-		<Control>
+		<Control hasIcon>
+			<Icon className={"sell"} isSize='small' isAlign='left'>
+				<span className="fa fa-play" aria-hidden="true" />
+			</Icon>
 		<div className={'dropdown' + (this.state.dropdown?' is-active': '')}>
 		  <div className="dropdown-trigger">
 		    <button onClick={event=>{
@@ -165,7 +168,7 @@ handleChange(date) {
 		    	this.setState({
 		    		dropdown: (!this.state.dropdown)
 		    	})
-		    }} className="button" aria-haspopup="true" aria-controls="dropdown-menu">
+		    }} className="button dropButt" aria-haspopup="true" aria-controls="dropdown-menu">
 		      <span>Dropdown button</span>
 		      <span className="icon is-small">
 		        <i className="fa fa-angle-down" aria-hidden="true"></i>
@@ -174,13 +177,13 @@ handleChange(date) {
 		  </div>
 		  <div className="dropdown-menu" id="dropdown-menu" role="menu">
 		    <div className="dropdown-content">
-		    	<Checkbox onChange={this.handleDayChecks} value='mon'>Monday</Checkbox>
-				<Checkbox onChange={this.handleDayChecks} value='tue'>Tuesday</Checkbox>
-				<Checkbox onChange={this.handleDayChecks} value='wed'>Wednesday</Checkbox>
-				<Checkbox onChange={this.handleDayChecks} value='thr'>Thursday</Checkbox>
-				<Checkbox onChange={this.handleDayChecks} value='fri'>Friday</Checkbox>
-				<Checkbox onChange={this.handleDayChecks} value='sat'>Saturday</Checkbox>
-				<Checkbox onChange={this.handleDayChecks} value='sun'>Sunday</Checkbox>
+		    	<Checkbox className={"check"} onChange={this.handleDayChecks} value='mon'>Monday</Checkbox>
+				<Checkbox className={"check"} onChange={this.handleDayChecks} value='tue'>Tuesday</Checkbox>
+				<Checkbox className={"check"} onChange={this.handleDayChecks} value='wed'>Wednesday</Checkbox>
+				<Checkbox className={"check"} onChange={this.handleDayChecks} value='thr'>Thursday</Checkbox>
+				<Checkbox className={"check"} onChange={this.handleDayChecks} value='fri'>Friday</Checkbox>
+				<Checkbox className={"check"} onChange={this.handleDayChecks} value='sat'>Saturday</Checkbox>
+				<Checkbox className={"check"} onChange={this.handleDayChecks} value='sun'>Sunday</Checkbox>
 		    </div>
 		  </div>
 		</div>
@@ -192,7 +195,7 @@ handleChange(date) {
 			<Icon className={"sell"} isSize='small' isAlign='left'>
 				<span className="fa fa-stop" aria-hidden="true" />
 			</Icon>
-			<DatePicker
+			<DatePicker className={"calendar"}
 			        selected={this.state.startDate}
 			        onChange={this.handleChange}
 			        minDate={moment().add(1, 'd')}
