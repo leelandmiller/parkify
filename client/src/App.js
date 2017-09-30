@@ -21,7 +21,9 @@ class App extends Component {
             hasSpot: false,
             spot: {},
             currentUser: {},
-            reservations: []
+            reservations: [],
+            hasVehicle: false,
+            vehicle: {}
         }
         this.setCurrentUser = this.setCurrentUser.bind(this);
     }
@@ -33,7 +35,7 @@ class App extends Component {
                 this.setCurrentUser(user.data);
 
                 API.getUserSpots(user.data._id).then(spot => {
-                    if (spot.data) {
+                    if (spot.data.posted_spots[0]) {
                         this.setState({
                             hasSpot:true,
                             spot: spot.data
@@ -43,12 +45,20 @@ class App extends Component {
 
     			API.getUserReservations(user.data._id).then(results => {
     				if (results.data) {
-                        console.log(results.data)
                         this.setState({
                             reservations: results.data
                         })
                     }
-    			})
+    			});
+
+                API.getVehicle(user.data._id).then(results => {
+                    if (results.data.vehicle) {
+                        this.setState({
+                            vehicle: results.data.vehicle,
+                            hasVehicle: true,
+                        })
+                    }
+                })
 
             } else {
                 this.setState({

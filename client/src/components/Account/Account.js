@@ -28,7 +28,7 @@ class Account extends Component {
 				<AccountTabs
 				activeSettingsTab = { this.state.activeSettingsTab }
 				changeActiveAccountTab = { this.changeActiveAccountTab } />
-			{ this.state.activeSettingsTab === "AccountSettings" ? <AccountSettings isLoggedIn={this.props.isLoggedIn} currentUser={ this.props.currentUser }/> : <Reservations reservations={this.props.reservations} /> }
+			{ this.state.activeSettingsTab === "AccountSettings" ? <AccountSettings {...this.props}/> : <Reservations {...this.props} /> }
 			</div>
 			)
 		}

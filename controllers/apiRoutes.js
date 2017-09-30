@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const {checkSpotObjAndAdd, getSpotInfo, checkAndUpdateSpotSchedule, deleteSpot, getSpotsFromPoint} = require('../db/spotOrm');
 const {checkResevationObj, getAllReservations, finalReservationConflicts} = require('../db/reservationOrm');
-const {getUserSpots, getUserReservations} = require('../db/userOrm');
-const { addVehicle, updateVehicle, removeVehicle, getUserVehicle } = require('../db/vehicleOrm');
+const {getUserSpots, getUserReservations,getUserVehicle} = require('../db/userOrm');
+const { addVehicle, updateVehicle, removeVehicle } = require('../db/vehicleOrm');
 
 //get spot based on a location and search radius
 router.post('/spot/loc', (req, res)=>{
@@ -121,8 +121,8 @@ router.delete('/remove/vehicle/:vehicleId', (req, res) => {
     });
 });
 
-router.get('/vehicle', (req, res) => {
-    const _id = req.user._id;
+router.get('/vehicle/:userId', (req, res) => {
+    const _id = req.params.userId;
 
     getUserVehicle(_id).then(vehicle => {
         res.json(vehicle);
