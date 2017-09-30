@@ -9,6 +9,7 @@ import ReservationWrapper from "./components/ReservationWrapper";
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import AddVehicle from './components/AddVehicle';
 import API from './utils/API';
+import FourohFour from "./components/FourohFour";
 import './App.css';
 
 class App extends Component {
@@ -54,6 +55,7 @@ class App extends Component {
                         <Route exact path="/search" component={SimpleSearch}/>
                         <Route exact path="/reserve/*" component={ReservationWrapper}/>
                         <Route exact path="/add/vehicle" component={AddVehicle}/>
+                        <Route exact path="/FourohFour" component={FourohFour}/>
                     </div>
                 </Router>
                 <PageFooter />
