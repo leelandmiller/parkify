@@ -47,9 +47,9 @@ class ReservationDetails extends Component {
                         <Field>
                             <Label>Start Date</Label>
                                 <Select onChange={this.props.changeEndDate}>
-                                    {this.props.openDays.map(openDay => {
+                                    {this.props.openDays.map((openDay, i) => {
                                         // console.log(openDay)
-                                        return (<option>{moment(openDay).format('dddd, MMMM Do YYYY')}</option>)
+                                        return (<option key={`option-key-${i}`}>{moment(openDay).format('dddd, MMMM Do YYYY')}</option>)
                                     })}
                                 </Select>
                         </Field>
