@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, CardHeader, CardHeaderTitle, Media, Subtitle, CardContent, MediaContent, Title, Columns, Column } from "bloomer";
+import { Card, CardHeader, CardHeaderTitle, Media, CardContent, MediaContent, Title, Columns, Column } from "bloomer";
 import "./VehicleDetails.css";
 import SellYourSpot from "../SellYourSpot/SellYourSpot";
 

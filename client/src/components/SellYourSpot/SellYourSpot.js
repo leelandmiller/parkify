@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Subtitle, Title, Field, Control, Input, Icon, Card, CardHeader, CardHeaderTitle, Media, MediaContent, CardContent } from "bloomer";import "./SellYourSpot.css";
+import { Button, Title, Field, Control, Input, Icon, Card, CardHeader, CardHeaderTitle, Media, MediaContent, CardContent } from "bloomer";import "./SellYourSpot.css";
 
 class SellYourSpot extends Component {
 	constructor() {
