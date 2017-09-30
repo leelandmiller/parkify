@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./FourohFour.css";
-import { Button } from 'bloomer';
 
 class FourohFour extends Component {
 	
