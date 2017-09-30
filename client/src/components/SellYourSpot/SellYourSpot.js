@@ -81,7 +81,10 @@ handleChange(date) {
 		}
 		let spotObj = {
 			loc:{
-				formatted_address
+				formatted_address:{
+					addr1: formatted_address,
+					addr2:" "
+				}
 			},
 			cost:{
 				day:this.state.cost,
