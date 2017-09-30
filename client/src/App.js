@@ -21,6 +21,8 @@ class App extends Component {
 
         this.state = {
             isLoggedIn: true,
+            hasSpot: false,
+            spot: {},
             currentUser: {}
         }
         this.setCurrentUser = this.setCurrentUser.bind(this);
@@ -31,6 +33,16 @@ class App extends Component {
 
             if (user.data) {
                 this.setCurrentUser(user.data);
+
+                API.getUserSpots(user.data._id).then(spot => {
+                    if (spot.data.posted_spots[0]) {
+                        this.setState({
+                            hasSpot:true,
+                            spot: spot.data.posted_spots[0]
+                        });
+                    }
+                });
+
             } else {
                 this.setState({
                     isLoggedIn: false
@@ -54,7 +66,7 @@ class App extends Component {
                     <Switch>
                         
                         <Route path="/login" render={() => <FormWrapper setCurrentUser={this.setCurrentUser}/>}/>
-                        <Route path="/account" render={() => <Account isLoggedIn={this.state.isLoggedIn} currentUser={this.state.currentUser}/>}/>
+                        <Route path="/account" render={() => <Account {...this.state}/>}/>
                         <Route path="/search" component={SimpleSearch}/>
                         <Route path="/reserve" component={ReservationWrapper}/>
                         <Route path="/add/vehicle" component={AddVehicle}/>
@@ -62,6 +74,7 @@ class App extends Component {
                         <Route component={FourohFour} />
                     </Switch>
                 </BrowserRouter>
+
 
 
                 <PageFooter />
