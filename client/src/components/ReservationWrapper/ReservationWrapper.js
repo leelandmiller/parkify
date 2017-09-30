@@ -15,13 +15,17 @@ class ReservationWrapper extends Component {
 		super(props);
 		this.state = {
 			thisSpot: {},
-			openDays: []
+			openDays: [],
+			startDate: '',
+			endDate: ''
 		}
 
 		this.getStartDateOptions = this.getStartDateOptions.bind(this);
 		// this.renderStartDateOptions = this.renderStartDateOptions.bind(this);
 		this.getAllOpenDays = this.getAllOpenDays.bind(this);
 		this.checkIfDatesConflict = this.checkIfDatesConflict.bind(this);
+		this.changeEndDate = this.changeEndDate.bind(this);
+		this.handleFormSubmit = this.handleFormSubmit.bind(this);
 	}
 
 	componentDidMount() {
@@ -36,6 +40,10 @@ class ReservationWrapper extends Component {
 				thisSpot
 			});
 
+			moment.updateLocale('en', {
+			    weekdaysMin : ['sun', 'mon', 'tue', 'wed', 'thr', 'fri', 'sat']
+			});
+
 			this.getStartDateOptions()
         });
     }
@@ -45,14 +53,17 @@ class ReservationWrapper extends Component {
 
 		const end_dates = spotObj.schedule.end_dates.end;
 
+
 		const endDate = moment(end_dates);
+		const startDate = moment()
 		const openDays = spotObj.schedule.open_times.map(ele => ele.day)
 		const openDates = []
 		const checkDistance = moment().add(15, 'd').isAfter(endDate)? 15 : endDate.diff(moment(), 'days')
 		for(let i =0; i< checkDistance; i++ ){
-			let testDate = endDate.add(i, 'd');
+			let mEndDate = moment(endDate)
+			let testDate = moment(mEndDate.add(i, 'd'));
 			openDays.forEach(day => {
-				if(testDate.format('ddd').toLowerCase() === day){
+				if(testDate.format('ddd').toLowerCase().replace('thu', 'thr') === day){
 					openDates.push(testDate)
 				}
 			})
@@ -91,8 +102,6 @@ class ReservationWrapper extends Component {
 	    }
 	}
 
-
-
 	getStartDateOptions() {
 		// console.log(thisSpot.spot.schedule.end_dates.end)
 
@@ -107,19 +116,39 @@ class ReservationWrapper extends Component {
 			this.setState({
 				openDays
 			})
-			console.log(this.state.openDays)
 		})
 	}
 
-	// renderStartDateOptions() {
-	// 	return (
-	// 		{
-	// 			this.state.openDays.map(openDay => (
-	// 				<option>openDay.format('dddd, MMMM Do YYYY')</option>
-	// 			))
-	// 		}
-	// 	);
-	// }
+	changeEndDate(event){
+		let val = event.target.value;
+		let valMoment = moment(val, 'dddd, MMMM Do YYYY').add(1, 'd');
+
+
+		this.setState({
+			startDate: moment(val, 'dddd, MMMM Do YYYY'),
+			endDate: valMoment.format('dddd, MMMM Do YYYY'),
+			endDateMoment: valMoment
+		})
+    }
+
+	handleFormSubmit(event) {
+		event.preventDefault();
+
+		API.getCurrentUser().then(renter => {
+			console.log(renter)
+			let reservationObj = {
+				spot: this.state.thisSpot._id,
+				start: this.state.startDate.toDate(),
+				end: this.state.endDateMoment.toDate(),
+				renter: renter._id
+			};
+
+			API.addReservation(reservationObj).then((results) => {
+				console.log(results)
+				// window.location = '/account'
+			})
+		})
+	}
 
 	render(){
 
@@ -127,7 +156,7 @@ class ReservationWrapper extends Component {
 			<Columns className={"res"}>
 				<Column>
 				<SpotPreview/>
-				<ReservationDetails openDays={this.state.openDays}/>
+				<ReservationDetails handleFormSubmit={this.handleFormSubmit} openDays={this.state.openDays} endDate={this.state.endDate} changeEndDate={this.changeEndDate}/>
 				<PaymentInfo/>
 				</Column>
 			<Column>
@@ -136,5 +165,5 @@ class ReservationWrapper extends Component {
 			</Columns>
 		)
 	}
-	}
+}
 export default ReservationWrapper;

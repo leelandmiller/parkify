@@ -1,13 +1,20 @@
 .navbar {
-    background: #000000;
+    background: #3fc9e6;
 }
 
 a.navbar-item {
-    color:white;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-shadow: rgba(0, 0, 0, 0.2);
 }
 
 a.navbar-item:hover {
-    color:black;
-    background: transparent;
+    color: white;
+    background: black;
     font-weight: bold;
+}
+
+a.logo-hover:hover {
+    background: transparent !important;
 }
