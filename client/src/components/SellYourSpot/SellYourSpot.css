@@ -44,3 +44,32 @@ border: 1px solid #5085EC;
     margin-top: -19px;
     margin-bottom: 25px;
 }
+
+.control {
+    position: inherit;
+}
+
+.select:not(.is-multiple) {
+    height: 2.25em;
+    display: table;
+}
+
+.select select:not([multiple]) {
+    padding-right: 2.5em;
+    width: 239px;
+    margin-bottom: 15px;
+    border: 1px solid #1DA1F2;
+    border-radius: 0px;
+}
+
+.form {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.input-calendar-field {
+    width: 218px;
+    margin-right: 5px;
+    height: 35px;
+    border: 1px solid #1DA1F2;
+}

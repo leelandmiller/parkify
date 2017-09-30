@@ -86,6 +86,11 @@ class SignUpForm extends Component {
                      <Input type="file"/>
                   </Control>
                </Field>
+               <ul className={"tAndC"}>
+                  <li>By creating an account, you're agreeing to the</li>
+                  <li><a>SpotHero Terms and Conditions.</a></li>
+                  <li className={"lastLine"}><a>Already have an account? Sign In</a></li>
+               </ul>
                 <Field isGrouped>
                     <Control>
                         {this.state.password === this.state.confirmPass
@@ -97,11 +102,6 @@ class SignUpForm extends Component {
                         {}
                     </Control>
                 </Field>
-               <ul className={"tAndC"}>
-                  <li>By creating an account, you're agreeing to the</li>
-                  <li><a>SpotHero Terms and Conditions.</a></li>
-                  <li><a>Already have an account? Sign In</a></li>
-               </ul>
             </form>
         )
     }

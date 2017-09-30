@@ -69,16 +69,16 @@ class LoginForm extends Component {
                         </Icon>
                     </Control>
                 </Field>
-                    <Field isGrouped>
-                        <Control>
-                            <Button id="login-submit" className="btn btn-3" isColor='primary' onClick={this.handleFormSubmit}>Submit</Button>
-                        </Control>
-                    </Field>
                    <Field isGrouped>
                       <ul>
                          <li className="terms">By logging in, I agree to them. Parkify <a>terms and conditions.</a> If I'm a seller, I also agree to the <a>Operator Dashboard terms.</a></li>
                       </ul>
                    </Field>
+                    <Field isGrouped>
+                        <Control>
+                            <Button id="login-submit" className="btn btn-3" isColor='primary' onClick={this.handleFormSubmit}>Submit</Button>
+                        </Control>
+                    </Field>
                 </form>
                 <PassportSignIn />
 			  </div>
