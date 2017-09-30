@@ -1,16 +1,43 @@
-p.error {
-    background-image: url('/assets/images/diagonalParking.png');
+.fourOhFour {
     background-size: cover;
-    padding-top: 120px;
-    padding-bottom: 120px;
-    text-align: center;
-    color: deepskyblue;
-    margin: 0px;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 75px;
+    background: black;
+    height:100vh;
+    padding-top: 50px;
+
 }
 
+.codes {
+    color: lime;
+    font-size: 20px;
+    width: 84%;
+}
 
-p.error:active {
-    color: plum;
+.codesOne {
+    color: lime;
+    font-size: 20px;
+    width: 84%;
+}
+
+.codesTwo {
+    color: lime;
+    font-size: 20px;
+    width: 84%;
+    margin-left: -14px;
+}
+
+@-webkit-keyframes blinker {
+    from {opacity: 1.0;}
+    to {opacity: 0.0;}
+}
+.codesTwo{
+    text-decoration: blink;
+    -webkit-animation-name: blinker;
+    -webkit-animation-duration: 0.4s;
+    -webkit-animation-iteration-count:infinite;
+    /*-webkit-animation-timing-function:ease-in-out;*/
+    -webkit-animation-direction: alternate;
+}
+
+code {
+    background-color: black;
 }

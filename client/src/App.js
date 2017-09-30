@@ -78,7 +78,7 @@ class App extends Component {
                         <Route exact path="/search" component={SimpleSearch}/>
                         <Route exact path="/reserve/*" component={ReservationWrapper}/>
                         <Route exact path="/add/vehicle" component={AddVehicle}/>
-                        <Route exact path="/FourohFour" component={FourohFour}/>
+                        <Route exact path="/404" component={FourohFour}/>
                     </div>
                 </Router>
                 <PageFooter />
