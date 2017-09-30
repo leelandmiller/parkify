@@ -9,7 +9,7 @@ const HomeContainer = props => {
 				<div className="hero">
 					<img 
 						alt="parkify hero" 
-						src="assets/images/hero-1.jpg"
+						src="assets/images/garage.jpg"
 						className="hero-img"
 					/>
 					<div id="hero-text">
