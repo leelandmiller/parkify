@@ -21,3 +21,28 @@
 .card {
     border-radius: 3px;
 }
+
+.message-body {
+    background: #fff;
+}
+
+.message:not(:last-child) {
+    margin-bottom: 1.5rem;
+    width: 500px;
+}
+
+.message-header + .message-body {
+    width: 500px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: none;
+}
+
+.message {
+    margin: 25px;
+    width: 500px !important;
+}
+
+.col {
+    margin-left: 100px;
+}

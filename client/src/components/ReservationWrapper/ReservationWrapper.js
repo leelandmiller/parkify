@@ -154,12 +154,13 @@ class ReservationWrapper extends Component {
 
 		return (
 			<Columns className={"res"}>
-				<Column>
+				<Column className={"col"}>
 				<SpotPreview/>
 				<ReservationDetails handleFormSubmit={this.handleFormSubmit} openDays={this.state.openDays} endDate={this.state.endDate} changeEndDate={this.changeEndDate}/>
-				<PaymentInfo/>
+				
 				</Column>
-			<Column>
+			<Column className={"col"}>
+				<PaymentInfo/>
 				<SpotDetails/>
 				</Column>
 			</Columns>
