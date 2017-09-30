@@ -20,7 +20,8 @@ class App extends Component {
             isLoggedIn: true,
             hasSpot: false,
             spot: {},
-            currentUser: {}
+            currentUser: {},
+            reservations: []
         }
         this.setCurrentUser = this.setCurrentUser.bind(this);
     }
@@ -40,6 +41,15 @@ class App extends Component {
                     }
                 });
 
+    			API.getUserReservations(user.data._id).then(results => {
+    				if (results.data) {
+                        console.log(results.data)
+                        this.setState({
+                            reservations: results.data
+                        })
+                    }
+    			})
+
             } else {
                 this.setState({
                     isLoggedIn: false
@@ -47,6 +57,7 @@ class App extends Component {
             }
         });
     }
+
 
     setCurrentUser(currentUser) {
         this.setState({

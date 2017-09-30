@@ -13,26 +13,12 @@ class Account extends Component {
 		};
 
 		this.changeActiveAccountTab = this.changeActiveAccountTab.bind(this);
-		this.getMyReservations = this.getMyReservations.bind(this);
 	}
 
 	changeActiveAccountTab(tab) {
 		this.setState(
 			{ activeSettingsTab:tab }
 		)
-	};
-
-	getMyReservations() {
-		API.getCurrentUser().then(user => {
-			console.log(user.data._id)
-			API.getUserReservations(user.data._id).then(results => {
-				console.log(results)
-			})
-		});
-	}
-
-	componentDidMount() {
-		this.getMyReservations()
 	}
 
 	render(){
@@ -42,7 +28,7 @@ class Account extends Component {
 				<AccountTabs
 				activeSettingsTab = { this.state.activeSettingsTab }
 				changeActiveAccountTab = { this.changeActiveAccountTab } />
-			{ this.state.activeSettingsTab === "AccountSettings" ? <AccountSettings isLoggedIn={this.props.isLoggedIn} currentUser={ this.props.currentUser }/> : <Reservations /> }
+			{ this.state.activeSettingsTab === "AccountSettings" ? <AccountSettings isLoggedIn={this.props.isLoggedIn} currentUser={ this.props.currentUser }/> : <Reservations reservations={this.props.reservations} /> }
 			</div>
 			)
 		}

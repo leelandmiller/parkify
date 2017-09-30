@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Table, thead, tr, th, tbody, td, Button } from "bloomer";
+import moment from 'moment';
 
 import "./Reservations.css";
 
@@ -27,19 +28,27 @@ import "./Reservations.css";
 				        <tr>
 							<td className={"resHistoryHeader"}><b>Reservation History</b></td>
 				        </tr>
-						<tr className={"ReservationAddress"}>
+				    </tbody>
+				</Table>
+				<Table isBordered isStriped isNarrow className='res-table'>
+					<tbody>
+						<tr>
 							<th>Address:</th>
-						</tr>
-						<tr className={"ReservationDate"}>
-							<th>Date: </th>
-						</tr>
-						<tr className={"ReservationTime"}>
-							<th>Time: </th>
-						</tr>
-						<tr className={"ReservationPrice"}>
+							<th>Start Date: </th>
+							<th>End Date: </th>
 							<th>Price:</th>
 						</tr>
-				    </tbody>
+						{
+							this.props.reservations.reservations.map(reservation => (
+								<tr>
+									<td>{reservation.spot.loc.formatted_address.addr1}</td>
+									<td>{moment(reservation.start).format('dddd, MMMM Do YYYY')}</td>
+									<td>{moment(reservation.end).format('dddd, MMMM Do YYYY')}</td>
+									<td>${reservation.spot.cost.day}</td>
+								</tr>
+							))
+						}
+					</tbody>
 				</Table>
 			</div>
 		)

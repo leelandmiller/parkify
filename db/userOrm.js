@@ -97,7 +97,6 @@ module.exports = {
                 'reservations.spot'
             ])
             .exec((err, populate) => {
-
                 return populate;
             }
         );

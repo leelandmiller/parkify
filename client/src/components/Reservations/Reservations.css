@@ -1,6 +1,12 @@
 .reservations {
     width: 113%;
     margin-left: 7%;
+    margin-bottom: 0px;
+}
+
+.res-table {
+    width: 113%;
+    margin-left: 7%;
 }
 
 .reservationButton {
