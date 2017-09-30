@@ -53,9 +53,9 @@ if (process.env.NODE_ENV === "production") {
 // require('./controllers/authRoutes')(app);
 app.use('/api', apiRoutes);
 app.use('/auth', authRoutes);
-/*app.get('*', function (request, response){
+app.get('*', function (request, response){
   response.sendFile(path.resolve(__dirname,'client', 'build', 'index.html'))
-})*/
+})
 app.listen(PORT, function() {
     console.log(`🌎 ==> Server now on port ${PORT}!`);
 });

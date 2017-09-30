@@ -93,13 +93,14 @@ handleChange(date) {
 		}
 		let scheduleObj = {
 			end_dates:{
-				end: moment(this.state.endDate).toDate()
+				end: moment(this.state.startDate).add(60, 'd').toDate()
 			},
 			open_times
 		}
+		console.log(scheduleObj)
 		API.addSpot(spotObj, scheduleObj).then(results => {
 			console.log(results.data)
-			window.location.reload()
+			/*window.location.reload()*/
 		})
 
 	}
@@ -121,7 +122,7 @@ handleChange(date) {
 <form className="form">
 
 	<Field>
-		<Control hasIcon>
+		<Control>
 			<Icon className={"sell"} isSize='small' isAlign='left'>
 				<span className="fa fa-address-book-o" aria-hidden="true" />
 			</Icon>
@@ -130,7 +131,7 @@ handleChange(date) {
 	</Field>
 
 	<Field>
-		<Control hasIcon>
+		<Control>
 			<Icon className={"sell"} isSize='small' isAlign='left'>
 				<span className="fa fa-globe" aria-hidden="true" />
 			</Icon>
@@ -139,7 +140,7 @@ handleChange(date) {
 	</Field>
 
 	<Field>
-		<Control hasIcon>
+		<Control>
 			<Icon className={"sell"} isSize='small' isAlign='left'>
 				<span className="fa fa-location-arrow" aria-hidden="true" />
 			</Icon>
@@ -148,7 +149,7 @@ handleChange(date) {
 	</Field>
 
 	<Field>
-		<Control hasIcon>
+		<Control>
 			<Icon className={"sell"} isSize='small' isAlign='left'>
 				<span className="fa fa-usd" aria-hidden="true" />
 			</Icon>
@@ -157,7 +158,7 @@ handleChange(date) {
 	</Field>
 
 	<Field>
-		<Control hasIcon>
+		<Control>
 			<Icon className={"sell"} isSize='small' isAlign='left'>
 				<span className="fa fa-play" aria-hidden="true" />
 			</Icon>
@@ -191,7 +192,7 @@ handleChange(date) {
 	</Field>
 
 	<Field>
-		<Control hasIcon>
+		<Control>
 			<Icon className={"sell"} isSize='small' isAlign='left'>
 				<span className="fa fa-stop" aria-hidden="true" />
 			</Icon>

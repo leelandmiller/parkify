@@ -35,8 +35,7 @@ const HomeContainer = props => {
 						    	</span>
 					    	</div>
 					    	<Title isSize={5}  hasTextAlign='centered'>1. Fill out the form </Title>
-					    	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar 
-					    	nibh quis ex vehicula vulputate. Nullam suscipit vehicula sapien ut dapibus.</p>
+					    	<p>Submit the location, pricing and availability of your parking spot.</p>
 					    </Column>
 					   	<Column isSize='1/3'>
 						   	<div className="round-number">
@@ -45,8 +44,7 @@ const HomeContainer = props => {
 						   		</span>
 						   	</div>
 					   		<Title isSize={5}  hasTextAlign='centered'>2. Start renting </Title>
-					   		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar 
-					    	nibh quis ex vehicula vulputate. Nullam suscipit vehicula sapien ut dapibus.</p>
+					   		<p>Reach thousands of drivers on the SpotHero mobile app and website.</p>
 					    
 					    </Column>
 					   	<Column isSize='1/3'>
@@ -56,8 +54,7 @@ const HomeContainer = props => {
 						   		</span>
 						   	</div>
 					        <Title isSize={5}  hasTextAlign='centered'>3. Get Paid</Title>
-					        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar 
-					    	nibh quis ex vehicula vulputate. Nullam suscipit vehicula sapien ut dapibus.</p>
+					        <p>Receive a monthly check or deposit for an easy way to make extra money.</p>
 					    
 					    </Column>
 					</Columns>

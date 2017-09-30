@@ -87,7 +87,6 @@ router.get('/myspots/:id', (req, res) => {
 //get users reservation
 router.get('/myreservations/:id',  (req, res) => {
     const _id = req.params.id;
-    console.log(req.params.id)
 
     getUserReservations(_id).then(userReservations => {
         res.json(userReservations)
