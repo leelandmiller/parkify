@@ -93,13 +93,14 @@ handleChange(date) {
 		}
 		let scheduleObj = {
 			end_dates:{
-				end: moment(this.state.endDate).toDate()
+				end: moment(this.state.startDate).add(60, 'd').toDate()
 			},
 			open_times
 		}
+		console.log(scheduleObj)
 		API.addSpot(spotObj, scheduleObj).then(results => {
 			console.log(results.data)
-			window.location.reload
+			/*window.location.reload()*/
 		})
 
 	}

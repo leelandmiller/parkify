@@ -20,7 +20,7 @@ const HomeContainer = props => {
 			<Container>
 				<div id="home-intro">
 					<Title isSize={2}>Sell your parking spot</Title>
-					<p>Make extra moola with your parking spot.</p>
+					<p>Make extra cash with your parking spot.</p>
 					<a className="button is-primary" href="/login">Start Now</a>
 				</div>
 			</Container>

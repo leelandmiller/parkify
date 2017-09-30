@@ -1,0 +1,84 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Alex laptop\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js deploy
+
+PATH: 
+  C:\Users\Alex laptop\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Alex laptop\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client;C:\Program Files\Intel\iCLS Client;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Intel\WiFi\bin;C:\Program Files\Common Files\Intel\WirelessCommon;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files\Sublime Text 3;C:\Users\Alex laptop\AppData\Roaming\npm;C:\Program Files\nodejs;C:\Program Files\nodejs;C:\Program Files\MongoDB\Server\3.4\bin;C:\Program Files\Amazon\AWSCLI;C:\Program Files\dotnet;C:\Users\Alex laptop\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Heroku\bin;C:\Program Files\nodejs;C:\Users\Alex laptop\AppData\Roaming\npm;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+
+Yarn version: 
+  0.27.5
+
+Node version: 
+  6.11.0
+
+Platform: 
+  win32 x64
+
+npm manifest: 
+  {
+    "name": "parkify",
+    "version": "1.0.0",
+    "description": "Parkify app",
+    "main": "server.js",
+    "dependencies": {
+      "axios": "^0.16.2",
+      "bcrypt": "^1.0.3",
+      "body-parser": "^1.18.0",
+      "express": "^4.15.4",
+      "express-session": "^1.15.5",
+      "moment": "^2.18.1",
+      "mongoose": "^4.11.10",
+      "mongoose-deep-populate": "^3.0.0",
+      "mongoose-findorcreate": "^2.0.0",
+      "morgan": "^1.8.2",
+      "nightmare": "^2.10.0",
+      "passport": "^0.4.0",
+      "passport-facebook": "^2.1.1",
+      "passport-google-oauth20": "^1.0.0",
+      "passport-local": "^1.0.0",
+      "path": "^0.12.7",
+      "uuid": "^3.1.0"
+    },
+    "devDependencies": {
+      "concurrently": "^3.5.0",
+      "chai": "^4.1.2",
+      "mocha": "^3.5.0"
+    },
+    "scripts": {
+      "test": "mocha --recursive",
+      "start": "concurrently \"nodemon server.js\" \"cd client && npm run start\"",
+      "deploy": "yarn build && git add . && git commit -m \"Building for production\" && git push heroku master",
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/leelandmiller/parkify.git"
+    },
+    "keywords": [
+      "MERN",
+      "Node",
+      "Express",
+      "React",
+      "MongoDB",
+      "mongoose",
+      "passport"
+    ],
+    "author": "MALL",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/leelandmiller/parkify/issues"
+    },
+    "homepage": "https://github.com/leelandmiller/parkify#readme"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  SyntaxError: C:\Users\Alex laptop\github\page2\parkify\package.json: Unexpected token } in JSON at position 971
+      at Object.parse (native)
+      at C:\Users\Alex laptop\AppData\Roaming\npm\node_modules\yarn\lib\util\fs.js:554:57
+      at next (native)
+      at step (C:\Users\Alex laptop\AppData\Roaming\npm\node_modules\yarn\node_modules\babel-runtime\helpers\asyncToGenerator.js:17:30)
+      at C:\Users\Alex laptop\AppData\Roaming\npm\node_modules\yarn\node_modules\babel-runtime\helpers\asyncToGenerator.js:28:13

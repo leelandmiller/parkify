@@ -1,4 +1,6 @@
 .DS_Store
 node_modules/
 yarn.lock
+config
 keys.js
+keys2.js

@@ -9,6 +9,7 @@
     "body-parser": "^1.18.0",
     "express": "^4.15.4",
     "express-session": "^1.15.5",
+    "history": "^4.7.2",
     "moment": "^2.18.1",
     "mongoose": "^4.11.10",
     "mongoose-deep-populate": "^3.0.0",
@@ -30,7 +31,9 @@
   },
   "scripts": {
     "test": "mocha --recursive",
-    "start": "concurrently \"nodemon server.js\" \"cd client && npm run start\""
+    "start": "node server.js",
+    "deploy": "yarn build && git add . && git commit -m \"Building for production\" && git push heroku master",
+    "build": "cd client && npm run build"
   },
   "repository": {
     "type": "git",
