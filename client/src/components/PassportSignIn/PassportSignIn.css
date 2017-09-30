@@ -2,6 +2,12 @@
     display: -webkit-flex;
     display: -ms-flex;
     display: flex;
+    padding-bottom: 53px;
+}
+
+.passport-signin {
+    padding-bottom: 0px;
+    margin-left: 80px;
 }
 
 .google-btn-container {
@@ -9,6 +15,15 @@
     display: -ms-flex;
     display: flex;
     justify-content: center;
+}
+
+.facebook-btn-container {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
 }
 
 .google-link {
@@ -23,24 +38,15 @@
     height: 100%;
 }
 
-.line-cont {
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: flex;
-    -ms-align-items: center;
-    align-items: center;
-}
-
-.line {
-    border-bottom: solid 1px;
-    width: 100%;
-    margin: 0px 20px;
-}
-
 .text-centered {
     text-align: center;
 }
 
+.column.is-2.text-centered {
+    padding-right: 125px;
+    margin: 0px;
+}
+
 .passport-signin {
-    padding-bottom: 30px;
+    padding-bottom: 0px;
 }

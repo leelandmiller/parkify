@@ -3,8 +3,41 @@
 }
 
 .formwrapper {
-    margin-top: 25px;
-    margin-bottom: 25px;
+    /*margin-top: 25px;*/
+    /*margin-bottom: 25px;*/
     border: none;
     background: white;
+
+}
+
+.pageWrapper {
+    background-image: url('/assets/images/parking.png');
+    background-size: cover;
+    padding-bottom: 60px;
+    padding-top: 60px;
+}
+
+div{
+    padding:0px;
+    margin: 0px;
+}
+
+.button.is-primary[disabled] {
+    background-color: #3fc9e6;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 2px;
+    height:43px;
+    width: 18.5rem;
+    border: 1px solid #5085EC;
+}
+
+.button.is-primary {
+    background-color: #3fc9e6;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 2px;
+    height:43px;
+    width: 18.5rem;
+    border: 1px solid #5085EC;
 }

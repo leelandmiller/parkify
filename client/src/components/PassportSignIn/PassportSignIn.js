@@ -12,16 +12,16 @@ class PassportSignIn extends Component {
                     <Column className='line-cont'><div className="line"></div></Column>
                 </Columns>
                 <Columns className="passport-signin-container">
-                    <Column className='google-btn-container'>
+                    <div className='google-btn-container'>
                         <a href='auth/google' className='google-link'>
                             <img alt="google-signin-btn" className="google-btn" src="assets/images/google/btn_google_signin_normal.png"/>
                         </a>
-                    </Column>
-                    <Column className='google-btn-container'>
+                    </div>
+                    <div className='facebook-btn-container'>
                         <a href='auth/facebook' className='google-link'>
                             <img alt="facebook-signin-btn" className="google-btn" src="assets/images/facebook/btn_facebook.png"/>
                         </a>
-                    </Column>
+                    </div>
                 </Columns>
             </div>
         );

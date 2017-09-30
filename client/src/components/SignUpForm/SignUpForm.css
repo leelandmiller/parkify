@@ -37,3 +37,12 @@ body{
     height: 43px;
     padding: 10px 11px;
 }
+
+.lastLine {
+    padding-bottom: 20px;
+}
+
+li {
+    text-align: justify;
+    padding-right: 25px;
+}

@@ -4,8 +4,6 @@ import SignUpForm from '../SignUpForm';
 import LoginForm from '../LoginForm';
 import "./FormWrapper.css";
 
-
-
 class FormWrapper extends Component {
 	constructor(props){
 		super(props);
@@ -26,11 +24,13 @@ class FormWrapper extends Component {
 
 	render(){
 		return(
+			<div className="pageWrapper" >
 			<div className="formwrapper">
 				<LoginTabs
 					activeTab = { this.state.activeLoginFormTab }
 					changeActiveTab = { this.changeActiveTab } />
 				{ this.state.activeLoginFormTab === "login" ? <LoginForm setCurrentUser={this.props.setCurrentUser} /> : <SignUpForm /> }
+			</div>
 			</div>
 		)
 	}

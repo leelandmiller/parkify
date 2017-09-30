@@ -7,8 +7,14 @@ class AccountSettings extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isActive: false,
+            foo: this.props.isLoggedIn
         };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (!nextProps.isLoggedIn) {
+            window.location = '/login'
+        }
     }
 
     render() {

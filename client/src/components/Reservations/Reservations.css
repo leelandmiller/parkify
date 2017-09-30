@@ -21,3 +21,17 @@ a.button.reservationButton{
     border: 1px solid lightgray;
     background: white;
 }
+
+.resHistoryHeader {
+    background: #3fc9e6;
+}
+
+.resHeader {
+    background: #3fc9e6;
+}
+
+.reservationButton {
+    top: 60px;
+    border: 1px solid darkblue;
+    border-radius: 2px;
+}

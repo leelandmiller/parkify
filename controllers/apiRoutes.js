@@ -2,7 +2,7 @@ const router = require('express').Router();
 const {checkSpotObjAndAdd, getSpotInfo, checkAndUpdateSpotSchedule, deleteSpot, getSpotsFromPoint} = require('../db/spotOrm');
 const {checkResevationObj, getAllReservations, finalReservationConflicts} = require('../db/reservationOrm');
 const {getUserSpots} = require('../db/userOrm');
-const { addVehicle } = require('../db/vehicleOrm');
+const { addVehicle, updateVehicle, removeVehicle, getUserVehicle } = require('../db/vehicleOrm');
 
 //get spot based on a location and search radius
 router.post('/spot/loc', (req, res)=>{
@@ -43,8 +43,8 @@ router.post('/reservation', (req, res) => {
 
 
 //get a spots info based on spotId
-router.get('/spot', (req, res) => {
-        getSpotInfo(req.body.spotId).then(results => {
+router.get('/spot/:spotId', (req, res) => {
+        getSpotInfo(req.params.spotId).then(results => {
             res.json(results);
         });
 
@@ -60,16 +60,17 @@ router.delete('/spot', (req, res) => {
 });
 
 // get all reservations for a spot
-router.get('/reservation', (req, res) => {
-    getAllReservations(req.body.spotId).then(results => {
+router.get('/reservation/:spotId', (req, res) => {
+    getAllReservations(req.params.spotId).then(results => {
         res.json(results);
     });
 });
 
 // add a reservation
 router.post('/reservation', (req, res) => {
-    const reservationObj = req.body.reservationObj
-    reservationObj.retner = req.user._id
+    const reservationObj = req.body.reservationObj;
+    reservationObj.renter = req.user._id;
+
     checkResevationObj(reservationObj).then(results => {
         res.json(results);
     });
@@ -86,8 +87,35 @@ router.get('/myspots', (req, res) => {
 //**Vehicle Routes
 router.post('/add/vehicle', (req, res) => {
     const vehicle = req.body.vehicleObj;
+    vehicle.owner = req.user._id;
 
+    addVehicle(vehicle.owner, vehicle).then(vehicleSaved => {
+        res.json(vehicleSaved);
+    });
+});
 
+router.put('/update/vehicle/:vehicleId', (req, res) => {
+    const vehicleId = req.params.vehicleId;
+
+    updateVehicle(vehicleId).then(vehicleUpdated => {
+        res.json(vehicleUpdated);
+    });
+});
+
+router.delete('/remove/vehicle/:vehicleId', (req, res) => {
+    const vehicleId = req.params.vehicleId;
+
+    removeVehicle(vehicleId, req.user._id).then(vehicleRemoved => {
+        res.json(vehicleRemoved);
+    });
+});
+
+router.get('/vehicle', (req, res) => {
+    const _id = req.user._id;
+
+    getUserVehicle(_id).then(vehicle => {
+        res.json(vehicle);
+    });
 });
 
 module.exports = router

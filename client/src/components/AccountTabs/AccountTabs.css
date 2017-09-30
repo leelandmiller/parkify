@@ -1,5 +1,14 @@
 .tabs:not(:last-child) {
-    margin-bottom: 1.5rem;
+    /*margin-bottom: 1.5rem;*/
+    margin-top: -0.7rem;
     /*position: absolute;*/
     font-weight: bold;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
+
+.fa-gear:before, .fa-cog:before {
+    content: "\f013";
+    padding-left: 10px;
+}
+

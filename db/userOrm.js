@@ -11,18 +11,12 @@ module.exports = {
         return User.findOne({ email: profile.email }).then(user => {
             // if user exists, return user
             if (user) {
-                return {
-                    success: true,
-                    user
-                };
+                return user;
             } else {
                 // else create new user, retrurn the new user
                 const newUser = new User(profile);
-                return newUser.save().then(newUserRes => {
-                    return {
-                        success: true,
-                        newUserRes
-                    };
+                return newUser.save().then(user => {
+                    return user;
                 }).catch(err => {
                     return {
                         success: false,
@@ -63,7 +57,7 @@ module.exports = {
                 posted_spots: spotId
             }
         }).catch(err => {
-            console.log(`hey, ${err}`);
+            console.log(`addSpotIdToUserERR, ${err}`);
         });
     },
     addReservationIDToUser: function(_id, reservationId) {
@@ -72,7 +66,16 @@ module.exports = {
                 reservations: reservationId
             }
         }).catch(err => {
-            console.log(`addResERR, ${err}`);
+            console.log(`addResToUserERR, ${err}`);
+        });
+    },
+    addVehicleIDToUser: function(_id, vehicleId) {
+        User.update({ _id }, {
+            $set: {
+                vehicle: vehicleId
+            }
+        }).catch(err => {
+            console.log(`addVehIDToUserERR, ${err}`);
         });
     },
     getUserSpots: function(_id) {
@@ -95,6 +98,14 @@ module.exports = {
             ])
             .exec((err, populate) => {
 
+                return populate;
+            }
+        );
+    },
+    getUserVehicle: function(_id) {
+        return User.findOne({ _id })
+            .populate('vehicle')
+            .exec((err, populate) => {
                 return populate;
             }
         );

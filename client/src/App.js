@@ -7,7 +7,9 @@ import SimpleSearch from './components/SimpleSearch';
 import Account from './components/Account';
 import ReservationWrapper from "./components/ReservationWrapper";
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import AddVehicle from './components/AddVehicle';
 import API from './utils/API';
+import FourohFour from "./components/FourohFour";
 import './App.css';
 
 class App extends Component {
@@ -15,7 +17,7 @@ class App extends Component {
         super(props);
 
         this.state = {
-            isLoggedIn: false,
+            isLoggedIn: true,
             currentUser: {}
         }
         this.setCurrentUser = this.setCurrentUser.bind(this);
@@ -23,8 +25,13 @@ class App extends Component {
 
     componentDidMount() {
         API.getCurrentUser().then(user => {
+
             if (user.data) {
                 this.setCurrentUser(user.data);
+            } else {
+                this.setState({
+                    isLoggedIn: false
+                })
             }
         });
     }
@@ -46,7 +53,9 @@ class App extends Component {
                         <Route exact path="/login" render={() => <FormWrapper setCurrentUser={this.setCurrentUser}/>}/>
                         <Route exact path="/account" render={() => <Account isLoggedIn={this.state.isLoggedIn} currentUser={this.state.currentUser}/>}/>
                         <Route exact path="/search" component={SimpleSearch}/>
-                        <Route exact path="/reserve" component={ReservationWrapper}/>
+                        <Route exact path="/reserve/*" component={ReservationWrapper}/>
+                        <Route exact path="/add/vehicle" component={AddVehicle}/>
+                        <Route exact path="/FourohFour" component={FourohFour}/>
                     </div>
                 </Router>
                 <PageFooter />

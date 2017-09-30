@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Icon, Field, Label, Control, Input, Button } from "bloomer";
+   import { Icon, Field, Control, Input, Button } from "bloomer";
 import "./LoginForm.css";
-import parkingPic from '../../parking.png';
 import API from '../../utils/API';
 import PassportSignIn from '../PassportSignIn';
 
@@ -48,7 +47,6 @@ class LoginForm extends Component {
         return (
 			  <div>
                 <form className="form">
-                   {/*<img className="login-form-img" alt={"parking"} src={parkingPic}/>*/}
                     <Field>
                         <Control>
                            <Icon isSize='medium' isAlign='left'>
@@ -56,7 +54,6 @@ class LoginForm extends Component {
                            </Icon>
                             <Input id="email" type="email" placeholder='Email' name='email' value={this.state.email} onChange={this.handleChange} />
                             <Icon isSize='small' isAlign='right'>
-
                             </Icon>
                         </Control>
                     </Field>
@@ -72,16 +69,16 @@ class LoginForm extends Component {
                         </Icon>
                     </Control>
                 </Field>
-                    <Field isGrouped>
-                        <Control>
-                            <Button id="login-submit" className="btn btn-3" isColor='primary' onClick={this.handleFormSubmit}>Submit</Button>
-                        </Control>
-                    </Field>
                    <Field isGrouped>
                       <ul>
                          <li className="terms">By logging in, I agree to them. Parkify <a>terms and conditions.</a> If I'm a seller, I also agree to the <a>Operator Dashboard terms.</a></li>
                       </ul>
                    </Field>
+                    <Field isGrouped>
+                        <Control>
+                            <Button id="login-submit" className="btn btn-3" isColor='primary' onClick={this.handleFormSubmit}>Submit</Button>
+                        </Control>
+                    </Field>
                 </form>
                 <PassportSignIn />
 			  </div>

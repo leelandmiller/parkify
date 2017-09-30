@@ -82,7 +82,7 @@ const finalReservationConflicts = (myResId, spotId) => {
 
 const getAllReservations = spotId =>
     Reservation.find({
-        spot: spotid
+        spot: spotId
     })
     .deepPopulate([
             'spot',

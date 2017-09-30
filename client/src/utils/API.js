@@ -9,7 +9,7 @@ const API = {
         return axios.put('/api/spot/schedule', { spotId, schedule });
     },
     getSpot: function(spotId) {
-        return axios.get('/api/spot', { spotId });
+        return axios.get(`/api/spot/${spotId}`);
     },
     deleteSpot: function(spotId) {
         return axios.delete('/api/spot', { spotId });
@@ -26,7 +26,7 @@ const API = {
         return axios.post('/api/reservation', { reservationObj });
     },
     getAllReservations: function(spotId) {
-        return axios.get('/api/reservation', { spotId });
+        return axios.get(`/api/reservation/${spotId}`);
     },
     /**USER API CALLS**/
     getCurrentUser: function() {
@@ -42,14 +42,14 @@ const API = {
     addVehicle: function(vehicleObj) {
         return axios.post('/api/add/vehicle', { vehicleObj });
     },
-    updateVehicle: function() {
-
+    updateVehicle: function(vehicleId) {
+        return axios.put(`/api/update/vehicle/${vehicleId}`);
     },
-    removeVehicle: function() {
-
+    removeVehicle: function(vehicleId) {
+        return axios.delete(`/api/remove/vehicle/${vehicleId}`);
     },
-    getVehicle: function(vehicleId) {
-        return axios.get(`/api/vehicle/${vehicleId}`);
+    getVehicle: function(userId) {
+        return axios.get('/api/vehicle');
     }
 }
 
