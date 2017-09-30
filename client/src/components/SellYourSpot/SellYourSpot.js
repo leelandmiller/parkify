@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Subtitle, Title, Field, Control, Input, Icon, Card, CardHeader, CardHeaderTitle, Media, MediaContent, CardContent } from "bloomer";import "./SellYourSpot.css";
+import { Button, Subtitle, Title, Field, Control, Input, Icon, Card, CardHeader, CardHeaderTitle, Media, MediaContent, CardContent } from "bloomer";import "./SellYourSpot.css";
 
 class SellYourSpot extends Component {
 	constructor() {
@@ -16,15 +16,13 @@ class SellYourSpot extends Component {
 	<Card>
 		<CardHeader>
 			<CardHeaderTitle>
-				Details
+				Sell A Spot
 			</CardHeaderTitle>
 		</CardHeader>
 		<CardContent>
 			<Media>
 				<MediaContent>
-<Title isSize={6}>Sell Your Spot</Title>
-<Subtitle isSize={6}>----------</Subtitle>
-<a href="/add/creditcard">Add Credit Card</a>
+<Title isSize={6}>Fill out this form to sell your spot.</Title>
 <hr />
 <form className="form">
 	
@@ -33,7 +31,7 @@ class SellYourSpot extends Component {
 			<Icon isSize='small' isAlign='left'>
 				<span className="fa fa-address-book-o" aria-hidden="true" />
 			</Icon>
-			<Input type='text' name='address' isColor='success' placeholder='Address'/>
+			<Input className={"fieldsForSellForm"} type='text' name='address' isColor='success' placeholder='Address'/>
 		</Control>
 	</Field>
 	
@@ -42,7 +40,7 @@ class SellYourSpot extends Component {
 			<Icon isSize='small' isAlign='left'>
 				<span className="fa fa-globe" aria-hidden="true" />
 			</Icon>
-			<Input type='text' name='city' isColor='success' placeholder='City'/>
+			<Input className={"fieldsForSellForm"} type='text' name='city' isColor='success' placeholder='City'/>
 		</Control>
 	</Field>
 	
@@ -51,7 +49,7 @@ class SellYourSpot extends Component {
 			<Icon isSize='small' isAlign='left'>
 				<span className="fa fa-location-arrow" aria-hidden="true" />
 			</Icon>
-			<Input type='text' name='state' isColor='success' placeholder='State'/>
+			<Input className={"fieldsForSellForm"} type='text' name='state' isColor='success' placeholder='State'/>
 		</Control>
 	</Field>
 	
@@ -60,7 +58,7 @@ class SellYourSpot extends Component {
 			<Icon isSize='small' isAlign='left'>
 				<span className="fa fa-usd" aria-hidden="true" />
 			</Icon>
-			<Input type='text' name='cost' isColor='success' placeholder='Price'/>
+			<Input className={"fieldsForSellForm"} type='text' name='cost' isColor='success' placeholder='Price'/>
 		</Control>
 	</Field>
 	
@@ -69,7 +67,7 @@ class SellYourSpot extends Component {
 			<Icon isSize='small' isAlign='left'>
 				<span className="fa fa-play" aria-hidden="true" />
 			</Icon>
-			<Input type='text' name='schedule' isColor='success' placeholder='Start Date'/>
+			<Input className={"fieldsForSellForm"} type='text' name='schedule' isColor='success' placeholder='Start Date'/>
 		</Control>
 	</Field>
 	
@@ -78,16 +76,21 @@ class SellYourSpot extends Component {
 			<Icon isSize='small' isAlign='left'>
 				<span className="fa fa-stop" aria-hidden="true" />
 			</Icon>
-			<Input type='text' name='endDate' isColor='success' placeholder='End Date'/>
+			<Input className={"fieldsForSellForm"} type='text' name='endDate' isColor='success' placeholder='End Date'/>
+		</Control>
+	</Field>
+	
+	<Field>
+		<Control>
+			<Button id="login-submit" className="butt" isColor='primary'>Submit</Button>
 		</Control>
 	</Field>
 
-		</form>
+</form>
 				</MediaContent>
 			</Media>
 		</CardContent>
 	</Card>
 </div>
 	)}};
-
 export default SellYourSpot;

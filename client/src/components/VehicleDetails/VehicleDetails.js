@@ -25,15 +25,10 @@ render() {
 		 <CardContent>
 			  <Media>
 					<MediaContent>
-                <Title isSize={6}>License Plate</Title>
-						 <Subtitle isSize={6}>----------</Subtitle>
-							 <a href="/add/plate">Add License Plate</a>
-                <hr />
 
                 <Title isSize={6}>Vehicles</Title>
-						 <Subtitle isSize={6}>----------</Subtitle>
-							 <a href="/add/vehicle">Add Vehicle</a>
-                <hr />
+						<hr />
+						<a href="/add/vehicle">Add Vehicle</a>
 					</MediaContent>
 			  </Media>
 		 </CardContent>

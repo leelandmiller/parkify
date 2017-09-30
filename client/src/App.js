@@ -9,6 +9,7 @@ import ReservationWrapper from "./components/ReservationWrapper";
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import AddVehicle from './components/AddVehicle';
 import API from './utils/API';
+import FourohFour from "./components/FourohFour";
 import './App.css';
 import createBrowserHistory from 'history/createBrowserHistory'
 
@@ -60,6 +61,7 @@ class App extends Component {
                         <Route exact path="/" component={HomeContainer}/>
                     </Switch>
                 </BrowserRouter>
+
                 <PageFooter />
             </div>
         )
