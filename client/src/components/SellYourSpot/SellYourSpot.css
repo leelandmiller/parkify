@@ -16,11 +16,11 @@
     /*padding: 7px 11px 7px 12px;*/
 /*}*/
 
-.icon {
+.icon.sell {
     float: left;
 }
 
-.icon.is-small {
+.icon.sell.is-small {
     height: 0rem;
     width: 1rem;
     margin-top: 10px;
@@ -56,7 +56,7 @@ border: 1px solid #5085EC;
 
 .select select:not([multiple]) {
     padding-right: 2.5em;
-    width: 239px;
+    width: 238px;
     margin-bottom: 15px;
     border: 1px solid #1DA1F2;
     border-radius: 0px;

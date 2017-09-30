@@ -124,7 +124,7 @@ class ReservationWrapper extends Component {
 	render(){
 
 		return (
-			<Columns>
+			<Columns className={"res"}>
 				<Column>
 				<SpotPreview/>
 				<ReservationDetails openDays={this.state.openDays}/>

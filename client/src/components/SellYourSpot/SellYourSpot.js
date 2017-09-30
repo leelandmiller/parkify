@@ -67,7 +67,7 @@ class SellYourSpot extends Component {
 
 	<Field>
 		<Control hasIcon>
-			<Icon isSize='small' isAlign='left'>
+			<Icon className={"sell"} isSize='small' isAlign='left'>
 				<span className="fa fa-address-book-o" aria-hidden="true" />
 			</Icon>
 			<Input onChange={this.handleInput} className={"fieldsForSellForm"} type='text' name='address' isColor='success' placeholder='Address'/>
@@ -76,7 +76,7 @@ class SellYourSpot extends Component {
 
 	<Field>
 		<Control hasIcon>
-			<Icon isSize='small' isAlign='left'>
+			<Icon className={"sell"} isSize='small' isAlign='left'>
 				<span className="fa fa-globe" aria-hidden="true" />
 			</Icon>
 			<Input onChange={this.handleInput} className={"fieldsForSellForm"} type='text' name='city' isColor='success' placeholder='City'/>
@@ -85,7 +85,7 @@ class SellYourSpot extends Component {
 
 	<Field>
 		<Control hasIcon>
-			<Icon isSize='small' isAlign='left'>
+			<Icon className={"sell"} isSize='small' isAlign='left'>
 				<span className="fa fa-location-arrow" aria-hidden="true" />
 			</Icon>
 			<Input onChange={this.handleInput} className={"fieldsForSellForm"} type='text' name='state' isColor='success' placeholder='State'/>
@@ -94,7 +94,7 @@ class SellYourSpot extends Component {
 
 	<Field>
 		<Control hasIcon>
-			<Icon isSize='small' isAlign='left'>
+			<Icon className={"sell"} isSize='small' isAlign='left'>
 				<span className="fa fa-usd" aria-hidden="true" />
 			</Icon>
 			<Input onChange={this.handleInput} className={"fieldsForSellForm"} type='text' name='cost' isColor='success' placeholder='Price'/>
@@ -102,7 +102,10 @@ class SellYourSpot extends Component {
 	</Field>
 
 	<Field>
-		<Control>
+		<Control hasIcon>
+			<Icon className={"sell"} isSize='small' isAlign='left'>
+				<span className="fa fa-play" aria-hidden="true" />
+			</Icon>
 			<Select className={"dropDown"}>
 				<Label>Select:</Label>
 					<Select className={"fieldsForSellForm"} name='schedule' isColor='success' placeholder='Start Date'/>
@@ -113,13 +116,13 @@ class SellYourSpot extends Component {
 				<option><Checkbox>Friday</Checkbox></option>
 				<option><Checkbox>Saturday</Checkbox></option>
 				<option><Checkbox>Sunday</Checkbox></option>
-					</Select>
+			</Select>
 		</Control>
 	</Field>
 
 	<Field>
 		<Control hasIcon>
-			<Icon isSize='small' isAlign='left'>
+			<Icon className={"sell"} isSize='small' isAlign='left'>
 				<span className="fa fa-stop" aria-hidden="true" />
 			</Icon>
 			{/*<Input className={"fieldsForSellForm"} type='text' name='endDate' isColor='success' placeholder='End Date'/>*/}
