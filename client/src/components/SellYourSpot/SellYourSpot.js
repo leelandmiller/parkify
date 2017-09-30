@@ -70,7 +70,7 @@ handleChange(date) {
 	}
 
 	sendSpot(){
-		let formatted_address = this.state.address+' ,'+this.state.city+' ,'+this.state.state+' ,'
+		let formatted_address = this.state.address+' ,'+this.state.city+' ,'+this.state.state
 		let open_times = [];
 		for(let day in this.state.days){
 			if(this.state.days[day]){
@@ -93,13 +93,13 @@ handleChange(date) {
 		}
 		let scheduleObj = {
 			end_dates:{
-				end: this.state.endDate
+				end: moment(this.state.endDate).toDate()
 			},
 			open_times
 		}
 		API.addSpot(spotObj, scheduleObj).then(results => {
 			console.log(results.data)
-			window.location.reload
+			window.location.reload()
 		})
 
 	}

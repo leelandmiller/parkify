@@ -38,7 +38,7 @@ class AccountSettings extends Component {
                         </tr>
                     </tbody>
                 </Table>
-                <VehicleDetails/>
+                <VehicleDetails {...this.props}/>
             </div>
         )
     }

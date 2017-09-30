@@ -66,7 +66,7 @@ export class MapResults extends Component {
 	        									<li className="result-addr1">{location.loc.formatted_address.addr1}</li>
 	        									<li className="result-addr2">{location.loc.formatted_address.addr2}</li>
 	        									<li className="result-distance">{this.calculateMiles(location.distance).toFixed(2)} miles</li>
-	        									<a href="/reserve" className="result-btn">Reserve This Spot</a>
+	        									<a href={"/reserve/"+location._id} className="result-btn">Reserve This Spot</a>
 	        								</Column>
 	        							</Columns>
 	        						</a>
