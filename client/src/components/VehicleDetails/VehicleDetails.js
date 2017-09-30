@@ -47,7 +47,14 @@ render() {
                        <br/>
                         <Title isSize={6}>Vehicles</Title>
                         <hr />
-                        <a href="/add/vehicle">Add Vehicle</a>
+                        <ul>
+                            <li>Make: {this.props.vehicle.make}</li>
+                            <li>Model: {this.props.vehicle.model}</li>
+                            <li>Color: {this.props.vehicle.color}</li>
+                            <li>License Plate: {this.props.vehicle.license_plate}</li>
+                        </ul>
+
+                        {!this.props.hasVehicle && <a href="/add/vehicle">Add Vehicle</a>}
                     </MediaContent>
                 </Media>
             </CardContent>

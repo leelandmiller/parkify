@@ -8,6 +8,7 @@ const SpotSchema = new Schema({
             type:String,
             required:true,
             default: 'Point'
+
         },
         coordinates:{
             type:[Number],

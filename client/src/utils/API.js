@@ -29,7 +29,6 @@ const API = {
         return axios.get(`/api/reservation/${spotId}`);
     },
     getUserReservations: function(userId) {
-        console.log(userId)
         return axios.get(`/api/myreservations/${userId}`);
     },
     getUserSpots: function(userId) {
@@ -56,7 +55,7 @@ const API = {
         return axios.delete(`/api/remove/vehicle/${vehicleId}`);
     },
     getVehicle: function(userId) {
-        return axios.get('/api/vehicle');
+        return axios.get(`/api/vehicle/${userId}`);
     }
 }
 
