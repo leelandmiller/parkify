@@ -49,12 +49,38 @@ border: 1px solid #5085EC;
     position: inherit;
 }
 
-.select:not(.is-multiple) {
+.calendar {
+    white-space: nowrap;
+    width: 235px;
+    border-radius: 1px;
+    height: 40px;
+    border: 1px solid #1DA1F2;
+}
+
+.dropButt {
+    white-space: nowrap;
+    width: 199px;
+    border-radius: 1px;
+    margin-top: -5px;
+    margin-bottom: 7px;
+    height: 40px;
+    border: 1px solid #1DA1F2;
+}
+
+.dropdown {
     height: 2.25em;
     display: table;
 }
 
-.select select:not([multiple]) {
+.dropdown-content {
+    border-radius: 0px;
+    width: 95px;
+    font-weight: bold;
+    padding: 5px;
+    margin-left: 70px;
+}
+
+.dropdown-trigger dropButt{
     padding-right: 2.5em;
     width: 238px;
     margin-bottom: 15px;
