@@ -15,3 +15,32 @@
     /*height: 43px;*/
     /*padding: 7px 11px 7px 12px;*/
 /*}*/
+
+.icon {
+    float: left;
+}
+
+.icon.is-small {
+    height: 0rem;
+    width: 1rem;
+    margin-top: 10px;
+    margin-left: -15px;
+}
+
+.butt {
+    background-color: #3fc9e6;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 2px;
+    height: 43px;
+    margin-left: -35px;
+    width: 18.5rem;
+border: 1px solid #5085EC;
+}
+
+.fieldsForSellForm {
+    float: left;
+    border-color: #1DA1F2;
+    margin-top: -19px;
+    margin-bottom: 25px;
+}
