@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="594510c7-a34f-4b86-b1ea-060e4fa0a4ea" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/package.json" afterPath="$PROJECT_DIR$/client/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/public/index.html" afterPath="$PROJECT_DIR$/client/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/FourohFour/FourohFour.css" afterPath="$PROJECT_DIR$/client/src/components/FourohFour/FourohFour.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/FourohFour/FourohFour.js" afterPath="$PROJECT_DIR$/client/src/components/FourohFour/FourohFour.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/LoginForm/LoginForm.js" afterPath="$PROJECT_DIR$/client/src/components/LoginForm/LoginForm.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/PassportSignIn/PassportSignIn.css" afterPath="$PROJECT_DIR$/client/src/components/PassportSignIn/PassportSignIn.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/SellYourSpot/SellYourSpot.css" afterPath="$PROJECT_DIR$/client/src/components/SellYourSpot/SellYourSpot.css" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/pallette.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/App.js" afterPath="$PROJECT_DIR$/client/src/App.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/ReservationWrapper/ReservationWrapper.css" afterPath="$PROJECT_DIR$/client/src/components/ReservationWrapper/ReservationWrapper.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/Reservations/Reservations.css" afterPath="$PROJECT_DIR$/client/src/components/Reservations/Reservations.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/components/Reservations/Reservations.js" afterPath="$PROJECT_DIR$/client/src/components/Reservations/Reservations.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,12 +28,14 @@
     <splitter split-orientation="horizontal" split-proportion="0.5004277">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="SignUpForm.css" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/client/src/components/SignUpForm/SignUpForm.css">
+          <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/client/src/App.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="465">
-                  <caret line="31" column="10" lean-forward="false" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
-                  <folding />
+                <state relative-caret-position="483">
+                  <caret line="57" column="47" lean-forward="false" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
+                  <folding>
+                    <element signature="e#0#41#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -53,14 +52,24 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="LoginForm.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="LoginForm.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/src/components/LoginForm/LoginForm.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="172">
+                <state relative-caret-position="288">
                   <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
                   <folding>
                     <marker date="1506757543000" expanded="true" signature="979:997" ph="{...}" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Reservations.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/src/components/Reservations/Reservations.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="615">
+                  <caret line="44" column="73" lean-forward="false" selection-start-line="44" selection-start-column="73" selection-end-line="44" selection-end-column="73" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -145,7 +154,57 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="FourohFour.css" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Reservations.css" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/client/src/components/Reservations/Reservations.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="348">
+                  <caret line="39" column="29" lean-forward="false" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Account.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/src/components/Account/Account.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="AccountInfo.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/src/components/AccountInfo/AccountInfo.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="AccountSettings.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/src/components/AccountSettings/AccountSettings.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ReservationWrapper.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/client/src/components/ReservationWrapper/ReservationWrapper.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="180">
+                  <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="FourohFour.css" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/src/components/FourohFour/FourohFour.css">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="60">
@@ -202,18 +261,14 @@
         <option value="$PROJECT_DIR$/client/src/components/SimpleSearch/SimpleSearch.js" />
         <option value="$PROJECT_DIR$/client/src/components/404Page/index.js" />
         <option value="$PROJECT_DIR$/client/src/components/404Page/404Page.js" />
-        <option value="$PROJECT_DIR$/client/src/App.js" />
         <option value="$PROJECT_DIR$/client/src/components/FourohFour/index.js" />
-        <option value="$PROJECT_DIR$/client/src/components/Reservations/Reservations.js" />
         <option value="$PROJECT_DIR$/client/src/components/AccountTabs/AccountTabs.js" />
         <option value="$PROJECT_DIR$/client/src/components/AccountTabs/AccountTabs.css" />
         <option value="$PROJECT_DIR$/client/src/components/FormWrapper/FormWrapper.css" />
         <option value="$PROJECT_DIR$/client/src/App.css" />
         <option value="$PROJECT_DIR$/client/src/components/VehicleDetails/VehicleDetails.js" />
-        <option value="$PROJECT_DIR$/client/src/components/Reservations/Reservations.css" />
         <option value="$PROJECT_DIR$/client/src/components/AddVehicle/AddVehicle.js" />
         <option value="$PROJECT_DIR$/client/src/components/AddVehicle/AddVehicle.css" />
-        <option value="$PROJECT_DIR$/client/src/components/ReservationWrapper/ReservationWrapper.css" />
         <option value="$PROJECT_DIR$/client/src/components/ReservationWrapper/ReservationWrapper.js" />
         <option value="$PROJECT_DIR$/client/src/components/SignUpForm/SignUpForm.css" />
         <option value="$PROJECT_DIR$/client/src/components/LoginForm/LoginForm.css" />
@@ -226,6 +281,10 @@
         <option value="$PROJECT_DIR$/client/public/index.html" />
         <option value="$PROJECT_DIR$/client/src/components/FourohFour/FourohFour.js" />
         <option value="$PROJECT_DIR$/client/src/components/FourohFour/FourohFour.css" />
+        <option value="$PROJECT_DIR$/client/src/components/ReservationWrapper/ReservationWrapper.css" />
+        <option value="$PROJECT_DIR$/client/src/components/Reservations/Reservations.css" />
+        <option value="$PROJECT_DIR$/client/src/components/Reservations/Reservations.js" />
+        <option value="$PROJECT_DIR$/client/src/App.js" />
       </list>
     </option>
   </component>
@@ -291,14 +350,6 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="parkify" type="b2602c69:ProjectViewProjectNode" />
-              <item name="parkify" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="FourohFour" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="parkify" type="b2602c69:ProjectViewProjectNode" />
@@ -370,12 +421,12 @@
       <workItem from="1506484331594" duration="1508000" />
       <workItem from="1506567017985" duration="8917000" />
       <workItem from="1506628566584" duration="21677000" />
-      <workItem from="1506717170869" duration="25100000" />
+      <workItem from="1506717170869" duration="26445000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107581000" />
+    <option name="totallyTimeSpent" value="108926000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -469,31 +520,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/src/components/Nav/Nav.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/AccountSettings/AccountSettings.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="1" lean-forward="false" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/LoginTabs/LoginTabs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -659,14 +685,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="25" lean-forward="false" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/SpotPreview/SpotPreview.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -703,22 +721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Reservations/Reservations.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="24" column="104" lean-forward="false" selection-start-line="24" selection-start-column="87" selection-end-line="24" selection-end-column="104" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Reservations/Reservations.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/AddVehicle/AddVehicle.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="573">
@@ -731,14 +733,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="18" lean-forward="false" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/ReservationWrapper/ReservationWrapper.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -817,16 +811,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/SellYourSpot/SellYourSpot.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <caret line="32" column="22" lean-forward="false" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
-          <folding>
-            <marker date="1506757624000" expanded="true" signature="161:333" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/SellYourSpot/SellYourSpot.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
@@ -863,10 +847,78 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/LoginForm/LoginForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
+        <state relative-caret-position="288">
           <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding>
             <marker date="1506757543000" expanded="true" signature="979:997" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/SellYourSpot/SellYourSpot.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1">
+          <caret line="32" column="22" lean-forward="false" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+          <folding>
+            <marker date="1506757624000" expanded="true" signature="161:333" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/Account/Account.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/AccountInfo/AccountInfo.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/AccountSettings/AccountSettings.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/ReservationWrapper/ReservationWrapper.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/Reservations/Reservations.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="39" column="29" lean-forward="false" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/Reservations/Reservations.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="44" column="73" lean-forward="false" selection-start-line="44" selection-start-column="73" selection-end-line="44" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="57" column="47" lean-forward="false" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
