@@ -44,6 +44,7 @@ class AddVehicle extends Component {
 
     render() {
         return (
+           <div className={"addVehicleWrapper"}>
             <form className={"addVehicle"}>
                 <h2 className="addVTitle">Fill out this form to add a car.</h2>
                 <Field>
@@ -76,6 +77,7 @@ class AddVehicle extends Component {
                     </Control>
                 </Field>
             </form>
+           </div>
         )
     }
 }

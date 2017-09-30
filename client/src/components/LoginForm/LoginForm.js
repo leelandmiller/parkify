@@ -49,7 +49,7 @@ class LoginForm extends Component {
                 <form className="form">
                     <Field>
                         <Control>
-                           <Icon isSize='medium' isAlign='left'>
+                           <Icon className={"sell"} isSize='medium' isAlign='left'>
                               <span className="fa fa-envelope-o fa-4x" aria-hidden="true" />
                            </Icon>
                             <Input id="email" type="email" placeholder='Email' name='email' value={this.state.email} onChange={this.handleChange} />
@@ -60,7 +60,7 @@ class LoginForm extends Component {
 
                     <Field>
                     <Control>
-                       <Icon isSize='medium' isAlign='left'>
+                       <Icon className={"sell"} isSize='medium' isAlign='left'>
                           <span className="fa fa-lock fa-4x" aria-hidden="true" />
                        </Icon>
                         <Input id="password" type='password' name='password' isColor='success' placeholder='Password' value={this.state.password} onChange={this.handleChange} />

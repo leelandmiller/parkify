@@ -69,7 +69,7 @@ router.get('/reservation/:spotId', (req, res) => {
 // add a reservation
 router.post('/reservation', (req, res) => {
     const reservationObj = req.body.reservationObj;
-    reservationObj.renter = req.user._id;
+    // reservationObj.renter = req.user._id;
 
     checkResevationObj(reservationObj).then(results => {
         res.json(results);

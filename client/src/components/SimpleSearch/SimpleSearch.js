@@ -26,6 +26,7 @@ export class SimpleSearch extends Component {
 			location: "",
 			// Distance away from the search location
 			distance: 10000,
+			selectValue: 1,
 	        closeBy: [
 	            // {
 	            //     name: "Encinitas",
@@ -60,7 +61,7 @@ export class SimpleSearch extends Component {
 	};
 	
 	handleDistChange = (event) => {
-		 this.setState({ distance: (event.target.value*1600) });
+		 this.setState({ distance: (event.target.value*1609.34), selectValue: event.target.value.toString()});
 		 // console.log('Distance', this.state);
 	};
 
@@ -87,8 +88,6 @@ export class SimpleSearch extends Component {
 	searchApiCall(newSearch) {
 		API.getSpotsByPoint(newSearch).then((res) => {
 	        this.setState({ closeBy: res.data.spots, searchLoc: {lat: res.data.searchCoords[1], lng: res.data.searchCoords[0]} });
-
-	        console.log("SPOTS BY POINT", res.data.spots);
 	    });
 	}
 
@@ -104,22 +103,22 @@ export class SimpleSearch extends Component {
 				<h1>Search Available Parking Spots</h1>
 				<form className="simplesearch-form">
 					<Columns>
-					    <Column isSize='3/4'>
+					    <Column isSize='3/4' className='simplesearch-field'>
 							<Field >
 								<Control hasIcons>
-								<PlacesAutocomplete inputProps={{value: this.state.location, onChange: this.handleLocChange}}/>
-								<Icon isSize='small' isAlign='left'>
-								    <span className="fa fa-map-marker" aria-hidden="true" />
-								</Icon>
+									<Icon isSize='small' isAlign='left'>
+									    <span className="fa fa-map-marker" aria-hidden="true" />
+									</Icon>
+									<PlacesAutocomplete inputProps={{value: this.state.location, onChange: this.handleLocChange}}/>
 								</Control>
 							</Field>
 					    </Column>
-					    <Column isSize='12'>
+					    <Column isSize='1'>
 							<Field>
 								<Control>
 								<Select
 									onChange={this.handleDistChange}
-	            					value={this.state.distance}
+	            					value={this.state.selectValue}
 	            				>
 								    <option value="1">1 Mile</option>
 								    <option value="5">5 Miles</option>
@@ -130,11 +129,10 @@ export class SimpleSearch extends Component {
 								</Control>
 							</Field>
 					    </Column>
-					    <Column isSize='2'>
+					    <Column isSize='1'>
 							<Field>
 								<Control>
 									<Button 
-										isColor='primary' 
 										onClick={this.handleSearchClick}
 										className='search-btn'
 									>
