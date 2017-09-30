@@ -11,7 +11,7 @@ body{
 
 }
 
-.icon .fa.fa-envelope-o{
+.icon.sell .fa.fa-envelope-o{
     font-size: 21px;
     margin-top: 11px;
     border: 1px solid #5085EC;
@@ -20,7 +20,7 @@ body{
     padding: 7px 11px 7px 12px;
 }
 
-.icon .fa.fa-user, .fa.fa-lock {
+.icon.sell .fa.fa-user, .fa.fa-lock {
     font-size: 21px;
     margin-top: 11px;
     border: 1px solid #5085EC;
@@ -29,11 +29,20 @@ body{
     padding: 7px 14px;
 }
 
-.icon .fa.fa-picture-o {
+.icon.sell .fa.fa-picture-o {
     font-size: 21px;
     margin-top: 11px;
     border: 1px solid #5085EC;
     width: 44px;
     height: 43px;
     padding: 10px 11px;
+}
+
+.lastLine {
+    padding-bottom: 20px;
+}
+
+li {
+    text-align: justify;
+    padding-right: 25px;
 }

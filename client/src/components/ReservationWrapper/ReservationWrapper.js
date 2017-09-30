@@ -153,7 +153,7 @@ class ReservationWrapper extends Component {
 	render(){
 
 		return (
-			<Columns>
+			<Columns className={"res"}>
 				<Column>
 				<SpotPreview/>
 				<ReservationDetails handleFormSubmit={this.handleFormSubmit} openDays={this.state.openDays} endDate={this.state.endDate} changeEndDate={this.changeEndDate}/>

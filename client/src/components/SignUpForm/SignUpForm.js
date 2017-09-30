@@ -48,7 +48,7 @@ class SignUpForm extends Component {
             <form className="form">
                 <Field>
                 <Control>
-                   <Icon isSize='medium' isAlign='left'>
+                   <Icon className={"sell"} isSize='medium' isAlign='left'>
                       <span className="fa fa-user fa-4x" aria-hidden="true" />
                    </Icon>
                     <Input type="text" placeholder='Full Name' name='name' value={this.state.name} onChange={this.handleChange} />
@@ -56,7 +56,7 @@ class SignUpForm extends Component {
                 </Field>
                 <Field>
                 <Control>
-                   <Icon isSize='medium' isAlign='left'>
+                   <Icon className={"sell"} isSize='medium' isAlign='left'>
                       <span className="fa fa-envelope-o fa-4x" aria-hidden="true" />
                    </Icon>
                     <Input type="email" placeholder='Email' name='email' value={this.state.email} onChange={this.handleChange} />
@@ -64,7 +64,7 @@ class SignUpForm extends Component {
                 </Field>
                 <Field>
                 <Control>
-                   <Icon isSize='medium' isAlign='left'>
+                   <Icon className={"sell"} isSize='medium' isAlign='left'>
                       <span className="fa fa-lock fa-4x" aria-hidden="true" />
                    </Icon>
                     <Input type='password' name='password' isColor='success' placeholder='Password' value={this.state.password} onChange={this.handleChange} />
@@ -72,7 +72,7 @@ class SignUpForm extends Component {
                 </Field>
                 <Field>
                 <Control>
-                   <Icon isSize='medium' isAlign='left'>
+                   <Icon className={"sell"} isSize='medium' isAlign='left'>
                       <span className="fa fa-lock fa-4x" aria-hidden="true" />
                    </Icon>
                     <Input type='password' name='confirmPass' isColor='success' placeholder='Repeat Password' value={this.state.confirmPass} onChange={this.handleChange} />
@@ -80,12 +80,17 @@ class SignUpForm extends Component {
                 </Field>
                <Field isGrouped>
                   <Control>
-                     <Icon isSize='medium' isAlign='left'>
+                     <Icon className={"sell"} isSize='medium' isAlign='left'>
                         <span className="fa fa-picture-o fa-4x" aria-hidden="true" />
                      </Icon>
                      <Input type="file"/>
                   </Control>
                </Field>
+               <ul className={"tAndC"}>
+                  <li>By creating an account, you're agreeing to the</li>
+                  <li><a>SpotHero Terms and Conditions.</a></li>
+                  <li className={"lastLine"}><a>Already have an account? Sign In</a></li>
+               </ul>
                 <Field isGrouped>
                     <Control>
                         {this.state.password === this.state.confirmPass
@@ -97,11 +102,6 @@ class SignUpForm extends Component {
                         {}
                     </Control>
                 </Field>
-               <ul className={"tAndC"}>
-                  <li>By creating an account, you're agreeing to the</li>
-                  <li><a>SpotHero Terms and Conditions.</a></li>
-                  <li><a>Already have an account? Sign In</a></li>
-               </ul>
             </form>
         )
     }

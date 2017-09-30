@@ -8,6 +8,7 @@ import moment from 'moment'
 
 import 'react-datepicker/dist/react-datepicker.css';
 
+
 class SellYourSpot extends Component {
 	constructor() {
 		super();
@@ -118,7 +119,7 @@ handleChange(date) {
 
 	<Field>
 		<Control hasIcon>
-			<Icon isSize='small' isAlign='left'>
+			<Icon className={"sell"} isSize='small' isAlign='left'>
 				<span className="fa fa-address-book-o" aria-hidden="true" />
 			</Icon>
 			<Input onChange={this.handleInput} className={"fieldsForSellForm"} type='text' name='address' isColor='success' placeholder='Address'/>
@@ -127,7 +128,7 @@ handleChange(date) {
 
 	<Field>
 		<Control hasIcon>
-			<Icon isSize='small' isAlign='left'>
+			<Icon className={"sell"} isSize='small' isAlign='left'>
 				<span className="fa fa-globe" aria-hidden="true" />
 			</Icon>
 			<Input onChange={this.handleInput} className={"fieldsForSellForm"} type='text' name='city' isColor='success' placeholder='City'/>
@@ -136,7 +137,7 @@ handleChange(date) {
 
 	<Field>
 		<Control hasIcon>
-			<Icon isSize='small' isAlign='left'>
+			<Icon className={"sell"} isSize='small' isAlign='left'>
 				<span className="fa fa-location-arrow" aria-hidden="true" />
 			</Icon>
 			<Input onChange={this.handleInput} className={"fieldsForSellForm"} type='text' name='state' isColor='success' placeholder='State'/>
@@ -145,7 +146,7 @@ handleChange(date) {
 
 	<Field>
 		<Control hasIcon>
-			<Icon isSize='small' isAlign='left'>
+			<Icon className={"sell"} isSize='small' isAlign='left'>
 				<span className="fa fa-usd" aria-hidden="true" />
 			</Icon>
 			<Input onChange={this.handleInput} className={"fieldsForSellForm"} type='text' name='cost' isColor='success' placeholder='Price'/>
@@ -185,16 +186,15 @@ handleChange(date) {
 
 	<Field>
 		<Control hasIcon>
-			<Icon isSize='small' isAlign='left'>
+			<Icon className={"sell"} isSize='small' isAlign='left'>
 				<span className="fa fa-stop" aria-hidden="true" />
 			</Icon>
-<DatePicker
-        selected={this.state.startDate}
-        onChange={this.handleChange}
-        minDate={moment().add(1, 'd')}
-    />			{/*<Input className={"fieldsForSellForm"} type='text' name='endDate' isColor='success' placeholder='End Date'/>*/}
-{/*			<Calendar className={"calendar"}  format='DD/MM/YYYY' date='4-12-2014' openOnInputFocus={true}/>
-*/}		</Control>
+			<DatePicker
+			        selected={this.state.startDate}
+			        onChange={this.handleChange}
+			        minDate={moment().add(1, 'd')}
+			    />
+		</Control>
 	</Field>
 
 	<Field>

@@ -1,12 +1,28 @@
 form.addVehicle {
-    margin-left: 41%;
+    margin-left: 24% !important;
     margin-top: 5%;
+    padding-bottom: 50px;
+    background: white;
+    padding-left: 265px;
+    margin-left: 385px;
+    width: 807px;
 }
 
 h2.addVTitle {
-    margin-left: -24%;
+    margin-left: -26%;
 }
 
 .vehicleButton {
     margin-left: 1px;
+}
+
+.addVehicleWrapper {
+    background-image: url('/assets/images/spots.jpg');
+    background-size: cover;
+    padding-bottom: 60px;
+    padding-top: 5px;
+}
+
+h2.addVTitle {
+    margin-left: -42%;
 }

@@ -16,11 +16,11 @@
     /*padding: 7px 11px 7px 12px;*/
 /*}*/
 
-.icon {
+.icon.sell {
     float: left;
 }
 
-.icon.is-small {
+.icon.sell.is-small {
     height: 0rem;
     width: 1rem;
     margin-top: 10px;
@@ -43,4 +43,33 @@ border: 1px solid #5085EC;
     border-color: #1DA1F2;
     margin-top: -19px;
     margin-bottom: 25px;
+}
+
+.control {
+    position: inherit;
+}
+
+.select:not(.is-multiple) {
+    height: 2.25em;
+    display: table;
+}
+
+.select select:not([multiple]) {
+    padding-right: 2.5em;
+    width: 238px;
+    margin-bottom: 15px;
+    border: 1px solid #1DA1F2;
+    border-radius: 0px;
+}
+
+.form {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.input-calendar-field {
+    width: 218px;
+    margin-right: 5px;
+    height: 35px;
+    border: 1px solid #1DA1F2;
 }

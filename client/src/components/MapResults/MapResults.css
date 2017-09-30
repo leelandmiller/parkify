@@ -1,5 +1,7 @@
 #map-results {
 	padding: 10px;
+	max-height: 600px;
+    overflow-y: scroll;
 }
 
 .result-title {
@@ -24,6 +26,18 @@
 	
 }
 
+.result-btn {
+	background-color: #3fc9e6;
+	color: #fff;
+	font-weight: bold;
+	border-radius: 2px;
+	border: 1px solid #5085EC;
+	padding: 10px 0px;
+	width: 100%;
+	display: block;
+	text-align: center;
+	margin: 10px 0px;
+}
 
 .result-wrapper {
 	display: block;
