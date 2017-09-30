@@ -59,11 +59,8 @@ export class MapContainer extends Component {
     if (!this.props.loaded) {
       return <div>Loading...</div>
     } else {
-        const style = {
-         "minHeight": '600px'
-        }
         return (
-            <div style={style}>
+            <div id="map-container" className="">
                 <Map google={this.props.google} visible={true}>
 
                     {   

@@ -21,7 +21,7 @@ export class MapResults extends Component {
 		return(
 			<div id="map-results">
 				<h5>Available Spots</h5>
-				<div class="results-filter">
+{/*				<div class="results-filter">
 					<form className="simplesearch-form">
 						<Columns>
 						    <Column >
@@ -47,7 +47,7 @@ export class MapResults extends Component {
 						    </Column>
 						</Columns>	
 					</form>	
-				</div>
+				</div>*/}
 				<div>
 					<ul>
                         {this.props.closeBy.map(location => { 
@@ -66,7 +66,7 @@ export class MapResults extends Component {
 	        									<li className="result-addr1">{location.loc.formatted_address.addr1}</li>
 	        									<li className="result-addr2">{location.loc.formatted_address.addr2}</li>
 	        									<li className="result-distance">{this.calculateMiles(location.distance).toFixed(2)} miles</li>
-	        									<a href="/reserve">Reserve This Spot</a>
+	        									<a href="/reserve" className="result-btn">Reserve This Spot</a>
 	        								</Column>
 	        							</Columns>
 	        						</a>

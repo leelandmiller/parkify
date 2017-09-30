@@ -1,0 +1,7 @@
+#map-container {
+	min-height: 600px;
+}
+
+#map-container div:first-child{
+	width: 65%;
+}
