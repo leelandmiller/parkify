@@ -2,6 +2,7 @@
     display: -webkit-flex;
     display: -ms-flex;
     display: flex;
+    padding-bottom: 53px;
 }
 
 .passport-signin {

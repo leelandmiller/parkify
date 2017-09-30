@@ -1,6 +1,11 @@
 import React, { Component } from "react";
-import { Button, Subtitle, Title, Field, Control, Input, Icon, Card, CardHeader, CardHeaderTitle, Media, MediaContent, CardContent } from "bloomer";import "./SellYourSpot.css";
+
+import { Checkbox, Button, Select, Label, Title, Field, Control, Input, Icon, Card, CardHeader, CardHeaderTitle, Media, MediaContent, CardContent } from "bloomer";
+import "./SellYourSpot.css";
+import Calendar from 'react-input-calendar'
+
 import API from './../../utils/API'
+
 
 class SellYourSpot extends Component {
 	constructor() {
@@ -97,11 +102,18 @@ class SellYourSpot extends Component {
 	</Field>
 
 	<Field>
-		<Control hasIcon>
-			<Icon isSize='small' isAlign='left'>
-				<span className="fa fa-play" aria-hidden="true" />
-			</Icon>
-			<Input onChange={this.handleInput} className={"fieldsForSellForm"} type='text' name='schedule' isColor='success' placeholder='Start Date'/>
+		<Control>
+			<Select className={"dropDown"}>
+				<Label>Select:</Label>
+					<Select className={"fieldsForSellForm"} name='schedule' isColor='success' placeholder='Start Date'/>
+				<option><Checkbox>Monday</Checkbox></option>
+				<option><Checkbox>Tuesday</Checkbox></option>
+				<option><Checkbox>Wednesday</Checkbox></option>
+				<option><Checkbox>Thursday</Checkbox></option>
+				<option><Checkbox>Friday</Checkbox></option>
+				<option><Checkbox>Saturday</Checkbox></option>
+				<option><Checkbox>Sunday</Checkbox></option>
+					</Select>
 		</Control>
 	</Field>
 
@@ -110,7 +122,8 @@ class SellYourSpot extends Component {
 			<Icon isSize='small' isAlign='left'>
 				<span className="fa fa-stop" aria-hidden="true" />
 			</Icon>
-			<Input className={"fieldsForSellForm"} type='text' name='endDate' isColor='success' placeholder='End Date'/>
+			{/*<Input className={"fieldsForSellForm"} type='text' name='endDate' isColor='success' placeholder='End Date'/>*/}
+			<Calendar className={"calendar"}  format='DD/MM/YYYY' date='4-12-2014' />
 		</Control>
 	</Field>
 

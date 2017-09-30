@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import "./FourohFour.css";
-import {  } from 'bloomer';
+import { Button } from 'bloomer';
 
 class FourohFour extends Component {
 	
 	render() {
 		return (
-	<div>
-		<p>404 Page Not Found.</p>
+	<div className={"fourOhFour"}>
+		<p className={"error"}>404 <br/>Page Not Found.<br/><Button href="/" id="backHome">Go Back Home</Button></p>
+		
 	</div>
 		)
 	}
