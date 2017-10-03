@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Checkbox, Button, Select, Label, Title, Field, Control, Input, Icon, Card, CardHeader, CardHeaderTitle, Media, MediaContent, CardContent } from "bloomer";
+import { Checkbox, Button, Title, Field, Control, Input, Icon, Card, CardHeader, CardHeaderTitle, Media, MediaContent, CardContent } from "bloomer";
 import "./SellYourSpot.css";
 import DatePicker from 'react-datepicker'
 import API from './../../utils/API'

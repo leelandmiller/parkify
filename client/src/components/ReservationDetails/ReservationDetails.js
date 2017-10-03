@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Field, Label, Control, Input, Button, Message, MessageHeader, MessageBody, Select } from 'bloomer';
-import API from '../../utils/API';
+import { Field, Label, Button, Message, MessageHeader, MessageBody, Select } from 'bloomer';
 import moment from 'moment';
 
 class ReservationDetails extends Component {

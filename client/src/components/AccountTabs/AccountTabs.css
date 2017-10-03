@@ -12,3 +12,7 @@
     padding-left: 10px;
 }
 
+.tabs li.is-active a {
+    border-bottom-color: #68C6E2;
+    color: #68C6E2;
+}

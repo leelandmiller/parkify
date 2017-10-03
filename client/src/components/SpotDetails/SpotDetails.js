@@ -8,7 +8,7 @@ class SpotDetails extends Component {
 			<div>
 			<Message>
 				<MessageHeader>
-					<p>Spot Details</p>
+					<p>Parking Spot Details</p>
 				</MessageHeader>
 				<MessageBody>
 					<ul>

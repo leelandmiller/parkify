@@ -3,7 +3,6 @@ import { Columns, Column } from "bloomer";
 import moment from 'moment';
 import "./ReservationWrapper.css";
 import SpotPreview from "../SpotPreview";
-import AccountInfo from "../AccountInfo";
 import PaymentInfo from "../PaymentInfo";
 import SpotDetails from "../SpotDetails";
 import ReservationDetails from '../ReservationDetails';

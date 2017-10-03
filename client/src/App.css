@@ -30,6 +30,10 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 .input {
   width:300px;
   height:43px;
-  border: 1px solid #5085EC;
+  border: 1px solid #68C6E2;
 }
 
+.tabs li.is-active a {
+  border-bottom-color: #1DA1F2;
+  color: #68C6E2;
+}

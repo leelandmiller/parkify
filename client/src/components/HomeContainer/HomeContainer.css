@@ -44,6 +44,7 @@
 
 #home-intro h1, #home-select h1 {
 	margin-bottom: 40px;
+	color: #3fc9e6;
 }
 
 #home-intro .button {
@@ -71,3 +72,5 @@
 	width: 100%;
 	display: block;
 }
+
+
